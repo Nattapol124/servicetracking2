@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<%@page contentType="text/html; charset=utf-8"%>
+<%@taglib uri="/tld/struts-html.tld" prefix="html"%>
+<%@taglib uri="/tld/struts-bean.tld" prefix="bean"%>
+<%@taglib uri="/tld/struts-logic.tld" prefix="logic"%>
+<%@taglib uri="/tld/c.tld" prefix="c"%>
+<%@taglib uri="/tld/fn.tld" prefix="fn"%>
+
+<style type="text/css">
+	
+	
+
+position: relative;
+width: 1920px;
+height: 1080px;
+
+background: #FFFFFF;
+
+
+/* Rectangle 4283 */
+
+position: absolute;
+width: 1920px;
+height: 1080px;
+left: 0px;
+top: 0px;
+
+background: linear-gradient(136.16deg, #042153 5.45%, #1DA1B0 60.18%);
+
+
+/* GTT_WHITE 2 */
+
+position: absolute;
+width: 139px;
+height: 73px;
+left: 62px;
+top: 96px;
+
+background: url(GTT_WHITE);
+
+
+/* Rectangle 4284 */
+
+position: absolute;
+width: 1540px;
+height: 1080px;
+left: 380px;
+top: 0px;
+
+background: #FFFFFF;
+border-radius: 20px;
+
+
+/* Line 11 */
+
+position: absolute;
+width: 1540px;
+height: 0px;
+left: 380px;
+top: 109.25px;
+
+border: 1px solid #FF8638;
+transform: rotate(-0.01deg);
+
+
+/* image 2 */
+
+position: absolute;
+width: 74px;
+height: 68px;
+left: 1772px;
+top: 20px;
+
+background: url(image.png);
+
+
+/* รายงานปัญหา */
+
+position: absolute;
+width: 202px;
+height: 33px;
+left: 62px;
+top: 298px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 34px;
+line-height: 41px;
+
+color: #FFFFFF;
+
+
+
+/* โครงการ */
+
+position: absolute;
+width: 202px;
+height: 36px;
+left: 62px;
+top: 240px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 34px;
+line-height: 41px;
+
+color: #FFFFFF;
+
+
+
+/* Line 12 */
+
+position: absolute;
+width: 89px;
+height: 0px;
+left: 163px;
+top: 276px;
+
+border: 5px solid #FF8638;
+transform: rotate(180deg);
+
+
+/* Rectangle 4288 */
+
+position: absolute;
+width: 181px;
+height: 34px;
+left: 616px;
+top: 169px;
+
+background: #126082;
+
+
+/* image 4 */
+
+position: absolute;
+width: 62px;
+height: 100px;
+left: 797px;
+top: 135px;
+
+background: url(image);
+
+
+/* โครงการ */
+
+position: absolute;
+width: 118px;
+height: 34px;
+left: 480px;
+top: 168px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* image 5 */
+
+position: absolute;
+width: 30px;
+height: 32px;
+left: 1851px;
+top: 47px;
+
+background: url(image.png);
+
+
+/* Group 28 */
+
+position: absolute;
+width: 1433px;
+height: 899px;
+left: 430px;
+top: 109px;
+
+
+
+/* Rectangle 4289 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 1433px;
+height: 779.35px;
+left: 430px;
+top: 228.65px;
+
+background: #FFFFFF;
+border: 1px solid #8F8F8F;
+border-radius: 20px;
+
+
+/* Line 13 */
+
+position: absolute;
+width: 1433px;
+height: 2.16px;
+left: 430px;
+top: 307.34px;
+
+border: 1px solid #8F8F8F;
+
+
+/* Line 14 */
+
+position: absolute;
+width: 1433px;
+height: 1.08px;
+left: 430px;
+top: 408.67px;
+
+border: 1px solid #8F8F8F;
+
+
+/* ลำดับ */
+
+position: absolute;
+width: 80px;
+height: 36.65px;
+left: 462px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* 1 */
+
+position: absolute;
+width: 18px;
+height: 36.65px;
+left: 480px;
+top: 340.76px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* จัดส่งของ */
+
+position: absolute;
+width: 140px;
+height: 36.65px;
+left: 654px;
+top: 337.52px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* จัดส่งของช้า */
+
+position: absolute;
+width: 168px;
+height: 36.65px;
+left: 930px;
+top: 340.76px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* 6/7/2565 */
+
+position: absolute;
+width: 190px;
+height: 36.65px;
+left: 1173px;
+top: 338px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* - */
+
+position: absolute;
+width: 20px;
+height: 36.65px;
+left: 1397px;
+top: 340.76px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* - */
+
+position: absolute;
+width: 20px;
+height: 36.65px;
+left: 1575px;
+top: 337.52px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* โครงการ */
+
+position: absolute;
+width: 118px;
+height: 36.65px;
+left: 661px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* ปัญหาที่เกิด */
+
+position: absolute;
+width: 168px;
+height: 36.65px;
+left: 930px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* สถานะ */
+
+position: absolute;
+width: 168px;
+height: 36.65px;
+left: 1695px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* Text */
+
+position: absolute;
+width: 168px;
+height: 36.65px;
+left: 1319px;
+top: 109px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* เวลาที่แจ้ง */
+
+position: absolute;
+width: 128px;
+height: 42.04px;
+left: 1173px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* วันที่เสร็จ */
+
+position: absolute;
+width: 115px;
+height: 42.04px;
+left: 1518px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* วันเริ่ม */
+
+position: absolute;
+width: 80px;
+height: 42.04px;
+left: 1357px;
+top: 248.05px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* Rectangle 4290 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 118px;
+height: 36.65px;
+left: 1695px;
+top: 340.76px;
+
+background: #FFF6DA;
+border: 1px solid #8F8F8F;
+border-radius: 100px;
+
+
+/* รอรับเรื่อง */
+
+position: absolute;
+width: 110px;
+height: 34px;
+left: 1707px;
+top: 345px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #FEC105;
+
+
+
+/* 1 2 3 ..... */
+
+position: absolute;
+width: 142px;
+height: 34px;
+left: 1079px;
+top: 1025px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 34px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* next */
+
+position: absolute;
+width: 142px;
+height: 34px;
+left: 1265px;
+top: 1025px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 34px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* first */
+
+position: absolute;
+width: 52px;
+height: 34px;
+left: 966px;
+top: 1025px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 34px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Group 29 */
+
+position: absolute;
+width: 145px;
+height: 51px;
+left: 888px;
+top: 160px;
+
+
+
+/* Rectangle 4289 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 145px;
+height: 51px;
+left: 888px;
+top: 160px;
+
+background: #FFFFFF;
+border: 1px solid #000000;
+border-radius: 20px;
+
+
+/* Filter */
+
+position: absolute;
+width: 87px;
+height: 34px;
+left: 899px;
+top: 166px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+
+color: #000000;
+
+
+
+/* image 6 */
+
+position: absolute;
+width: 58px;
+height: 34px;
+left: 969px;
+top: 169px;
+
+background: url(image.png);
+
+
+/* Group 30 */
+
+position: absolute;
+width: 153px;
+height: 51px;
+left: 1656px;
+top: 166px;
+
+
+
+/* Rectangle 4289 */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 145px;
+height: 51px;
+left: 1656px;
+top: 166px;
+
+background: #042153;
+border: 1px solid #000000;
+border-radius: 20px;
+
+
+/* แจ้งปัญหา */
+
+position: absolute;
+width: 142px;
+height: 34px;
+left: 1667px;
+top: 172px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 34px;
+/* identical to box height */
+
+color: #FFFFFF;
+
+
+</style>
+<body>
+
+</body>
+
+</html>

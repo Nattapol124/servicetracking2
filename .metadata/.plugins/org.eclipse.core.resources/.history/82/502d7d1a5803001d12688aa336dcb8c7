@@ -1,0 +1,34 @@
+package com.gtt.server.user.service.impl;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+
+import com.core.dao.CoreDao;
+import com.core.service.impl.CoreServiceImpl;
+import com.gtt.server.user.dao.UserDao;
+import com.gtt.server.user.entity.User;
+import com.gtt.server.user.service.UserService;
+
+public class UserServiceImpl 
+extends CoreServiceImpl<User,Serializable>
+implements UserService
+{
+	private UserDao userDao;
+	public UserServiceImpl(UserDao userDao) {
+		super(userDao);
+		this.userDao = userDao;
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public List getLogin(String username, String password) throws DataAccessException {
+		return userDao.findLogin(username, password);
+	}
+	@Override
+	public List getUserList(String username,String user_firstname,String user_lastname,String user_email,String user_phone) throws DataAccessException {
+		return userDao.findAll();
+	}
+
+}

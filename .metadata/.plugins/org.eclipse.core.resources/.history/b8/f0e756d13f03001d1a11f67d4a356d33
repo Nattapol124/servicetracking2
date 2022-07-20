@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="java.lang.String" />
+			<form-property name="mode" type="java.lang.String" />
+			
+			<form-property name="username" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+			<form-property name="passwordConfirm" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="remember" type="java.lang.String" />
+			<form-property name="userType" type="java.lang.String" />
+			<form-property name="prefixId" type="java.lang.String" />
+			<form-property name="organizationId" type="java.lang.String" />
+			<form-property name="firstName" type="java.lang.String" />
+			<form-property name="lastName" type="java.lang.String" />
+			<form-property name="gender" type="java.lang.String" />
+			<form-property name="personId" type="java.lang.String" />
+			<form-property name="phone" type="java.lang.String" />
+			<form-property name="position" type="java.lang.String" />
+			<form-property name="un" type="java.lang.String" />
+			<form-property name="pw" type="java.lang.String" />
+			resultList
+			<form-property name="uploadFile" type="org.apache.struts.upload.FormFile" />
+			
+			<form-property name="user_username" type="com.gtt.server.user.entity.User" />
+			
+			<form-property name="resultList" type="java.util.List" />
+			<form-property name="comboPrefix" type="java.util.List" />
+			<form-property name="comboOrganization" type="java.util.List" />
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action name="loginForm" scope="request" parameter="mode" path="/login"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+
+			<!-- Font-end -->
+			<forward name="FA01" path="/page/index.jsp" />
+			<forward name="MA01" path="/page/master/MA01_Home.jsp" />
+			
+			
+
+			<forward name="json_tag" path="/page/json_tag.jsp" />
+			<forward name="redirect" path="/page/redirect.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

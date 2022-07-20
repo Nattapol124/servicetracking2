@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+
+	<description>JSTL 1.1 Date Util library</description>
+	<display-name>JSTL Convert Util</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>convertutil</short-name>
+	<uri></uri>
+
+	<tag>
+		<name>arabi2thai</name>
+		<tag-class>com.web.taglib.convert.NumberArabicToThai</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>data</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+</taglib>

@@ -1,0 +1,180 @@
+package gtt.web.action;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.DynaActionForm;
+
+import com.gtt.server.user.entity.User;
+import com.gtt.server.user.service.RequestService;
+import com.gtt.server.user.service.UserService;
+
+public class LoginAction extends CoreAction {
+
+	private static String loginForm = "loginForm";
+	private static String actionName = "login.htm";
+	private UserService userService;
+	private RequestService requestService;
+	public ActionForward init(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			
+			dynaForm.set("resultList", null);
+
+//			Constant constant = constantService.getItem(1);
+//			setObjectSession(request, SESSION_PATH, constant.getUploadPath());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA01");
+	}
+	
+	public ActionForward index(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return mapping.findForward("FA01");
+	}
+	public ActionForward login(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			List<User> users = userService.getLogin(dynaForm.getString("un"), dynaForm.getString("pw"));
+			if (users != null && users.size() > 0)  {
+				User user = users.iterator().next();
+//				dynaForm.set("un",user.getUsername());
+//				dynaForm.set("pw", user.getPassword());
+//				dynaForm.set("firstname", user.getUser_firstname());
+//				dynaForm.set("lastname", user.getUser_lastname());
+//				dynaForm.set("email", user.getUser_email());
+//				dynaForm.set("phone", user.getUser_phone());
+//				String id_comp = String.valueOf(user.getId_company().getId());
+//				String id_comp2 = Integer.toString(user.getId_company().getId());
+//				String id_comp3 = String.format("%d",user.getId_company().getId());
+//				System.out.println("id_comp : "+ id_comp + " , id_comp2 : " + id_comp2 + " id_comp3 : " + id_comp3);
+//				dynaForm.set("company", "gggggg");
+//				
+				setObjectSession(request, SESSION_USER, user);
+			} else {
+				return mapping.findForward("FA01");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mapping.findForward("MA01");
+	}
+	
+	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("asdasdas");
+		System.out.println("getobject: "getObjectSession(request, SESSION_USER));
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			List<User> userList = userService.getUserList(dynaForm.getString("company"));
+			User user = userList.iterator().next();
+				
+			dynaForm.set("username", user.getUsername());
+			dynaForm.set("user_firstName", user.getUser_firstname());
+			dynaForm.set("user_lastName", user.getUser_lastname());
+			dynaForm.set("user_email", user.getUser_email());
+			dynaForm.set("user_phone", user.getUser_phone());
+
+			dynaForm.set("resultList", userList);
+			request.setAttribute("resultList", userList);
+
+			System.out.println(String.valueOf(userList));
+	
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA01");
+	}
+	public ActionForward initAddUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			//resetQuestionForm(dynaForm);
+
+//			dynaForm.set("comboIndicator", indicatorService.getAll());
+
+			// HttpSession session = request.getSession();
+			// session.setAttribute(SESSION_PATH, constant.getUploadPath());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA02");
+	}
+	
+	
+	public ActionForward saveUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+
+			User entity = new User();
+//			entity.setId(new User(Integer.parseInt(dynaForm.getString("indicatorId"))));
+//			entity.setId_user_type(dynaForm.getString("title"));
+//			entity.setQuestion(dynaForm.getString("question"));
+//			entity.setQuestionType(dynaForm.getString("templateType"));
+//			entity.setRateType(dynaForm.getString("rateType"));
+//			entity.setScore(1);
+//			entity.setCreateType("2");
+//			entity.setCreateBy(getUserSession(request).getUsername());
+//			entity.setCreateDate(DateTimeUtil.getSystemDate());
+//			entity.setUpdateBy(getUserSession(request).getUsername());
+//			entity.setUpdateDate(DateTimeUtil.getSystemDate());
+//			User merge = UserService.mergeItem(entity);
+
+//			dynaForm.set("id", merge.getId() + "");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mapping.findForward("MA01");
+	}
+	
+	public ActionForward initProfile(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			//resetQuestionForm(dynaForm);
+
+//			dynaForm.set("comboIndicator", indicatorService.getAll());
+
+			// HttpSession session = request.getSession();
+			// session.setAttribute(SESSION_PATH, constant.getUploadPath());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA03");
+	}
+	
+	
+	
+	
+	
+	
+	
+	public UserService getUserService() {
+		return userService;
+	}
+	
+	
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+		
+	}
+
+}	
