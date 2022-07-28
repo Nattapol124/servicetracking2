@@ -23,7 +23,7 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 	}
 	@Override
 	public List findLogin(String username, String password) throws DataAccessException {
-		String sql = "SELECT user.id_user, user.username,user.password,user.user_firstname,user.user_lastname,user.user_email,user.user_phone,user.id_company FROM user WHERE username='"+username+"' AND password='"+password+"'";
+		String sql = "SELECT user.id_user, user.username,user.password,user.user_firstname,user.user_lastname,user.user_email,user.user_phone,user.id_company,user.user_nickname FROM user WHERE username='"+username+"' AND password='"+password+"'";
 		List<User> results = new ArrayList<User>();
 		Company Company_results = new Company();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
@@ -39,6 +39,7 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 			item.setUser_phone(String.valueOf(obj[6]));
 			Company_results.setId(Integer.parseInt(String.valueOf(obj[7])));
 			item.setId_company(Company_results);
+			item.setNickname(String.valueOf(obj[8]));
 			System.out.println("comp: "+item.getId_company().getId());
 			results.add(item);
 		}
@@ -49,7 +50,7 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 	@Override
 	public List	findUserList(String company) throws DataAccessException {
 		System.out.println(company+" :test passvalue");
-		String sql = " SELECT id_user,username,user_firstname,user_lastname,user_email,user_phone,id_company FROM user WHERE id_company='"+company+"'";
+		String sql = " SELECT id_user,username,user_firstname,user_lastname,user_email,user_phone,id_company,user_nickname FROM user WHERE id_company='"+company+"'";
 		List<User> results = new ArrayList<User>();
 		Company Company_results = new Company();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
@@ -63,6 +64,8 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 			item.setUser_phone(String.valueOf(obj[5]));
 			Company_results.setId(Integer.parseInt(String.valueOf(obj[6])));
 			item.setId_company(Company_results);
+			item.setNickname(String.valueOf(obj[7]));
+
 			results.add(item);
 		}
 	}

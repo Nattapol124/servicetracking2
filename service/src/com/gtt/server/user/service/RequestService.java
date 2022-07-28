@@ -10,5 +10,5 @@ import com.gtt.server.user.entity.Request;
 
 public interface RequestService extends CoreService<Request, Serializable>
 {
-	public List getRequestList(String request_title,String request_file,String request_remark,String request_dateStart,String request_dateEnd,String reqeust_status)throws DataAccessException;
+	public List getRequestList(String id)throws DataAccessException;
 }

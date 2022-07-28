@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.gtt.server.user.service.UserPrefixService"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.service.UserProjectService"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.service.QuestionService"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.service.QuestionProcessService"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.service.ProjectService"/>
-    <fullyQualifiedTypeName name="javax.security.auth.message.callback.PrivateKeyCallback.Request"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
@@ -29,7 +23,6 @@
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.CompanyTypeDao"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.RequestStatus"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.RequestStatusDao"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Request"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.RequestDao"/>
     <fullyQualifiedTypeName name="com.core.service.impl.CoreServiceImpl"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
@@ -38,9 +31,7 @@
     <fullyQualifiedTypeName name="com.gtt.server.user.service.CompanyTypeService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.RequestTypeService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.RequestStatusService"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.UserPosition"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.UserPositionService"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
@@ -52,12 +43,21 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.User"/>
     <fullyQualifiedTypeName name="org.hibernate.usertype.UserType"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.service.UserService"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.UserType"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.springframework.dao.DataAccessException"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.RequestService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.impl.CompanyDaoImpl"/>
+    <fullyQualifiedTypeName name="com.util.DateTimeUtil"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.UserPosition"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.UserType"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.UserPrefix"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.service.UserPrefixService"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.service.UserService"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.Company"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Project"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Request"/>
+    <fullyQualifiedTypeName name="org.springframework.dao.DataAccessException"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.service.ProjectService"/>
+    <fullyQualifiedTypeName name="org.springframework.core.type.filter.AbstractClassTestingTypeFilter"/>
 </qualifiedTypeNameHistroy>

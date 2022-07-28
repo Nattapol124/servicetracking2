@@ -28,6 +28,38 @@
 			<form-property name="email" type="java.lang.String" />
 			<form-property name="phone" type="java.lang.String" />
 			<form-property name="company" type="java.lang.String" />
+			<form-property name="repass" type="java.lang.String" />
+			<form-property name="confirmPass" type="java.lang.String" />
+			<form-property name="newuser" type="java.lang.String" />
+			<form-property name="newpassword" type="java.lang.String" />
+			<form-property name="newcon" type="java.lang.String" />
+			<form-property name="newfirstname" type="java.lang.String" />
+			<form-property name="newlastname" type="java.lang.String" />
+			<form-property name="newnickname" type="java.lang.String" />
+			<form-property name="newemail" type="java.lang.String" />
+			<form-property name="id_user_type" type="java.lang.String" />
+			<form-property name="id_user_prefix" type="java.lang.String" />
+			<form-property name="id_user_position" type="java.lang.String" />
+			<form-property name="id_user_company" type="java.lang.String" />
+			<form-property name="user_nickname" type="java.lang.String" />
+			<form-property name="id_customer" type="java.lang.String" />
+			<form-property name="create_by" type="java.lang.String" />
+			<form-property name="create_date" type="java.lang.String" />
+			<form-property name="update_by" type="java.lang.String" />
+			<form-property name="update_date" type="java.lang.String" />
+			<form-property name="newphone" type="java.lang.String" />
+			<form-property name="projectindi" type="java.lang.String" />
+			<form-property name="nickname" type="java.lang.String" />
+			
+			
+			
+			
+			
+			<form-property name="resultProjectList" type="java.util.ArrayList" />
+			<form-property name="resultRequestList" type="java.util.ArrayList" />
+			<form-property name="comboIndicator" type="java.util.ArrayList" />
+			
+			
 			
 			<form-property name="uploadFile" type="org.apache.struts.upload.FormFile" />
 			
@@ -48,6 +80,9 @@
 			<forward name="MA02" path="/page/master/MA02_Register.jsp" />
 			<forward name="MA03" path="/page/master/MA03_Profile.jsp" />
 			<forward name="MA04" path="/page/master/MA04_ChangePassword.jsp" />
+			<forward name="MA05" path="/page/master/MA05_Project.jsp" />
+			<forward name="MA06" path="/page/master/MA06_Request.jsp" />
+			<forward name="MA07" path="/page/master/MA07_test.jsp" />
 			
 			
 

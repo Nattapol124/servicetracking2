@@ -9,6 +9,12 @@
 	<meta name="keyword" content="">
 	
 	<title>รายงานปัญหา</title>
+	
+	
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+	
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- Font Awesome -->
 	<link
 	  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -66,7 +72,7 @@
 	<!-- custom select -->
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.customSelect.min.js"></script>
 	<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<!--custome script for all page-->
 	<script src="${pageContext.request.contextPath}/ui/js/scripts.js"></script>
 	
@@ -75,6 +81,7 @@
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.placeholder.min.js"></script>
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.slimscroll.min.js"></script>
 	<script src="${pageContext.request.contextPath}/ui/js/bootbox.js"></script>
+
 	<script src="${pageContext.request.contextPath}/ui/js/bootstrap-select.js"></script>
 	<script src="${pageContext.request.contextPath}/ui/js/bootstrap-typeahead.js"></script>
 	

@@ -15,8 +15,15 @@
 		<property name="UserService">
 			<ref bean="UserService" />
 		</property>
-
-	
+		<property name="RequestService">
+			<ref bean="RequestService" />
+		</property>
+		<property name="UserPrefixService">
+			<ref bean="UserPrefixService" />
+		</property>
+		<property name="ProjectService">
+			<ref bean="ProjectService" />
+		</property>
 	</bean>
 	
 	

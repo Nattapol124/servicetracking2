@@ -18,19 +18,19 @@ implements RequestDao{
 		super(entityClass);
 	}
 	@Override
-	public List findRequestList(String request_title,String request_file,String request_remark,String request_dateStart,String request_dateEnd,String reqeust_status)
+	public List findRequestList(String id)
 			throws DataAccessException{
-		String sql = "SELECT id_request, request_title, request_file, request_remark,request_dateStart,request_dateEnd,request_status FROM request";
+		String sql = "SELECT DISTINCT request.id_request,project.project_name,request.request_title,request.request_remark FROM request INNER JOIN project on request.id_project=project.id_project INNER JOIN user on project.id_customer=user.id_customer WHERE user.id_company='1' AND project.id_project='1'";
 		List<Request> results = new ArrayList<Request>();
+		Project projectresult = new Project();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		if(objectList != null && objectList.size()>0 ) {
 			for(Object[] obj : objectList){
 			Request item = new Request(Integer.parseInt(String.valueOf(obj[0])));
-			item.setRequest_title(request_title);
-			item.setRequest_file(request_file);
-			item.setRequest_remark(request_remark);
-			item.setRequest_dateStart(request_dateStart);
-			item.setRequest_dateEnd(request_dateEnd);
+			projectresult.setProject_name(String.valueOf(obj[1]));
+			item.setId_project(projectresult);
+			item.setRequest_title(String.valueOf(obj[2]));
+			item.setRequest_remark(String.valueOf(obj[3]));
 			results.add(item);
 			System.out.println(results);
 		}
@@ -40,3 +40,4 @@ implements RequestDao{
 	}
 
 }
+	

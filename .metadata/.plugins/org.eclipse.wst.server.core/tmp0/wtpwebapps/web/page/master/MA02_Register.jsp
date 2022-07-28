@@ -6,21 +6,7 @@
 <%@taglib uri="/tld/c.tld" prefix="c"%>
 <%@taglib uri="/tld/fn.tld" prefix="fn"%>
 <%@ include file="/page/inc_header_script.jsp"%>
-<!-- Font Awesome -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
-  rel="stylesheet"
-/>
+
 
 <style type="text/css">
 html, body {
@@ -45,8 +31,6 @@ html, body {
 	height: 100%;
 	left: 15%;
 	background: #f5f5f9;
-   display: inline-block;
-
 }
 
 .table {
@@ -59,7 +43,6 @@ html, body {
 	margin-left: 10%;
 	margin-right: 10%;
 	width: 80%;
-	height
 	background: #e8ffff;
 	top: 20%;
 	border-radius: 15px;
@@ -96,26 +79,6 @@ html, body {
 .navbar-brand {
 	font-size: unset;
 	height: 3.5rem;
-.gradient-custom {
-/* fallback for old browsers */
-background: #f093fb;
-
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
-}
-
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-font-size: 1rem;
-line-height: 2.15;
-padding-left: .75em;
-padding-right: .75em;
-}
-.card-registration .select-arrow {
-top: 13px;
-}
 }
 </style>
 <style type="text/css">
@@ -132,39 +95,69 @@ top: 13px;
 				return true;
 		}
 
-		function submitFormInit(mode) {
-			document.loginForm.mode.value = mode;
-			document.loginForm.submit();
-
-		}
 		function submitFormEdit(id, mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.id.value = id;
 			document.loginForm.submit();
 		}
-		function submitFormRemove(id) {
-			bootbox.dialog({
-				title : 'ยืนยันการลบข้อมูล',
-				message : 'คุณต้องการยืนยันการลบข้อมูลนี้ใช่หรือไม่',
-				buttons : {
-					Cancel : {
-						label : 'ยกเลิก',
-						className : "btn-default",
-						callback : function() {
-						}
-					},
-					success : {
-						label : 'ตกลง',
-						className : "btn-danger",
-						callback : function() {
-							document.loginForm.mode.value = 'delete';
-							document.loginForm.id.value = id;
-							document.loginForm.submit();
-						}
-					}
-				}
-			});
+		
+
+		$(document).ready(
+			
+				function() {
+					 $('#newuser').attr('autocomplete','off');
+					 $('#newpassword').attr('autocomplete','off'); 
+					 $('#newuser').val('');
+					 $('#newpassword').val('');
+					 $('#newcon').val('');
+					 $('#newfirstname').val('');
+					 $('#newlastname').val('');
+					 $('#newnickname').val('');
+					 $('#newemail').val('');
+					 $('#newphone').val('');
+					$("#eduForm").validate(
+							{
+								rules : {
+									newuser: "required",
+									newpassword : {
+										required: true,	
+										minlength : 2
+					                },
+					                newcon : {
+					                    minlength : 2,
+					                    equalTo : "#newpassword"
+					                },
+									newfirstname: "required",
+									newlastname: "required",
+									newemail: "required",
+									newphone: "required",
+								},
+								highlight : function(element) {
+									$(element).closest('.form-control').addClass('has-error-input');
+								},
+								unhighlight : function(element) {
+									$(element).closest('.form-control').removeClass('has-error-input');
+								},
+								errorElement : 'span',
+								errorClass : 'has-error-block',
+								errorPlacement : function(error, element) {
+								},
+								submitHandler : function(form) {
+									document.forms[0].mode.value = 'saveUser';
+									document.forms[0].submit();
+								}
+							});
+				});
+
+		function submitFormSave() {
+			$("#eduForm").submit();
 		}
+
+		function submitFormInit(mode) {
+			document.loginForm.mode.value = mode;
+			document.loginForm.submit();
+		}
+		
 	</script>
 
 	<%@ include file="/page/inc_menu.jsp"%>
@@ -174,121 +167,123 @@ top: 13px;
 		<%@ include file="/page/inc_header.jsp"%>
 
 		<!-- Navbar -->
+		<div class="inthebox">
 
-		<section class="gradient-custom">
-  <div class="container py-5 ">
-    <div class="row justify-content-center align-items-center ">
-      <div class="col-12 col-lg-9 col-xl-7">
-        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-          <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">เพิ่มบัญชีผู้ใช้</h3>
-            <form>
+						<html:form action="/login" styleId="eduForm"
+							styleClass="form-horizontal form-validate">
+							<html:hidden property="mode" />
+							<html:hidden property="id" />
 
-              <div class="row">
-                <div class="col-md-6 mb-4">
+							<div class="row">
+								<div class="col-md-12">
+									<a href="login.htm?mode=showtable" class="btn btn-default"
+										onclick="submitFormInit('init');"><i
+										class="fa fa-undo" aria-hidden="true"></i> &nbsp;ย้อนกลับ</a>
+								</div>
+							</div>
+							<hr />
 
-                  <div class="form-outline">
-                    <input type="text" id="firstName" class="form-control form-control-lg" />
-                    <label class="form-label" for="firstName">  ชื่อจริง</label>
-                  </div>
+							<div class="form-group">
+								<label class="control-label col-sm-3">ชื่อผู้ใช้ :</label>
+								<div class="col-sm-3">
+									<html:text property="newuser" styleId="newuser" 
+										styleClass="form-control"></html:text>
+								</div>
+							</div>
 
-                </div>
-                <div class="col-md-6 mb-4">
+						 	<div class="form-group">
+								<label class="control-label col-sm-3">password :</label>
+								<div class="col-sm-3">
+									<html:password  property="newpassword" styleId="newpassword"
+										styleClass="form-control"></html:password	>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
+								<div class="form-group">
+								<label class="control-label col-sm-3">Confirm password :</label>
+								<div class="col-sm-3">
+									<html:password  property="newcon" styleId="newcon"
+										styleClass="form-control"></html:password	>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
+								<div class="form-group">
+								<label class="control-label col-sm-3">ชื่อจริง :</label>
+								<div class="col-sm-3">
+									<html:text  property="newfirstname" styleId="newfirstname"
+										styleClass="form-control"></html:text	>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
+								<div class="form-group">
+								<label class="control-label col-sm-3">นามสกุล :</label>
+								<div class="col-sm-3">
+									<html:text  property="newlastname" styleId="newlastname"
+										styleClass="form-control"></html:text	>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
+								<div class="form-group">
+								<label class="control-label col-sm-3">ชื่อเล่น :</label>
+								<div class="col-sm-3">
+									<html:text  property="newnickname" styleId="newnickname"
+										styleClass="form-control"></html:text	>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
+								<div class="form-group">
+								<label class="control-label col-sm-3">email :</label>
+								<div class="col-sm-3">
+									<html:text  property="newemail" styleId="newemail"
+										styleClass="form-control"></html:text	>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
+								<div class="form-group">
+									<label class="control-label col-sm-3">phone :</label>
+									<div class="col-sm-3">
+										<html:text  property="newphone" styleId="newphone"
+											styleClass="form-control"></html:text	>
+									</div>
+									<div class="col-sm-3">
+									</div>
+									
+								</div> 
 
-                  <div class="form-outline">
-                    <input type="text" id="lastName" class="form-control form-control-lg" />
-                    <label class="form-label" for="lastname">นามสกุล</label>
-                  </div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-8">
+									<button class="btn btn-primary" type="button" 
+										onclick="submitFormSave();" >
+										<i class="fa fa-save" aria-hidden="true"></i> &nbsp;บันทึก
+									</button>
+								</div>
+							</div>
+							</div> 
+								
+							
+							
 
-                </div>
-              </div>
+						</html:form>
 
-              <div class="row">
-                <div class="col-md-6 mb-4 d-flex align-items-center">
-
-                  <div class="form-outline datepicker ">
-                    <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                    <label for="birthdayDate" class="form-label">ชื่อเล่น</label>
-                  </div>
-
-                </div>
-                
-              </div>
-
-              <div class="row">
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                    <label class="form-label" for="emailAddress">Email</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">Phone Number</label>
-                  </div>
-
-                </div>
-              </div>
-				 <div class="row" autocomplete="off">
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                    <label class="form-label" for="emailAddress">ชื่อผู้ใช้</label>
-                  </div>
-
-                </div>
-                <div class="col-md-6 mb-4 pb-2">
-
-                  <div class="form-outline">
-                    <input type="password" id="phoneNumber" class="form-control form-control-lg" />
-                    <label class="form-label" for="phoneNumber">รหัสผ่าน</label>
-                  </div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-
-                  <select class="select form-control-lg">
-                    <option value="1" disabled>Choose option</option>
-                    <option value="2">Subject 1</option>
-                    <option value="3">Subject 2</option>
-                    <option value="4">Subject 3</option>
-                  </select>
-                  <label class="form-label select-label">Choose option</label>
-
-                </div>
-              </div>
-
-              <div class="mt-4 pt-2">
-                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-</section>
-
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+ 
 
 		</div>
 
 
-
-	</div>
-
-
 </body>
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
-></script>
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>

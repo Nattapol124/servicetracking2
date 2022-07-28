@@ -6,30 +6,30 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="contai"/>
+		<item key="selection" value="comboIndicator"/>
 		<list key="findhistory">
-			<item value="contai"/>
-			<item value="form-group"/>
-			<item value="btn"/>
-			<item value="btn-primary"/>
-			<item value="btnprimary"/>
-			<item value="SESSION_USER"/>
-			<item value="SS"/>
-			<item value="เพื่ม"/>
-			<item value="master"/>
-			<item value="Init"/>
+			<item value="comboIndicator"/>
+			<item value="nameShort"/>
+			<item value="indicatorIdSearch"/>
+			<item value="pro"/>
+			<item value="username"/>
+			<item value="bootstrap"/>
+			<item value="bootst"/>
+			<item value="boot"/>
+			<item value="bootbox"/>
+			<item value="su"/>
+			<item value="initSuite"/>
+			<item value="initSuit"/>
 			<item value="init"/>
-			<item value="SSU"/>
-			<item value="SUserList"/>
-			<item value="inthebox"/>
-			<item value="new4"/>
+			<item value="intt"/>
+			<item value="master"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="177"/>
-		<item key="DIALOG_Y_ORIGIN" value="664"/>
+		<item key="DIALOG_X_ORIGIN" value="187"/>
+		<item key="DIALOG_Y_ORIGIN" value="709"/>
 		<item key="DIALOG_WIDTH" value="753"/>
 		<item key="DIALOG_HEIGHT" value="459"/>
 		<item key="DIALOG_FONT_NAME" value="1|Leelawadee UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Leelawadee UI"/>

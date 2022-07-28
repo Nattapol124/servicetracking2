@@ -19,7 +19,7 @@ implements RequestService{
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public List getRequestList(String request_title,String request_file,String request_remark,String request_dateStart,String request_dateEnd,String reqeust_status) throws DataAccessException {
-		return requestDao.findRequestList(request_title, request_file, request_remark, request_dateStart, request_dateEnd, reqeust_status);
+	public List getRequestList(String id) throws DataAccessException {
+		return requestDao.findRequestList(id);
 	}
 }

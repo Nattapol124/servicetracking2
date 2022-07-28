@@ -31,8 +31,9 @@ public class Request extends CoreEntity{
 	private int id_request_status;
 	@Column(name = "id_request_type")
 	private int id_request_type;
-	@Column(name = "id_project")
-	private int id_project;
+	@ManyToOne
+	@JoinColumn(name = "id_project")
+	private Project id_project;
 	@Column(name = "request_remark")
 	private String request_remark;
 	@Column(name = "request_date")
@@ -94,11 +95,13 @@ public class Request extends CoreEntity{
 		this.id_request_type = id_request_type;
 	}
 
-	public int getId_project() {
+	
+
+	public Project getId_project() {
 		return id_project;
 	}
 
-	public void setId_project(int id_project) {
+	public void setId_project(Project id_project) {
 		this.id_project = id_project;
 	}
 

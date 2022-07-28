@@ -60,6 +60,7 @@ public class Project extends CoreEntity{
 		this.project_name = project_name;
 	}
 
+
 	
 
 }

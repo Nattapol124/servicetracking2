@@ -52,9 +52,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right:30px;">
       <!-- Left links -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active d-flex flex-column text-center" aria-current="page" href="#"><i class="fas fa-home fa-lg"></i><span class="small">Home</span></a>
-        </li>
+        
         
         <li class="nav-item dropdown">
           <a

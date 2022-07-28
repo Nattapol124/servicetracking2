@@ -22,6 +22,9 @@ public class Company extends CoreEntity{
 	@Column(name = "id_company")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@ManyToOne
+	@JoinColumn(name = "id_company_type")
+	private CompanyType id_company_type;
 	@Column(name = "company_name")
 	private String company_name;
 	@Column(name = "company_address")
@@ -32,9 +35,8 @@ public class Company extends CoreEntity{
 	private String company_fax;
 	@Column(name = "company_email")
 	private String company_email;
-	@ManyToOne
-	@JoinColumn(name = "id_company_type")
-	private CompanyType id_company_type;
+	
+	
 	
 	
 	

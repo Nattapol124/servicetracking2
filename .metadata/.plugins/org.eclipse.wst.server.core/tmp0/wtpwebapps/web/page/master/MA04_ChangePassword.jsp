@@ -86,48 +86,61 @@ html, body {
 
 <body>
 	<script type="text/javascript">
-		function submitEnter() {
-			if (checkKeyEnter() == true)
-				submitFormLogin();
-		}
+		
 		function checkKeyEnter() {
 			if (event.keyCode == 13)
 				return true;
 		}
 
-		function submitFormInit(mode) {
-			document.loginForm.mode.value = mode;
-			document.loginForm.submit();
-
-		}
 		function submitFormEdit(id, mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.id.value = id;
 			document.loginForm.submit();
 		}
-		function submitFormRemove(id) {
-			bootbox.dialog({
-				title : 'ยืนยันการลบข้อมูล',
-				message : 'คุณต้องการยืนยันการลบข้อมูลนี้ใช่หรือไม่',
-				buttons : {
-					Cancel : {
-						label : 'ยกเลิก',
-						className : "btn-default",
-						callback : function() {
-						}
-					},
-					success : {
-						label : 'ตกลง',
-						className : "btn-danger",
-						callback : function() {
-							document.loginForm.mode.value = 'delete';
-							document.loginForm.id.value = id;
-							document.loginForm.submit();
-						}
-					}
-				}
-			});
+	
+
+		$(document).ready(
+
+				function() {
+					 $('#repass').attr('autocomplete','off');
+					 $('#confirmPass').attr('autocomplete','off');
+					 $('#repass').val('');
+					 $('#confirmPass').val('');
+					 
+					$("#eduForm").validate(
+							{
+								rules : {
+									repass : {
+										required: true,	
+										minlength : 2
+					                },
+					                confirmPass : {
+					                    minlength : 2,
+					                    equalTo : "#repass"
+					                }
+								},
+								highlight : function(element) {
+									$(element).closest('.form-control').addClass('has-error-input');
+								},
+								unhighlight : function(element) {
+									$(element).closest('.form-control').removeClass('has-error-input');
+								},
+								errorElement : 'span',
+								errorClass : 'has-error-block',
+								errorPlacement : function(error, element) {
+								},
+								submitHandler : function(form) {
+									document.forms[0].mode.value = 'savePassword';
+									document.forms[0].submit();
+								}
+							});
+				});
+
+		function submitFormSave() {
+			$("#eduForm").submit();
 		}
+
+		
 	</script>
 
 	<%@ include file="/page/inc_menu.jsp"%>
@@ -137,16 +150,55 @@ html, body {
 		<%@ include file="/page/inc_header.jsp"%>
 
 		<!-- Navbar -->
-
 		<div class="inthebox">
-		
+						<html:form action="/login" styleId="eduForm"
+							styleClass="form-horizontal form-validate">
+							<html:hidden property="mode" />
+							<html:hidden property="id" />
+
+							<div class="row">
+								<div class="col-md-12">
+									<a href="login.htm?mode=init" class="btn btn-default"
+										onclick="submitFormInit('init');"><i
+										class="fa fa-undo" aria-hidden="true"></i> &nbsp;ย้อนกลับ</a>
+								</div>
+							</div>
+							<hr />
+
+							<div class="form-group">
+								<label class="control-label col-sm-3">password :</label>
+								<div class="col-sm-3">
+									<html:password  property="repass" styleId="repass" 
+										styleClass="form-control"></html:password>
+								</div>
+							</div>
+
+						 	<div class="form-group">
+								<label class="control-label col-sm-3">confirm password :</label>
+								<div class="col-sm-3">
+									<html:password  property="confirmPass" styleId="confirmPass"
+										styleClass="form-control"></html:password>
+								</div>
+								<div class="col-sm-3">
+								</div>
+							</div> 
 
 
+
+
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-8">
+									<button class="btn btn-primary" type="button" 
+										onclick="submitFormSave();" >
+										<i class="fa fa-save" aria-hidden="true"></i> &nbsp;บันทึก
+									</button>
+								</div>
+							</div>
+
+						</html:form>
 		</div>
 
-
-
-	</div>
+		</div>
 
 
 </body>
