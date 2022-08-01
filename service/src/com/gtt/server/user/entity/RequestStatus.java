@@ -20,8 +20,8 @@ public class RequestStatus extends CoreEntity {
 		@Column(name = "id_request_status")
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int id;
-		@Column(name = "request_status_name")
-		private int request_status_name;
+		@Column(name = "status_name")
+		private String request_status_name;
 		
 		
 		public RequestStatus() {
@@ -39,12 +39,12 @@ public class RequestStatus extends CoreEntity {
 		}
 
 
-		public int getRequest_status_name() {
+		public String getRequest_status_name() {
 			return request_status_name;
 		}
 
 
-		public void setRequest_status_name(int request_status_name) {
+		public void setRequest_status_name(String request_status_name) {
 			this.request_status_name = request_status_name;
 		}
 		

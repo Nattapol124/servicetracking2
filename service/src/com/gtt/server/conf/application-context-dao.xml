@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
 	<!-- master -->
-	<bean id="UserDao"
+	<bean id="userDao"
 		class="com.gtt.server.user.dao.impl.UserDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.User</value>
@@ -17,7 +17,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="UserProjectDao"
+	<bean id="userProjectDao"
 		class="com.gtt.server.user.dao.impl.UserProjectDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.UserProject</value>
@@ -27,7 +27,7 @@
 		</property>
 		
 	</bean>
-	<bean id="UserTypeDao"
+	<bean id="userTypeDao"
 		class="com.gtt.server.user.dao.impl.UserTypeDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.UserType</value>
@@ -36,7 +36,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="UserPrefixDao"
+	<bean id="userPrefixDao"
 		class="com.gtt.server.user.dao.impl.UserPrefixDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.UserPrefix</value>
@@ -45,7 +45,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="UserPositionDao"
+	<bean id="userPositionDao"
 		class="com.gtt.server.user.dao.impl.UserPositionDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.UserPosition</value>
@@ -54,7 +54,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="RequestDao"
+	<bean id="requestDao"
 		class="com.gtt.server.user.dao.impl.RequestDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.Request</value>
@@ -63,7 +63,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="RequestStatusDao"
+	<bean id="requestStatusDao"
 		class="com.gtt.server.user.dao.impl.RequestStatusDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.RequestStatus</value>
@@ -72,7 +72,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-		<bean id="RequestTypeDao"
+		<bean id="requestTypeDao"
 		class="com.gtt.server.user.dao.impl.RequestTypeDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.RequestType</value>
@@ -81,7 +81,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="ProjectDao"
+	<bean id="projectDao"
 		class="com.gtt.server.user.dao.impl.ProjectDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.Project</value>
@@ -91,7 +91,7 @@
 		</property>
 	</bean>
 	
-	<bean id="CompanyTypeDao"
+	<bean id="companyTypeDao"
 		class="com.gtt.server.user.dao.impl.CompanyTypeDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.CompanyType</value>
@@ -100,7 +100,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="CompanyDao"
+	<bean id="companyDao"
 		class="com.gtt.server.user.dao.impl.CompanyDaoImpl">
 		<constructor-arg>
 			<value>com.gtt.server.user.entity.Company</value>
@@ -110,4 +110,4 @@
 		</property>
 	</bean>
 	
-</beans>
+</beans> 

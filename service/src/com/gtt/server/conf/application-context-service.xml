@@ -8,70 +8,70 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
 	<!-- master -->
-	<bean id="UserService"
+	<bean id="userService"
 		class="com.gtt.server.user.service.impl.UserServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="UserDao" />
+			<ref bean="userDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="UserPrefixService"
+	<bean id="userPrefixService"
 		class="com.gtt.server.user.service.impl.UserPrefixServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="UserPrefixDao" />
+			<ref bean="userPrefixDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="UserProjectService"
+	<bean id="userProjectService"
 		class="com.gtt.server.user.service.impl.UserProjectServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="UserProjectDao" />
+			<ref bean="userProjectDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="UserTypeService"
+	<bean id="userTypeService"
 		class="com.gtt.server.user.service.impl.UserTypeServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="UserTypeDao" />
+			<ref bean="userTypeDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="UserPositionService"
+	<bean id="userPositionService"
 		class="com.gtt.server.user.service.impl.UserPositionServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="UserPositionDao" />
+			<ref bean="userPositionDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="RequestService"
+	<bean id="requestService"
 		class="com.gtt.server.user.service.impl.RequestServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="RequestDao" />
+			<ref bean="requestDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="RequestStatusService"
+	<bean id="requestStatusService"
 		class="com.gtt.server.user.service.impl.RequestStatusServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="RequestStatusDao" />
+			<ref bean="requestStatusDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="ProjectService"
+	<bean id="projectService"
 		class="com.gtt.server.user.service.impl.ProjectServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="ProjectDao" />
+			<ref bean="projectDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="RequestTypeService"
+	<bean id="requestTypeService"
 		class="com.gtt.server.user.service.impl.RequestTypeServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="RequestTypeDao" />
+			<ref bean="requestTypeDao" />
 		</constructor-arg>
 	</bean>
-	<bean id="CompanyService"
+	<bean id="companyService"
 		class="com.gtt.server.user.service.impl.CompanyServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="CompanyDao" />
+			<ref bean="companyDao" />
 		</constructor-arg>
 	</bean>
-		<bean id="CompanyTypeService"
+		<bean id="companyTypeService"
 		class="com.gtt.server.user.service.impl.CompanyTypeServiceImpl">
 		<constructor-arg index="0">
-			<ref bean="CompanyTypeDao" />
+			<ref bean="companyTypeDao" />
 		</constructor-arg>
 	</bean>
 	

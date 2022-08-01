@@ -52,17 +52,17 @@ public class TestService extends TestCase {
   Session s = sessionFactory.openSession();
   TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(s));
 
-  userService = (UserService) ctx.getBean("UserService");
-  companyService = (CompanyService) ctx.getBean("CompanyService");
-  projectService = (ProjectService) ctx.getBean("ProjectService");
-  companyTypeService = (CompanyTypeService) ctx.getBean("CompanyTypeService");
-  requestService = (RequestService) ctx.getBean("RequestService");
-  requestTypeService = (RequestTypeService) ctx.getBean("RequestTypeService");
-  requestStatusService = (RequestStatusService) ctx.getBean("RequestStatusService");
-  userPrefixService = (UserPrefixService) ctx.getBean("UserPrefixService");
-  userProjectService = (UserProjectService) ctx.getBean("UserProjectService");
-  userPositionService = (UserPositionService) ctx.getBean("UserPositionService");
-  userTypeService = (UserTypeService) ctx.getBean("UserTypeService");
+  userService = (UserService) ctx.getBean("userService");
+  companyService = (CompanyService) ctx.getBean("companyService");
+  projectService = (ProjectService) ctx.getBean("projectService");
+  companyTypeService = (CompanyTypeService) ctx.getBean("companyTypeService");
+  requestService = (RequestService) ctx.getBean("requestService");
+  requestTypeService = (RequestTypeService) ctx.getBean("requestTypeService");
+  requestStatusService = (RequestStatusService) ctx.getBean("requestStatusService");
+  userPrefixService = (UserPrefixService) ctx.getBean("userPrefixService");
+  userProjectService = (UserProjectService) ctx.getBean("userProjectService");
+  userPositionService = (UserPositionService) ctx.getBean("userPositionService");
+  userTypeService = (UserTypeService) ctx.getBean("userTypeService");
 	  
  }
 

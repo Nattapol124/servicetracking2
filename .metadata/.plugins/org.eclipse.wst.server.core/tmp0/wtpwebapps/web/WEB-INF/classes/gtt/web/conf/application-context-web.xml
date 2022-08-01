@@ -12,17 +12,17 @@
        	http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<bean name="/login" class="gtt.web.action.LoginAction">
-		<property name="UserService">
-			<ref bean="UserService" />
+		<property name="userService">
+			<ref bean="userService" />
 		</property>
-		<property name="RequestService">
-			<ref bean="RequestService" />
+		<property name="requestService">
+			<ref bean="requestService" />
 		</property>
-		<property name="UserPrefixService">
-			<ref bean="UserPrefixService" />
+		<property name="userPrefixService">
+			<ref bean="userPrefixService" />
 		</property>
-		<property name="ProjectService">
-			<ref bean="ProjectService" />
+		<property name="projectService">
+			<ref bean="projectService" />
 		</property>
 	</bean>
 	
