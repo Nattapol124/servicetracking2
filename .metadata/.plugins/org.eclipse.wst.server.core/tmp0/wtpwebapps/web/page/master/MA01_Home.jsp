@@ -315,7 +315,7 @@ html, body {
 
 											<td align="center">
 
-												<button type="button" onclick="togglePopup(${item.id})"
+												<button type="button" data-toggle="modal" data-target="#exampleModal"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-edit">แก้ไขข้อมูล</i>
 												</button>

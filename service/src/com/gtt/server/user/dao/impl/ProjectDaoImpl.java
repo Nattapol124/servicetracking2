@@ -61,7 +61,28 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 			}
 		}		return results;
 	}
-	
+	@Override
+	public List<Project> getProject(String customerId, String userId) throws DataAccessException{
+		String sql = "select project.project_name, project.id_customer from user "
+				+ "inner join project on user.id_customer = project.id_customer "
+				+ "where user.id_customer = "+customerId + " and user.id_user =" + userId;
+		
+		List<Project> results = new ArrayList<Project>();
+		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
+		if(objectList != null && objectList.size()>0) {
+			for(Object[] obj : objectList) {
+				Project project = new Project();
+				project.setProject_name(String.valueOf(obj[0]));
+				Company customer = new Company();
+				customer.setId(Integer.parseInt(String.valueOf(obj[1])));
+				project.setId_customer(customer);
+				results.add(project);
+			}
+		}
+		
+		return results;
+		
+	}
 }
 
 

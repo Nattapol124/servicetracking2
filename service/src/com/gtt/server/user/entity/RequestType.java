@@ -19,7 +19,7 @@ public class RequestType extends CoreEntity {
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private int id;
 		@Column(name = "type_name")
-		private String request_type_name;
+		private String type_name;
 		
 		
 		
@@ -41,15 +41,19 @@ public class RequestType extends CoreEntity {
 
 
 
-		public String getRequest_type_name() {
-			return request_type_name;
+		public String getType_name() {
+			return type_name;
 		}
 
 
 
-		public void setRequest_type_name(String request_type_name) {
-			this.request_type_name = request_type_name;
+		public void setType_name(String type_name) {
+			this.type_name = type_name;
 		}
+
+
+
+		
 		
 		
 }

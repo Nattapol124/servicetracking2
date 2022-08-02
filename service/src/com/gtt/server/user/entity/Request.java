@@ -1,5 +1,7 @@
 package com.gtt.server.user.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,34 +29,39 @@ public class Request extends CoreEntity{
 	@ManyToOne
 	@JoinColumn(name = "id_user_process")
 	private User id_user_process;
-	@Column(name = "id_request_status")
-	private int id_request_status;
-	@Column(name = "id_request_type")
-	private int id_request_type;
+	@ManyToOne
+	@JoinColumn(name = "id_request_status")
+	private RequestStatus id_request_status;
+	@ManyToOne
+	@JoinColumn(name = "id_request_type")
+	private RequestType id_request_type;
 	@ManyToOne
 	@JoinColumn(name = "id_project")
 	private Project id_project;
 	@Column(name = "request_remark")
 	private String request_remark;
+	
 	@Column(name = "request_date")
-	private String request_date;
+	private Date request_date;
+	
 	@Column(name = "request_file")
 	private String request_file;
+	
 	@Column(name = "request_dateStart")
-	private String request_dateStart;
+	private Date request_dateStart;
+	
 	@Column(name = "request_dateEnd")
-	private String request_dateEnd;
+	private Date request_dateEnd;
+	
 	@Column(name = "request_title")
 	private String request_title;
 	
-	public Request() {
+	public Request( ) {
 		
 	}
-
 	public Request(int id) {
-		this.id = id;
+		this.id=id;
 	}
-
 	public int getId() {
 		return id;
 	}
@@ -79,23 +86,21 @@ public class Request extends CoreEntity{
 		this.id_user_process = id_user_process;
 	}
 
-	public int getId_request_status() {
+	public RequestStatus getId_request_status() {
 		return id_request_status;
 	}
 
-	public void setId_request_status(int id_request_status) {
+	public void setId_request_status(RequestStatus id_request_status) {
 		this.id_request_status = id_request_status;
 	}
 
-	public int getId_request_type() {
+	public RequestType getId_request_type() {
 		return id_request_type;
 	}
 
-	public void setId_request_type(int id_request_type) {
+	public void setId_request_type(RequestType id_request_type) {
 		this.id_request_type = id_request_type;
 	}
-
-	
 
 	public Project getId_project() {
 		return id_project;
@@ -113,11 +118,11 @@ public class Request extends CoreEntity{
 		this.request_remark = request_remark;
 	}
 
-	public String getRequest_date() {
+	public Date getRequest_date() {
 		return request_date;
 	}
 
-	public void setRequest_date(String request_date) {
+	public void setRequest_date(Date request_date) {
 		this.request_date = request_date;
 	}
 
@@ -129,19 +134,19 @@ public class Request extends CoreEntity{
 		this.request_file = request_file;
 	}
 
-	public String getRequest_dateStart() {
+	public Date getRequest_dateStart() {
 		return request_dateStart;
 	}
 
-	public void setRequest_dateStart(String request_dateStart) {
+	public void setRequest_dateStart(Date request_dateStart) {
 		this.request_dateStart = request_dateStart;
 	}
 
-	public String getRequest_dateEnd() {
+	public Date getRequest_dateEnd() {
 		return request_dateEnd;
 	}
 
-	public void setRequest_dateEnd(String request_dateEnd) {
+	public void setRequest_dateEnd(Date request_dateEnd) {
 		this.request_dateEnd = request_dateEnd;
 	}
 
@@ -153,6 +158,6 @@ public class Request extends CoreEntity{
 		this.request_title = request_title;
 	}
 
-	
+
 	
 }

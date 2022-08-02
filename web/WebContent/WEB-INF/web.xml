@@ -39,6 +39,7 @@
 				/WEB-INF/struts-config.xml,
 				/WEB-INF/conf/login-struts-config.xml,
 				/WEB-INF/conf/master-struts-config.xml,
+				/WEB-INF/conf/index-struts-config.xml,
 				
 			</param-value>
 		</init-param>
