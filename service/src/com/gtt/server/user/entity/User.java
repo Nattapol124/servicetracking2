@@ -29,6 +29,9 @@ public class User extends CoreEntity {
 	@JoinColumn(name = "id_user_position")
 	private UserPosition id_user_position;
 	@ManyToOne
+	@JoinColumn(name = "id_customer")
+	private Company id_customer;
+	@ManyToOne
 	@JoinColumn(name = "id_company")
 	private Company id_company;
 	@Column(name = "username")
@@ -46,9 +49,7 @@ public class User extends CoreEntity {
 	private String user_phone;
 	@Column (name = "user_email")
 	private String user_email;
-	@ManyToOne
-	@JoinColumn(name = "id_customer")
-	private Company id_customer;
+	
 	
 	
 	public User() {

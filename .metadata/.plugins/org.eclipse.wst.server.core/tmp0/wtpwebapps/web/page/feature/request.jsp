@@ -112,26 +112,26 @@ h2{
 								<logic:iterate id="item" name="indexForm" property="resultList" indexId="index">
 								<tr>
 								<td align="center"><%= index+1 %></td>
-								<td align="center">${item.title }</td>
-								<td align="center">${item.user.nickname }</td>
-								<c:if test="${item.request_status.id eq '1' }">
-									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal${item.id}">${item.request_status.name }</a></td>
+								<td align="center">${item.request_title }</td>
+								<td align="center">${item.id_user.nickname }</td>
+								<c:if test="${item.id_request_status.id eq '1' }">
+									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
-								<c:if test="${item.request_status.id eq '2' }">
-									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal${item.id}">${item.request_status.name }</a></td>
+								<c:if test="${item.id_request_status.id eq '2' }">
+									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
-								<c:if test="${item.request_status.id eq '3' }">
-									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal${item.id}">${item.request_status.name }</a></td>
+								<c:if test="${item.id_request_status.id eq '3' }">
+									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
-								<c:if test="${item.request_status.id eq '4' }">
-									<td align="center"><a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal${item.id}">${item.request_status.name }</a></td>
+								<c:if test="${item.id_request_status.id eq '4' }">
+									<td align="center"><a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
-								<c:if test="${item.request_status.id eq '5' }">
-									<td align="center"><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal${item.id}">${item.request_status.name }</a></td>
+								<c:if test="${item.id_request_status.id eq '5' }">
+									<td align="center"><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
 								
@@ -141,14 +141,14 @@ h2{
 <%-- 								<td>${item.remark }</td> --%>
 <%-- 								<td>${item.date }</td> --%>
 <%-- 								<td>${item.file }</td> --%>
-								<c:if test="${item.request_status.id eq '1' }">
+								<c:if test="${item.id_request_status.id eq '1' }">
 									<td>
 										<button type="button" data-toggle="modal" data-target="#editModal${item.id}" class="btn btn-primary btn-xs">edit</button>
 										<button type="button" onclick="del('${item.id}')" class="btn btn-danger btn-xs">delete</button>
 									</td>
 								
 								</c:if>
-								<c:if test="${item.request_status.id ne '1' }">
+								<c:if test="${item.id_request_status.id ne '1' }">
 									<td>
 										<button type="button" onclick=""  class="btn btn-primary btn-xs" disabled>edit</button>
 										<button type="button" onclick=""  class="btn btn-danger btn-xs" disabled>delete</button>
@@ -161,15 +161,15 @@ h2{
 													<div class="modal-dialog" role="document">
 														<div class="modal-content">
 															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">รายละเอียด : ${item.title }</h5>
+																<h5 class="modal-title" id="exampleModalLabel">รายละเอียด : ${item.request_title }</h5>
 															</div>
 															<div class="modal-body">
 
-																<p>ประเภท : ${item.request_type.name }</p>
-																<p>โครงการ : ${item.project.name }</p>
-																<p>รายละเอียด : ${item.remark }</p>
-																<p>วันที่ส่งคำร้อง : ${item.date }</p>
-																<p>ไฟล์ : ${item.file }</p>
+																<p>ประเภท : ${item.id_request_type.type_name }</p>
+																<p>โครงการ : ${item.id_project.project_name }</p>
+																<p>รายละเอียด : ${item.request_remark }</p>
+																<p>วันที่ส่งคำร้อง : ${item.request_date }</p>
+																<p>ไฟล์ : ${item.request_file }</p>
 
 															</div>
 															<div class="modal-footer">
@@ -186,23 +186,23 @@ h2{
 													<div class="modal-dialog" role="document">
 														<div class="modal-content">
 															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">แก้ไข : ${item.title }</h5>
+																<h5 class="modal-title" id="exampleModalLabel">แก้ไข : ${item.request_title }</h5>
 															</div>
 															<div class="modal-body">
 																<label>หัวข้อ : </label>
-																<input type="text" class="form-control" value="${item.title }" required>
+																<input type="text" class="form-control" value="${item.request_title }" required>
 																
 																<label>โครงการ : </label>
-																<html:select property="project" styleClass="form-control">	
-																	<html:optionsCollection property="projectList" value="id" label="name" />
+																<html:select property="id_project" styleClass="form-control">	
+																	<html:optionsCollection property="projectList" value="id" label="project_name" />
 																</html:select>
 																
 																<label>รายละเอียด : </label>
-																<input type="text"  class="form-control" value="${item.remark }" required>
+																<input type="text"  class="form-control" value="${item.request_remark }" required>
 																<label>วันที่ส่งคำร้อง : </label>
-																<input type="Date"  class="form-control" value="${item.date }" required>
+																<input type="Date"  class="form-control" value="${item.request_date }" required>
 																<label>ไฟล์ : </label>
-																<input type="file"  class="form-control" value="${item.file }" required>
+																<input type="file"  class="form-control" value="${item.request_file }" required>
 
 															</div>
 															<div class="modal-footer">
