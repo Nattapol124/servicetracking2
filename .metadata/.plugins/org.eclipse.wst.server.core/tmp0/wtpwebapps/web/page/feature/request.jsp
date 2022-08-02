@@ -67,7 +67,7 @@
 
 <style type="text/css">
 h2{
-	margin-top:50px;
+	margin-top:10%;
 }
 
 

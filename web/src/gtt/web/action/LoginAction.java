@@ -92,8 +92,6 @@ public class LoginAction extends CoreAction {
 	
 	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		 User obj = (User) getObjectSession(request, SESSION_USER);
-		 System.out.println(obj.getId_company().getId()+":sesssion");
-		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
 		 String company = String.valueOf(obj.getId_company().getId());
 		 try {
 			DynaActionForm dynaForm = (DynaActionForm) form;

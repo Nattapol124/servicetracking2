@@ -164,7 +164,7 @@
 	<div class="container">
 		<div class="logo" >
 			<img src="https://www.gtt2004.com/img/GTT_WHITE.png" alt="" width="200" height="220">    
-			สวัสดีครับสมาชิกชมรมคนชอบ
+			Service Tracking
 		</div>
 		<div class="row" style="margin-top:10px">
 			<div id="main-login">
