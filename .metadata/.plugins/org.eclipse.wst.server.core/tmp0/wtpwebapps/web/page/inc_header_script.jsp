@@ -21,7 +21,6 @@
 	<!-- datatable -->
 	<link href="${pageContext.request.contextPath}/ui/css/dataTables.bootstrap.css" rel="stylesheet"/>
 	<!-- Custom styles -->
-	<link href="${pageContext.request.contextPath}/ui/css/style.css" rel="stylesheet"/>
 	<link href="${pageContext.request.contextPath}/ui/css/style-responsive.css" rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/ui/css/jquery-ui-10.12.1.css" rel="stylesheet"/>
 	<link href="${pageContext.request.contextPath}/ui/css/style-button.css" rel="stylesheet"/>

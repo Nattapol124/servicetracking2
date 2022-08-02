@@ -77,6 +77,7 @@ h2{
 	<html:form action="/index" styleId="eduForm">
 	<html:hidden property="mode"/>
 	<section class="ftco-section">
+	<%@ include file="/page/inc_header.jsp"%>
 		<div class="container">
 		<div class="wrapper">
 			<div class="row justify-content-center">
