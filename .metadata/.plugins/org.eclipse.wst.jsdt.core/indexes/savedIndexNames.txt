@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\gtt\questionreport\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1548747895.index
-1243057733.index
-2309895196.index
-1002874811.index
-256118502.index
-3540373753.index
