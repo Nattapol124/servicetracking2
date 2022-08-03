@@ -129,9 +129,7 @@ public class IndexAction extends CoreAction {
 	public ActionForward addRequest(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			
 			Request entity = null;
-			
 			User user = (User) getObjectSession(request, SESSION_USER);
 			entity.setId_user(user);
 			RequestStatus status = new RequestStatus();
