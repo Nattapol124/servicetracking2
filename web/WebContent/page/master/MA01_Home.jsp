@@ -248,7 +248,7 @@ html, body {
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary"
-																	data-dismiss="modal">OK</button>
+																	data-bs-dismiss="modal">OK</button>
 															</div>
 														</div>
 													</div>
@@ -315,7 +315,7 @@ html, body {
 
 											<td align="center">
 
-												<button type="button" data-toggle="modal" data-target="#exampleModal"
+												<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-edit">แก้ไขข้อมูล</i>
 												</button>
