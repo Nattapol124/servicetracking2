@@ -9,10 +9,6 @@
 	<meta name="keyword" content="">
 	
 	<title>รายงานปัญหา</title>
-	
-	
-	
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- Font Awesome -->
 	<link
 	  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -34,8 +30,7 @@
 	  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
 	></script>
 	<!-- Bootstrap CSS -->
-	<link href="${pageContext.request.contextPath}/ui/css/bootstrap.min.css" rel="stylesheet"/>
-	<link href="${pageContext.request.contextPath}/ui/css/bootstrap-theme.css" rel="stylesheet"/>
+
 	<!-- CSS only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<!-- font -->
@@ -46,7 +41,6 @@
 	<!-- datatable -->
 	<link href="${pageContext.request.contextPath}/ui/css/dataTables.bootstrap.css" rel="stylesheet"/>
 	<!-- Custom styles -->
-	<link href="${pageContext.request.contextPath}/ui/css/style.css" rel="stylesheet"/>
 	<link href="${pageContext.request.contextPath}/ui/css/style-responsive.css" rel="stylesheet" />
 	<link href="${pageContext.request.contextPath}/ui/css/jquery-ui-10.12.1.css" rel="stylesheet"/>
 	<link href="${pageContext.request.contextPath}/ui/css/style-button.css" rel="stylesheet"/>
@@ -63,13 +57,13 @@
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.ui.1.8.10.offset.datepicker.min.js" type="text/javascript"></script>
 	
 	<!-- bootstrap -->
-	<script src="${pageContext.request.contextPath}/ui/js/bootstrap.min.js"></script>
 	<!-- nice scroll -->
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.scrollTo.min.js"></script>
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.nicescroll.js" type="text/javascript"></script>
 	<!-- custom select -->
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.customSelect.min.js"></script>
 	<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<!--custome script for all page-->
 	<script src="${pageContext.request.contextPath}/ui/js/scripts.js"></script>
 	
@@ -78,9 +72,6 @@
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.placeholder.min.js"></script>
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.slimscroll.min.js"></script>
 	<script src="${pageContext.request.contextPath}/ui/js/bootbox.js"></script>
-
-	<script src="${pageContext.request.contextPath}/ui/js/bootstrap-select.js"></script>
-	<script src="${pageContext.request.contextPath}/ui/js/bootstrap-typeahead.js"></script>
 	
 	<!-- datatable -->
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.dataTables.js" type="text/javascript"></script>
@@ -247,7 +238,6 @@
  	              		$('#dialogs').html(results);	
  	              		$('#dialogs').siblings('.ui-dialog-titlebar').find('button').blur(); 
  	              		
-
  	             	});
  	            }
  	        });

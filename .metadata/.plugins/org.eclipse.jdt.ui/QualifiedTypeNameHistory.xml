@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
@@ -10,8 +9,6 @@
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
     <fullyQualifiedTypeName name="javax.servlet.FilterChain"/>
     <fullyQualifiedTypeName name="org.apache.struts.action.DynaActionForm"/>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="com.core.entity.CoreEntity"/>
     <fullyQualifiedTypeName name="com.core.service.CoreService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.requestStatus"/>
@@ -21,13 +18,11 @@
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.UserPositionDao"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.CompanyType"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.CompanyTypeDao"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.RequestStatus"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.RequestStatusDao"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.RequestDao"/>
     <fullyQualifiedTypeName name="com.core.service.impl.CoreServiceImpl"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.dao.RequestTypeDao"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.RequestType"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.CompanyTypeService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.RequestTypeService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.RequestStatusService"/>
@@ -40,7 +35,6 @@
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.User"/>
     <fullyQualifiedTypeName name="org.hibernate.usertype.UserType"/>
     <fullyQualifiedTypeName name="java.util.List"/>
@@ -53,11 +47,17 @@
     <fullyQualifiedTypeName name="com.gtt.server.user.service.UserPrefixService"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.UserService"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Company"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.entity.Project"/>
-    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Request"/>
     <fullyQualifiedTypeName name="org.springframework.dao.DataAccessException"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.gtt.server.user.service.ProjectService"/>
     <fullyQualifiedTypeName name="org.springframework.core.type.filter.AbstractClassTestingTypeFilter"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.RequestStatus"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.RequestType"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Request"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.gtt.server.user.entity.Company"/>
 </qualifiedTypeNameHistroy>
