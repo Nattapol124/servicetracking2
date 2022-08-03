@@ -6,11 +6,8 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="h2"/>
+		<item key="selection" value="comboIndicator"/>
 		<list key="findhistory">
-			<item value="h2"/>
-			<item value="showre"/>
-			<item value="setRequest_date"/>
 			<item value="comboIndicator"/>
 			<item value="nameShort"/>
 			<item value="indicatorIdSearch"/>
@@ -23,6 +20,9 @@
 			<item value="su"/>
 			<item value="initSuite"/>
 			<item value="initSuit"/>
+			<item value="init"/>
+			<item value="intt"/>
+			<item value="master"/>
 		</list>
 		<list key="replacehistory">
 		</list>

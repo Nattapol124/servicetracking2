@@ -14,5 +14,4 @@ public interface ProjectService extends CoreService<Project, Serializable> {
 	public List getProjectList(String company)
 			throws DataAccessException;
 	public List getindicator(String id_company) throws DataAccessException;
-
-}   
+}

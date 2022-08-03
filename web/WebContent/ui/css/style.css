@@ -125,6 +125,7 @@ h2 {
 	padding-bottom: 5px;
 	color: #0A7AFE;
 	margin: 0px auto 10px auto;
+	border-bottom: 2px solid #0A7AFE;
 	width: 100%;
 }
 
@@ -134,6 +135,7 @@ h3 {
 	padding-bottom: 5px;
 	color: #0A7AFE;
 	margin: 0px auto 10px auto;
+	border-bottom: 2px solid #0A7AFE;
 	width: 100%;
 }
 
@@ -2757,6 +2759,7 @@ ul.ft-link li a i {
 	color: #fff;
 	font-style: italic;
 	padding: 0 20px;
+	line-height: 22px;
 	margin: 0;
 	font-weight: 300;
 }

@@ -10,7 +10,6 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script language="javascript" type="text/javascript">
-
 	function add() {
 		Swal.fire({
 			  title: 'Are you sure?',
@@ -47,31 +46,30 @@
 <html:form action="/index" styleId="eduForm">
 <html:hidden property="mode"/>
 	<%@ include file="/page/inc_header.jsp"%>
-		<h2>รายงานปัญหา</h2>
 		<section id="main-content">
 		<section class="wrapper">
          <div>
          	<h2>รายงานปัญหา</h2>
          	<label>ชื่อโครงการ</label>
-        	<%-- <html:select property="project" styleClass="form-control">	
-        		<option value="" disabled selected>Select your project</option>
-				<html:optionsCollection property="projectList" value="id" label="name" />
-			</html:select> --%>
+         	<html:select property="id_project" styleClass="form-control">
+         		<option value="" disabled selected>Select your project</option> 
+				<html:optionsCollection property="projectList" value="id" label="project_name" />
+			</html:select> 
          </div>
          
          <div>
          	<label>หัวข้อปัญหา</label>
-         	<html:text property="title" onkeypress="submitEnter();" styleClass="form-control" styleId="title" placeHolder="หัวข้อปัญหา" />
+         	<html:text property="request_title" onkeypress="submitEnter();" styleClass="form-control" styleId="title" placeHolder="หัวข้อปัญหา" />
          </div>
          
         <div>
         <label>Select a file to upload: </label>
-         <input property="file" type = "file" accept=".pdf, .png, .jpg, .jpeg"/>
+         <input property="request_file" type = "file" accept=".pdf, .png, .jpg, .jpeg"/>
         </div>
         
         <div>
         <label>ปัญหาที่เกิด</label>
-         <html:text property="remark" onkeypress="submitEnter();" styleClass="form-control" styleId="remark" placeHolder="ปัญหาที่เกิด" />
+         <html:text property="request_remark" onkeypress="submitEnter();" styleClass="form-control" styleId="remark" placeHolder="ปัญหาที่เกิด" />
         </div>
          
          <button class="btn-blue btn-sm" onClick="add()">upload file</button>

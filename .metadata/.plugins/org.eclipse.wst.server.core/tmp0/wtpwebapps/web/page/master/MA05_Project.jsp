@@ -276,16 +276,18 @@ html, body {
 										<th class="text-center">ลำดับ</th>
 										<th class="text-center">ชื่อโครงการ</th>
 										<th class="text-center">บริษัทผู้ว่าจ้าง</th>
+										<th class="text-center">บริษัทผู้รับจ้าง</th>
 									</tr>
 								</thead>
 								<tbody>
-									<logic:iterate id="item" name="loginForm"
-										property="resultProjectList" indexId="index">
+									<logic:iterate id="item" name="loginForm" property="resultProjectList"
+										indexId="index">
 										<tr class="att">
 											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
 											<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
 											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
-
+											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
+										
 
 											<td align="center">
 
@@ -293,24 +295,15 @@ html, body {
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
 												</button>
-												<button type="button" class="btn btn-primary"
-													data-mdb-toggle="modal" data-mdb-target="#exampleModal"
-													data-mdb-whatever="@mdo">Open modal for @mdo</button>
-												<button type="button" class="btn btn-primary"
-													data-mdb-toggle="modal" data-mdb-target="#exampleModal"
-													data-mdb-whatever="@fat">Open modal for @fat</button>
-												<button type="button" class="btn btn-primary"
-													data-mdb-toggle="modal" data-mdb-target="#exampleModal"
-													data-mdb-whatever="@getbootstrap">Open modal for
-													@getbootstrap</button>
+												
 											</td>
-											<!-- 	<td>
+										<!-- 	<td>
 											1
 											<div class="popup" id="popup-1">
 													<div class="content">
 														<div class="close-btn" onclick="togglePopup()">×</div> -->
 
-											<%-- 	<h1>Sign in</h1>
+													<%-- 	<h1>Sign in</h1>
 														<span align="left">ชื่อผู้ใช้</span>
 														<div class="input-field" >
 															<input placeholder='${item.username}'
@@ -345,41 +338,7 @@ html, body {
  -->
 
 													</div> --%>
-											<div class="modal fade" id="exampleModal" tabindex="-1"
-												aria-labelledby="exampleModalLabel" aria-hidden="true">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="exampleModalLabel">New
-																message</h5>
-															<button type="button" class="btn-close"
-																data-mdb-dismiss="modal" aria-label="Close"></button>
-														</div>
-														<div class="modal-body">
-															<form>
-																<div class="mb-3">
-																	<label for="recipient-name" class="col-form-label">Recipient:</label>
-																	<input type="text" class="form-control"
-																		id="recipient-name" />
-																</div>
-																<div class="mb-3">
-																	<label for="message-text" class="col-form-label">Message:</label>
-																	<textarea class="form-control" id="message-text"></textarea>
-																</div>
-															</form>
-														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-secondary"
-																data-mdb-dismiss="modal">Close</button>
-															<button type="button" class="btn btn-primary">Send
-																message</button>
-														</div>
-													</div>
 												</div>
-											</div>
-
-
-											</div>
 											</td>
 										</tr>
 									</logic:iterate>
@@ -450,3 +409,4 @@ html, body {
 <script src="js/main.js"></script>
 
 </html>
+	
