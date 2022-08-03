@@ -200,7 +200,7 @@ html, body {
 				       
 				     })
 			
-					function searchData() {
+			function searchData() {
 			var input, filter, table, tr, td, i, txtValue;
 			input = document.getElementById("search");
 			filter = input.value.toUpperCase();
@@ -288,7 +288,7 @@ html, body {
 				</div>
 				<logic:present name="loginForm" property="resultList">
 					<logic:notEmpty name="loginForm" property="resultList">
-						<table cellspacing="0" width="100%"
+						<table id="userData" cellspacing="0" width="100%"
 							class="table align-middle mb-0 ">
 							<a>
 								<thead>

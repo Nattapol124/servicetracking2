@@ -130,6 +130,29 @@ h1 {
 				}
 			});
 		}
+		function editDataBtn() {
+
+            var btn = document.getElementById("editData");
+
+            if (btn.value == "แก้ไขข้อมูล") {
+            	document.getElementById("firstName").disabled = false;
+            	document.getElementById("lastName").disabled = false;
+            	document.getElementById("email").disabled = false;
+            	document.getElementById("phone").disabled = false;
+                btn.value = "บันทึกข้อมูล";
+                btn.innerHTML = "บันทึกข้อมูล";
+            }
+            else {
+            	document.getElementById("firstName").disabled = true;
+            	document.getElementById("lastName").disabled = true;
+            	document.getElementById("email").disabled = true;
+            	document.getElementById("phone").disabled = true;
+                btn.value = "แก้ไขข้อมูล";
+                btn.innerHTML = "แก้ไขข้อมูล";
+            }
+
+        }
+		
 	</script>
 
 	<%@ include file="/page/inc_menu.jsp"%>
@@ -141,12 +164,21 @@ h1 {
 		<!-- Navbar -->
 		<div class="inthebox">
 			<div class="profilebox center">
-				<h1 class="">ชื่อผู้ใช้:${SSUser.username}</h1>
+<!-- 			<h1 class="">ชื่อผู้ใช้:${SSUser.username}</h1>
 				<h1 class="">ชื่อจริง:${SSUser.user_firstname}</h1>
 				<h1 class="">นามสกุล${SSUser.user_lastname}</h1>
 				<h1 class="">email:${SSUser.user_email}</h1>
 				<h1 class="">เบอร์โทรศัพท์:${SSUser.user_phone}</h1>
 				<h1 class="">id:${SSUser.id_company.id}</h1>
+-->
+				<td>ชื่อผู้ใช้: <input disabled type="text" id="userNmae" name="" value="${SSUser.username}"></td><br />
+				<td>ชื่อจริง: <input disabled type="text" id="firstName" name="" value="${SSUser.user_firstname}"}></td><br />
+				<td>นามสกุล: <input disabled type="text" id="lastName" name="" value="${SSUser.user_lastname}"}></td><br />
+				<td>email: <input disabled type="text" id="email" name="" value="${SSUser.user_email}"}></td><br />
+				<td>เบอร์โทรศัพท์: <input disabled type="text" id="phone" name="" value="${SSUser.user_phone}"}></td><br />
+				
+				<button onclick="editDataBtn()" id="editData" value="แก้ไขข้อมูล">แก้ไขข้อมูล</button>
+				
 			</div>
 
 

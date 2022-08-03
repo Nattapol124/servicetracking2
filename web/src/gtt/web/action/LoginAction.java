@@ -87,7 +87,7 @@ public class LoginAction extends CoreAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "eduForm", null);
+		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
 	}
 	
 	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
