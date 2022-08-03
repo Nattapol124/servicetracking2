@@ -136,7 +136,7 @@ h2{
 								</c:if>
 								
 								
-<%-- 									<td align="center">${item.request_type.name }</td> --%>
+<%-- 									<td>${item.request_type.name }</td> --%>
 <%-- 								<td>${item.id}</td> --%>
 								
 <%-- 								<td>${item.remark }</td> --%>

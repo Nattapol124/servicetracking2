@@ -107,7 +107,6 @@ public class LoginAction extends CoreAction {
 			dynaForm.set("resultList", userList);
 			request.setAttribute("resultList", userList);
 
-			System.out.println(String.valueOf(userList));
 	
 
 		} catch (Exception e) {

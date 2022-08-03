@@ -167,7 +167,6 @@ public class IndexAction extends CoreAction {
 	public ActionForward editRequest(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			
 			User user = (User) getObjectSession(request, SESSION_USER);
 			Request req = requestService.getItem(Integer.parseInt(dynaForm.getString("id")));
 			req.setRequest_title(dynaForm.getString("title"));
@@ -175,6 +174,8 @@ public class IndexAction extends CoreAction {
 			req.setRequest_remark(dynaForm.getString("remark"));
 			req.setUpdateBy(user.getUsername());
 			req.setUpdateDate(DateTimeUtil.getSystemDate());
+			
+			requestService.saveOrUpdateItem(req);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
