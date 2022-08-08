@@ -215,6 +215,8 @@ html, body {
 			<html:form action="/index" styleId="eduForm">
 <html:hidden property="mode"/>
 	<div class="topbar">
+		<!-- Navbar -->
+		<%@ include file="/page/inc_header.jsp"%>
 
 	
 		<section id="main-content">
@@ -230,7 +232,7 @@ html, body {
          
          <div>
          	<label>หัวข้อปัญหา</label>
-         	<html:text property="request_title" onkeypress="submitEnter();" styleClass="form-control" styleId="title" placeHolder="หัวข้อปัญหา" maxlength="10%" />
+         	<html:text property="request_title" onkeypress="submitEnter();" styleClass="form-control" styleId="title" placeHolder="หัวข้อปัญหา" />
          </div>
          
         <div>

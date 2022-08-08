@@ -87,7 +87,21 @@ public class LoginAction extends CoreAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "eduForm", null);
+		User obj = (User) getObjectSession(request, SESSION_USER);
+		String func=null;
+		String htm=null;
+		String formString=null;
+		if(obj.getId_user_type().getId()==1) {
+			func = "showtable";
+			htm = "login.htm";
+			formString = "loginForm";
+		}
+		if(obj.getId_user_type().getId()==2) {
+			func = "getRequest";
+			htm = "index.htm";
+			formString = "eduForm";
+		}
+		return mappingForward(mapping, request, "mode", func, htm, formString, null);
 	}
 	
 	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -133,7 +147,7 @@ public class LoginAction extends CoreAction {
 	public ActionForward savePassword(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-
+		
 			 User obj = (User) getObjectSession(request, SESSION_USER);
 			 String id = String.valueOf(obj.getId());
 			 String username = String.valueOf(obj.getUsername());

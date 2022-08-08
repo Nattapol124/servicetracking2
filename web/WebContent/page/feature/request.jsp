@@ -5,24 +5,176 @@
 <%@taglib uri="/tld/struts-logic.tld" prefix="logic"%>
 <%@taglib uri="/tld/c.tld" prefix="c"%>
 <%@taglib uri="/tld/fn.tld" prefix="fn"%>
-
-<%@ include file="/page/inc_header_script.jsp"%>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<body>
-<script type="text/javascript">
+<%@ include file="/page/inc_header_script.jsp"%>
 
+<style type="text/css">
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
+	;
 	
+.popup .content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -150%) scale(0);
+	width: 600px;
+	height: 900px;
+	z-index: 2;
+	text-align: center;
+	padding: 20px;
+	border-radius: 20px;
+	background: white;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	backdrop-filter: blur(5px);
+
+}
+
+.popup .close-btn {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 30px;
+	height: 30px;
+	color: black;
+	font-size: 30px;
+	border-radius: 50%;
+	padding: 2px 5px 7px 5px;
+	background: white;
+}
+
+.popup.active .content {
+	transition: all 300ms ease-in-out;
+	transform: translate(-50%, -50%) scale(1);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 600;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+a {
+	font-weight: 600;
+	color: white;
+}
+
+.input-field .validate {
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 10px;
+	border: none;
+	margin-bottom: 15px;
+	color: #bfc0c0;
+	background: #f5f5f9;
+	outline: none;
+}
+
+.first-button {
+	color: white;
+	font-size: 18px;
+	font-weight: 500;
+	padding: 30px 50px;
+	border-radius: 40px;
+	border: none;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%, -50%);
+	background: white;
+	transition: box-shadow .35s ease !important;
+	outline: none;
+}
+
+.first-button:active {
+	background: linear-gradient(145deg, #222222, #292929);
+	border: none;
+}
+
+.second-button {
+	color: white;
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 20px;
+	padding: 20px 30px;
+	border-radius: 40px;
+	border: none;
+	background: white;
+	transition: box-shadow .35s ease !important;
+	outline: none;
+}
+
+.second-button:active {
+	background: linear-gradient(145deg, #222222, #292929);
+	border: none;
+	outline: none;
+}
+
+/* p { */
+/* 	color: #f5f5f9; */
+/* 	padding: 20px; */
+/* } */
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+.backplane {
+	/* Rectangle 4283 */
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	background: linear-gradient(136.16deg, #042153 5.45%, #1DA1B0 60.18%);
+}
+
+.topbar {
+	/* Rectangle 4284 */
+	position: absolute;
+	width: 85%;
+	height: 100%;
+	left: 15%;
+	background: #f5f5f9;
+}
+
+.table {
+	margin-top: 4%;
+	border-collapse: separate;
+	border-radius: 20px;
+}
+
+.att:hover {
+	background-color: #f5f5f9;
+}
+
+.inthebox {
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	background: #e8ffff;
+	top: 20%;
+	border-radius: 15px;
+}
+
+
+</style>
+<style type="text/css">
+</style>
+
+<body>
+	<script type="text/javascript">
 	function add(){
 		document.forms[0].mode.value = "requestBtn";
 		document.forms[0].submit();
 	}
 	
-	function edit(id){
-		  document.forms[0].mode.value = "editRequest";
-		  document.forms[0].id.value = id;
-		  document.forms[0].submit();
-	}
 	
 	function del(id){
 		Swal.fire({
@@ -43,7 +195,7 @@
 			  })
 	}
 	
-	function save(){
+	function edit(id){
 		Swal.fire({
 			  title: 'Are you sure?',
 			  text: "You want to save change!",
@@ -54,30 +206,28 @@
 			  confirmButtonText: 'Yes'
 			}).then((result) => {
 				if(result.isConfirmed){
-					
-
+					document.forms[0].mode.value = "editRequest";
+					  document.forms[0].id.value = id;
+					  document.forms[0].submit();
 				}
 			    
 			  })
 	}
-	
+		
+	</script>
 
-	
-</script>
+	<%@ include file="/page/inc_menu.jsp"%>
 
-<style type="text/css">
-h2{
-	margin-top:10%;
-}
+	<div class="topbar">
+		<!-- Navbar -->
+		<%@ include file="/page/inc_header.jsp"%>
 
+		
+		<div class="inthebox">
 
-
-</style>
-
-	<html:form action="/index" styleId="eduForm">
+			<html:form action="/index" styleId="eduForm">
 	<html:hidden property="mode"/>
 	<section class="ftco-section">
-	<%@ include file="/page/inc_header.jsp"%>
 		<div class="container">
 		<div class="wrapper">
 			<div class="row justify-content-center">
@@ -116,23 +266,25 @@ h2{
 								<td align="center">${item.request_title }</td>
 								<td align="center">${item.id_user.nickname }</td>
 								<c:if test="${item.id_request_status.id eq '1' }">
-									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal"  data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
+
+									<td align="center"><a href="#" class="btn btn-warning" data-bs-toggle="modal"  data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
 								<c:if test="${item.id_request_status.id eq '2' }">
-									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
+									<td align="center"><a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
 								<c:if test="${item.id_request_status.id eq '3' }">
-									<td align="center"><a href="#" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
+									<td align="center"><a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
 								<c:if test="${item.id_request_status.id eq '4' }">
-									<td align="center"><a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
+									<td align="center"><a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 								</c:if>
 								
 								<c:if test="${item.id_request_status.id eq '5' }">
-									<td align="center"><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
+									<td align="center"><a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
+
 								</c:if>
 								
 								
@@ -144,15 +296,15 @@ h2{
 <%-- 								<td>${item.file }</td> --%>
 								<c:if test="${item.id_request_status.id eq '1' }">
 									<td>
-										<button type="button" data-toggle="modal" data-target="#editModal${item.id}" class="btn btn-primary btn-xs">edit</button>
-										<button type="button" onclick="del('${item.id}')" class="btn btn-danger btn-xs">delete</button>
+										<button type="button" data-bs-toggle="modal" data-bs-target="#editModal${item.id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>edit</button>
+										<button type="button" onclick="del('${item.id}')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>delete</button>
 									</td>
 								
 								</c:if>
 								<c:if test="${item.id_request_status.id ne '1' }">
 									<td>
-										<button type="button" onclick=""  class="btn btn-primary btn-xs" disabled>edit</button>
-										<button type="button" onclick=""  class="btn btn-danger btn-xs" disabled>delete</button>
+										<button type="button" onclick=""  class="btn btn-primary btn-xs" disabled><i class="fa fa-edit"></i>edit</button>
+										<button type="button" onclick=""  class="btn btn-danger btn-xs" disabled><i class="fa fa-trash-o"></i>delete</button>
 									</td>
 								</c:if>
 								</tr>
@@ -175,7 +327,7 @@ h2{
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary"
-																	data-dismiss="modal">OK</button>
+																	data-bs-dismiss="modal">OK</button>
 															</div>
 														</div>
 													</div>
@@ -207,8 +359,8 @@ h2{
 
 															</div>
 															<div class="modal-footer">
-																<button type="button" class="btn btn-primary" onclick="save()">Save Change</button>
-																<button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+																<button type="button" class="btn btn-primary" onclick="edit('${item.id}')">Save Change</button>
+																<button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
 															</div>
 														</div>
 													</div>
@@ -239,5 +391,20 @@ h2{
 	
 	</html>
 	</html:form>
-</section>
+		</div>
+	
+		
+		
+		
+									
+											
+		
 </body>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</html>

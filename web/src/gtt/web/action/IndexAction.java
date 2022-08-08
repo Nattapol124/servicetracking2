@@ -129,26 +129,26 @@ public class IndexAction extends CoreAction {
 	public ActionForward addRequest(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			Request entity = null;
+			Request entity = new Request();
 			User user = (User) getObjectSession(request, SESSION_USER);
 			entity.setId_user(user);
 			RequestStatus status = new RequestStatus();
 			status.setId(1);
-			entity.setId_request_status(null);
+			entity.setId_request_status(status);
 			
 			Project project = new Project();
-			project.setProject_name(dynaForm.getString("project"));
-			entity.setId_project(null);
+			project.setId(Integer.parseInt(dynaForm.getString("id")));
+			entity.setId_project(project);
 			
-			entity.setRequest_title(dynaForm.getString("title"));
-			entity.setRequest_remark(dynaForm.getString("remark"));
+			entity.setRequest_title(dynaForm.getString("request_title"));
+			entity.setRequest_remark(dynaForm.getString("request_remark"));
 			entity.setRequest_date(null);
-			entity.setRequest_file(dynaForm.getString("file"));
+			entity.setRequest_file(dynaForm.getString("request_file"));
 			entity.setCreateBy(user.getUsername());
 			entity.setCreateDate(DateTimeUtil.getSystemDate());
 			
 			requestService.saveItem(entity);
-		} catch (Exception e) {
+		} catch (Exception e) {	
 			e.printStackTrace();
 		}
 		
