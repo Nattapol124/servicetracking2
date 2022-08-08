@@ -24,7 +24,16 @@
 		<property name="projectService">
 			<ref bean="projectService" />
 		</property>
+		<property name="userProjectService">
+			<ref bean="userProjectService" />
+		</property>
+	
+	
+	
 	</bean>
+	
+	
+	
 	
 	
 	   	

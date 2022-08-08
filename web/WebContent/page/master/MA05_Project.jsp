@@ -228,10 +228,47 @@ html, body {
 			
 				    }
 				       
-				     })
-			
-							
+				     })							
 				
+		}
+		$(document).ready(
+
+				function() {
+					
+					 
+					$("#eduForm").validate(
+							{
+								rules : {
+									 newproject : {
+										required: true,	
+										minlength : 3,
+					                },
+					               
+								},
+								highlight : function(element) {
+									$(element).closest('.form-control').addClass('has-error-input');
+								},
+								unhighlight : function(element) {
+									$(element).closest('.form-control').removeClass('has-error-input');
+								},
+								errorElement : 'span',
+								errorClass : 'has-error-block',
+								errorPlacement : function(error, element) {
+								},
+								submitHandler : function(form) {
+									document.forms[0].mode.value = 'saveProject';
+									document.forms[0].submit();
+								}
+							});
+				});
+		
+		function submitFormSave() {
+			$("#eduForm").submit();
+		}
+
+		function submitFormInit(mode) {
+			document.loginForm.mode.value = mode;
+			document.loginForm.submit();
 		}
 		
 	</script>
@@ -261,10 +298,37 @@ html, body {
 
 				</div>
 				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
-					<button class="btn btn-primary" type="button"
-						onclick="submitFormInit('initAddUser')">
-						<i class="fa fa-users" aria-hidden="true"></i> &nbsp;เพิ่มผู้ใช้
+					<button type="button" data-bs-toggle="modal" data-bs-target="#addProjectModal"
+													class="btn btn-primary btn-xs">
+													<i class="fa fa-plus">เพิ่มโครงการ</i>
 					</button>
+					<div class="modal fade" id="addProjectModal" tabindex="-1"
+													role="dialog" aria-labelledby="exampleModalLabel"
+													aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel"></h5>
+															</div>
+															<div class="modal-body">
+															<label class="control-label col-sm-3">ชื่อโครงการ :</label>
+																<html:text  property="newproject" styleId="newproject"
+																	styleClass="form-control"></html:text>
+														<%-- 	<label>ชื่อโครงการ</label>
+         	<html:select property="id_project" styleClass="form-control">
+         		<option value="" disabled selected>Select your project</option> 
+				<html:optionsCollection property="userProjectList" value="id" label="project_name" />
+			</html:select>  --%>
+         	
+															<div class="modal-footer">
+																<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+																	>ออก</button>
+																<button type="button" class="btn btn-primary" onclick="submitFormSave();"
+																	>บันทึก</button>
+															</div>
+														</div>
+													</div>
+												</div>
 				</div>
 				<logic:present name="loginForm" property="resultProjectList">
 					<logic:notEmpty name="loginForm" property="resultProjectList">
@@ -276,7 +340,8 @@ html, body {
 										<th class="text-center">ลำดับ</th>
 										<th class="text-center">ชื่อโครงการ</th>
 										<th class="text-center">บริษัทผู้ว่าจ้าง</th>
-										<th class="text-center">บริษัทผู้รับจ้าง</th>
+										<th class="text-center"></th>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -286,60 +351,37 @@ html, body {
 											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
 											<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
 											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
-										
+											
 
 											<td align="center">
 
-												<button type="button" onclick="togglePopup('${item}');"
+												<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
 												</button>
 												
 											</td>
-										<!-- 	<td>
-											1
-											<div class="popup" id="popup-1">
-													<div class="content">
-														<div class="close-btn" onclick="togglePopup()">×</div> -->
-
-													<%-- 	<h1>Sign in</h1>
-														<span align="left">ชื่อผู้ใช้</span>
-														<div class="input-field" >
-															<input placeholder='${item.username}'
-																class="validate">
+											<div class="modal fade" id="exampleModal${item.id}" tabindex="-1"
+													role="dialog" aria-labelledby="exampleModalLabel"
+													aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel"></h5>
+															</div>
+															<div class="modal-body">
+																<label>ชื่อผู้ใช้ : </label>
+																<input type="text" class="form-control" value="${item.project_name }" disabled>
+																<label>ชื่อจริง : </label>
+																<input type="text" class="form-control" value="${item.id_customer.company_name }" disabled>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-primary"
+																	data-bs-dismiss="modal">ออก</button>
+															</div>
 														</div>
-														<span align="left">ชื่อผู้ใช้</span>
-													
-														<div class="input-field">
-															<input placeholder="${item.user_firstname}" class="validate">
-														</div>
-														<span align="left">นามสกุล</span>
-														<div class="input-field">
-															<input placeholder="lastname" class="validate">
-														</div>
-														<span align="left">email</span>
-														<div class="input-field">
-															<input placeholder="email" class="validate">
-														</div>
-														<span align="left">เบอร์</span>
-														<div class="input-field">
-															<input placeholder="phone" class="validate">
-														</div>
-														<span align="left">ชื่อเล่น</span>
-														<div class="input-field">
-															<input placeholder="nickname" class="validate">
-														</div>
-														<span align="left">บริษัท</span>
-														<div class="input-field">
-															<input placeholder="company" class="validate">
-														</div>
-<!-- 														<button class="second-button">Sign in</button>
- -->
-
-													</div> --%>
+													</div>
 												</div>
-											</td>
 										</tr>
 									</logic:iterate>
 
@@ -349,57 +391,8 @@ html, body {
 				</logic:present>
 			</html:form>
 		</div>
-		<script>
- function togglePopup() {
- document.getElementById("popup-1")
-  .classList.toggle("active");
-}
-</script>
-		<!-- <table class="table align-middle mb-0 ">
-  <thead class="bg-light">
-    <tr>
-       <th  class="text-center">ลำดับ</th>
-       <th class="text-center">ชื่อผู้ใช้</th>								          
-       <th class="text-center">ชื่อจริง</th>
-       <th class="text-center">นามสกุล</th>
-		<th class="text-center">เมล</th>
-	   <th class="text-center">เบอร์</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">John Doe</p>
-            <p class="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Software engineer</p>
-        <p class="text-muted mb-0">IT department</p>
-      </td>
-      <td>
-        <span class="badge badge-success rounded-pill d-inline">Active</span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
-          Edit
-        </button>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-   -->
+		
+	
 </body>
 
 

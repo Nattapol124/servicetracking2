@@ -70,7 +70,7 @@ a {
 	border-radius: 10px;
 	border: none;
 	margin-bottom: 15px;
-	color: #bfc0c0;
+	color: black;
 	background: #f5f5f9;
 	outline: none;
 }
@@ -230,30 +230,7 @@ html, body {
 		<%@ include file="/page/inc_header.jsp"%>
 
 		<!-- Navbar -->
-		<div class="modal fade" id="exampleModal" tabindex="-1"
-													role="dialog" aria-labelledby="exampleModalLabel"
-													aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">รายละเอียด</h5>
-															</div>
-															<div class="modal-body">
-																<p>ประเภท :</p>
-																<p>โครงการ :</p>
-																<p>หัวข้อ :</p>
-																<p>รายละเอียด :</p>
-																<p>วันที่ส่งคำร้อง :</p>
-																<p>ไฟล์ :</p>
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary"
-																	data-bs-dismiss="modal">OK</button>
-															</div>
-														</div>
-													</div>
-												</div>
-	
+		
 		<div class="inthebox">
 
 			<html:form action="/login" styleId="eduForm"
@@ -290,7 +267,7 @@ html, body {
 					<logic:notEmpty name="loginForm" property="resultList">
 						<table cellspacing="0" width="100%"
 							class="table align-middle mb-0 ">
-							<a>
+							
 								<thead>
 									<tr>
 										<th class="text-center">ลำดับ</th>
@@ -299,127 +276,75 @@ html, body {
 										<th class="text-center">นามสกุล</th>
 										<th class="text-center">เมล</th>
 										<th class="text-center">เบอร์</th>
+										<th class="text-center"></th>
+										
 									</tr>
 								</thead>
 								<tbody>
 									<logic:iterate id="item" name="loginForm" property="resultList"
 										indexId="index">
-										<tr class="att">
-											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 ">${item.username}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.user_firstname}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.user_lastname}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.user_email}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.user_phone}</td>
+										<tr class="att" >
+										
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.username}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_firstname}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_lastname}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_email}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_phone}</td>
+											</div>
 
+											<td align="center" >
 
-											<td align="center">
-
-												<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+												<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"
 													class="btn btn-primary btn-xs">
-													<i class="fa fa-edit">แก้ไขข้อมูล</i>
+													<i class="fa fa-edit">รีเซ็ทรหัสผ่าน</i>
 												</button>
 												<button type="button"
 													onclick="submitFormRemove('${item.id}');"
 													class="btn btn-danger btn-xs">
-													<i class="fa fa-trash-o">ลบบัญชีผู้ใช้</i>
+													<i class="fa fa-trash-o">ลบบัญชี</i>
 												</button>
 											</td>
-											
-
-											
-											
-											
-												<div class="popup" id="popup-${item.id}">
-													<div class="content">
-														<div class="close-btn" onclick="togglePopup(${item.id})">×</div>
-														<span align="left">ชื่อผู้ใช้</span>
-														<div class="input-field " >
-															<input placeholder='${item.username}'
-																class="validate" disabled>
-														</div>
-														<span align="left">ชื่อผู้ใช้</span>
-													
-														<div class="input-field">
-															<input placeholder="${item.user_firstname}" class="validate" disabled>
-														</div>
-														<span align="left">นามสกุล</span>
-														<div class="input-field">
-															<input placeholder="${item.user_lastname}" class="validate" disabled>
-														</div>
-														<span align="left">email</span>
-														<div class="input-field">
-															<input placeholder="${item.user_email }" class="validate" disabled>
-														</div>
-														<span align="left">เบอร์</span>
-														<div class="input-field">
-															<input placeholder="${item.user_phone }" class="validate" disabled>
-														</div>
-														<span align="left">ชื่อเล่น</span>
-														<div class="input-field">
-															<input placeholder="${item.nickname}" class="validate" disabled>
-														</div>
-													
-<!-- 														<button class="second-button">Sign in</button>
- -->
-
-													</div>
-												</div> 
-											
-											
-											
-											
-											
-
-
-
-
-											
+										
 										
 									
 													
 										</tr>
+										
+										<div class="modal fade" id="exampleModal${item.id}" tabindex="-1"
+													role="dialog" aria-labelledby="exampleModalLabel"
+													aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">ข้อมูลบัญชีผู้ใช้</h5>
+															</div>
+															<div class="modal-body">
+																<label>ชื่อผู้ใช้ : </label>
+																<input type="text" class="form-control" value="${item.username }" disabled>
+																<label>ชื่อจริง : </label>
+																<input type="text" class="form-control" value="${item.user_firstname }" disabled>
+																<label>นามสกุล: </label>
+																<input type="text" class="form-control" value="${item.user_lastname }" disabled>
+																<label>อีเมล : </label>
+																<input type="text" class="form-control" value="${item.user_email }" disabled>
+																<label>มือถือ : </label>
+																<input type="text" class="form-control" value="${item.user_phone }" disabled>
+																<label>บริษัท : </label>
+																<input type="text" class="form-control" value="${item.id_customer.company_name }" disabled>
+																<label>ตำแหน่ง : </label>
+																<input type="text" class="form-control" value="${item.id_user_position.position_name }" disabled>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-primary"
+																	data-bs-dismiss="modal">ออก</button>
+															</div>
+														</div>
+													</div>
+												</div>
+	
 									</logic:iterate>
 
-												<div class="popup" id="popup-${item.id}">
-													<div class="content">
-														<div class="close-btn" onclick="togglePopup(${item.id})">×</div>
-
-														<span align="left">ชื่อผู้ใช้</span>
-														<div class="input-field" >
-															<input placeholder='${item.username}'
-																class="validate" disabled>
-														</div>
-														<span align="left">ชื่อผู้ใช้</span>
-													
-														<div class="input-field">
-															<input placeholder="${item.user_firstname}" class="validate">
-														</div>
-														<span align="left">นามสกุล</span>
-														<div class="input-field">
-															<input placeholder="lastname" class="validate">
-														</div>
-														<span align="left">email</span>
-														<div class="input-field">
-															<input placeholder="email" class="validate">
-														</div>
-														<span align="left">เบอร์</span>
-														<div class="input-field">
-															<input placeholder="phone" class="validate">
-														</div>
-														<span align="left">ชื่อเล่น</span>
-														<div class="input-field">
-															<input placeholder="nickname" class="validate">
-														</div>
-														<span align="left">บริษัท</span>
-														<div class="input-field">
-															<input placeholder="company" class="validate">
-														</div>
-<!-- 														<button class="second-button">Sign in</button>
- -->
-
-													</div>
-												</div> 
 											
 											
 								</tbody>

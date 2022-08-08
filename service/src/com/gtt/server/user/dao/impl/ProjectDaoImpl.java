@@ -24,12 +24,13 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 		String sql = "SELECT project.id_project, project.project_name, customer.company_name , company.company_name  FROM user inner join project on user.id_customer = project.id_customer inner join company on user.id_company = company.id_company inner join company customer on user.id_customer = customer.id_company WHERE user.id_company='"+company+"' GROUP BY project.id_project";
 		System.out.println("sql project = " + sql);
 		List<Project> results = new ArrayList<Project>();
-		Company Company_results = new Company();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		System.out.println("objectList project = " + objectList);
 		if (objectList != null && objectList.size() > 0) {
 			for (Object[] obj : objectList) {
 				Project item = new Project();
+				Company Company_results = new Company();
+
 				item.setId(Integer.parseInt(String.valueOf(obj[0])));
 				item.setProject_name(String.valueOf(obj[1]));
 				Company_results.setCompany_name(company);

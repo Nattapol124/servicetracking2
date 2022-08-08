@@ -16,10 +16,12 @@ import com.gtt.server.user.entity.Request;
 import com.gtt.server.user.entity.User;
 import com.gtt.server.user.entity.UserPosition;
 import com.gtt.server.user.entity.UserPrefix;
+import com.gtt.server.user.entity.UserProject;
 import com.gtt.server.user.entity.UserType;
 import com.gtt.server.user.service.ProjectService;
 import com.gtt.server.user.service.RequestService;
 import com.gtt.server.user.service.UserPrefixService;
+import com.gtt.server.user.service.UserProjectService;
 import com.gtt.server.user.service.UserService;
 import com.util.DateTimeUtil;
 
@@ -31,6 +33,7 @@ public class LoginAction extends CoreAction {
 	private RequestService requestService;
 	private UserPrefixService userPrefixService; 
 	private ProjectService projectService;
+	private UserProjectService userProjectService;
 	public ActionForward init(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
@@ -40,6 +43,7 @@ public class LoginAction extends CoreAction {
 			dynaForm.set("resultList", null);
 			dynaForm.set("resultProjectList",null);
 			dynaForm.set("resultRequestList",null);
+			dynaForm.set("resultUserProjectList", null);
 //			dynaForm.set("comboIndicator", projectService.getindicator(company));
 
 //			Constant constant = constantService.getItem(1);
@@ -317,6 +321,7 @@ public class LoginAction extends CoreAction {
 		 try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			List<Project> projectList = projectService.getProjectList(company);
+			
 			System.out.println("projectList = "+projectList);
 			Project project = projectList.iterator().next();
 //			System.out.println(project+"test project");	
@@ -362,6 +367,47 @@ public class LoginAction extends CoreAction {
 
 		return mapping.findForward("MA06");
 	}
+
+	
+	public ActionForward saveProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			
+			DynaActionForm dynaForm = (DynaActionForm) form;
+
+
+			User obj = (User) getObjectSession(request, SESSION_USER);
+			System.out.println(obj.getUsername());
+			
+//			UserPrefix entity = null;
+//			entity = new UserPrefix();
+//			entity.setPrefix_name(dynaForm.getString("newuser"));
+//
+			Project entity = null;
+			entity = new Project();
+			entity.setCreateBy(obj.getUsername());
+			entity.setCreateDate(DateTimeUtil.getSystemDate());
+			entity.setUpdateBy(obj.getUsername());
+			entity.setUpdateDate(DateTimeUtil.getSystemDate());
+			entity.setProject_name(dynaForm.getString("newproject"));
+			Company customer = new Company();
+			customer.setId(2);
+			entity.setId_customer(customer);
+
+////			
+
+//
+			
+//		
+			
+//			User merge = UserService.mergeItem(entity);
+			projectService.saveOrUpdateItem(entity);
+//			userPrefixService.saveOrUpdateItem(entity);
+//			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mappingForward(mapping, request, "mode", "showProject", "login.htm", "loginForm", null);
+	}
 	
 	public ProjectService getProjectService() {
 		return projectService;
@@ -397,4 +443,12 @@ public class LoginAction extends CoreAction {
 		this.requestService = requestService;
 	}
 
+	public UserProjectService getUserProjectService() {
+		return userProjectService;
+	}
+
+	public void setUserProjectService(UserProjectService userProjectService) {
+		this.userProjectService = userProjectService;
+	}
+	
 }	

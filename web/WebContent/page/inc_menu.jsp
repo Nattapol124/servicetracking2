@@ -36,7 +36,6 @@ $( '#topheader .navbar-nav a' ).on( 'click', function () {
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
       <img src="https://www.gtt2004.com/img/GTT_WHITE.png" width=16%;  ></img	>
     </a>
-    <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <a href="login.htm?mode=login" class="nav-link text-white "  aria-current="page">
