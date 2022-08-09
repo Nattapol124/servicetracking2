@@ -18,6 +18,7 @@ import com.gtt.server.user.entity.UserPosition;
 import com.gtt.server.user.entity.UserPrefix;
 import com.gtt.server.user.entity.UserProject;
 import com.gtt.server.user.entity.UserType;
+import com.gtt.server.user.service.CompanyService;
 import com.gtt.server.user.service.ProjectService;
 import com.gtt.server.user.service.RequestService;
 import com.gtt.server.user.service.UserPrefixService;
@@ -34,6 +35,7 @@ public class LoginAction extends CoreAction {
 	private UserPrefixService userPrefixService; 
 	private ProjectService projectService;
 	private UserProjectService userProjectService;
+	private CompanyService companyService;
 	public ActionForward init(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
@@ -321,14 +323,16 @@ public class LoginAction extends CoreAction {
 		 try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			List<Project> projectList = projectService.getProjectList(company);
-			
+			List<Company> customerAddList = companyService.getCustomerList(company);
+		
 			System.out.println("projectList = "+projectList);
 			Project project = projectList.iterator().next();
 //			System.out.println(project+"test project");	
 //			dynaForm.set("id_project", project.getId());
 //			dynaForm.set("id_customer", project.getId_customer());
 //			dynaForm.set("project_name", project.getProject_name());
-
+			dynaForm.set("customerAddList", customerAddList);
+			request.setAttribute("customerAddList", customerAddList);
 			dynaForm.set("resultProjectList", projectList);
 			request.setAttribute("resultProjectList", projectList);
 			
@@ -390,7 +394,7 @@ public class LoginAction extends CoreAction {
 			entity.setUpdateDate(DateTimeUtil.getSystemDate());
 			entity.setProject_name(dynaForm.getString("newproject"));
 			Company customer = new Company();
-			customer.setId(2);
+			customer.setId(1);
 			entity.setId_customer(customer);
 
 ////			
@@ -450,5 +454,14 @@ public class LoginAction extends CoreAction {
 	public void setUserProjectService(UserProjectService userProjectService) {
 		this.userProjectService = userProjectService;
 	}
+
+	public CompanyService getCompanyService() {
+		return companyService;
+	}
+
+	public void setCompanyService(CompanyService companyService) {
+		this.companyService = companyService;
+	}
+	
 	
 }	

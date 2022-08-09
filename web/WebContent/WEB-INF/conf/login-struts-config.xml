@@ -55,11 +55,16 @@
 			<form-property name="projectList" type="java.util.List" />
 			<form-property name="projectAddList" type="java.util.List" />
 			
+			<form-property name="id_customerSelected" type="java.lang.String" />
+			
+			
 			<form-property name="id_project" type="java.lang.String" />
 			<form-property name="request_title" type="java.lang.String" />
 			<form-property name="request_file" type="java.lang.String" />
 			<form-property name="request_remark" type="java.lang.String" />
 			
+			
+			<form-property name="customerAddList" type="java.util.ArrayList" />			
 			<form-property name="resultUserProjectList" type="java.util.ArrayList" />			
 			<form-property name="resultProjectList" type="java.util.ArrayList" />
 			<form-property name="resultRequestList" type="java.util.ArrayList" />

@@ -1,6 +1,9 @@
 package com.gtt.server.user.service.impl;
 
 import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
 
 import com.core.dao.CoreDao;
 import com.core.service.impl.CoreServiceImpl;
@@ -17,6 +20,10 @@ implements CompanyService{
 		super(companyDao);
 		this.companyDao = companyDao;
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public List getCustomerList(String id_company) throws DataAccessException {
+		return companyDao.findCustomerList(id_company);
 	}
 	
 	

@@ -13,5 +13,6 @@ import com.gtt.server.user.entity.Company;
 public interface CompanyDao extends CoreDao<Company, Serializable> {
 
 //	public List findCompanyList(String id_company, String company_name,String company_address) throws DataAccessException;
+	public List findCustomerList(String id_company) throws DataAccessException;
 
 }

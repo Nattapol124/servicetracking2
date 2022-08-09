@@ -314,11 +314,11 @@ html, body {
 															<label class="control-label col-sm-3">ชื่อโครงการ :</label>
 																<html:text  property="newproject" styleId="newproject"
 																	styleClass="form-control"></html:text>
-														<%-- 	<label>ชื่อโครงการ</label>
-         	<html:select property="id_project" styleClass="form-control">
+														 	<label>ชื่อโครงการ</label>
+         	<html:select property="id_customerSelected" styleClass="form-control">
          		<option value="" disabled selected>Select your project</option> 
-				<html:optionsCollection property="userProjectList" value="id" label="project_name" />
-			</html:select>  --%>
+				<html:optionsCollection property="customerAddList" value="id" label="company_name"/>
+			</html:select>  
          	
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary" data-bs-dismiss="modal"

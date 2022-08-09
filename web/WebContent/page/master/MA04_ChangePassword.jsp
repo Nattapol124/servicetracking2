@@ -138,6 +138,7 @@ html, body {
 
 		function submitFormSave() {
 			$("#eduForm").submit();
+			
 		}
 
 		

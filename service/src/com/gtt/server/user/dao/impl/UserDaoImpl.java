@@ -86,4 +86,5 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 	}
 		return results;
 }
+	
 }

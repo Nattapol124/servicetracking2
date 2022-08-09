@@ -27,7 +27,9 @@
 		<property name="userProjectService">
 			<ref bean="userProjectService" />
 		</property>
-	
+		<property name="companyService">
+			<ref bean="companyService" />
+		</property>
 	
 	
 	</bean>
