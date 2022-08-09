@@ -346,7 +346,7 @@ html, body {
 																<input type="text" class="form-control" value="${item.request_title }" required>
 																
 																<label>โครงการ : </label>
-																<html:select property="id_project" styleClass="form-control">	
+																<html:select property="id" styleClass="form-control">	
 																	<html:optionsCollection property="projectList" value="id" label="project_name" />
 																</html:select>
 																

@@ -23,7 +23,7 @@ implements RequestService{
 		return requestDao.findRequestList(id);
 	}
 	@Override
-	public List getReqByCustomer(String customerId) throws DataAccessException {
-		return requestDao.findReqByCustomer(customerId);
+	public List getReqByCustomer(String id) throws DataAccessException {
+		return requestDao.findReqByCustomer(id);
 	}
 }

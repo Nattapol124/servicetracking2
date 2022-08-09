@@ -42,7 +42,7 @@ implements RequestDao{
 		
 	}
 	@Override
-	public List findReqByCustomer(String customerId) throws DataAccessException {	
+	public List findReqByCustomer(String id) throws DataAccessException {	
 		
 		String sql = "select request.id_request, user.id_user, user.user_nickname, request.id_user_process"
 				+ ", requeststatus.id_request_status, requeststatus.status_name, requesttype.id_request_type"
@@ -52,7 +52,10 @@ implements RequestDao{
 				+ "inner join requeststatus on request.id_request_status = requeststatus.id_request_status "
 				+ "inner join requesttype on request.id_request_type = requesttype.id_request_type "
 				+ "inner join project on request.id_project = project.id_project "
-				+ "where user.id_customer ="+customerId;
+				+ "inner join userproject on request.id_project = userproject.id_project "
+				+ "where user.id_user = "+id 
+				+ " order by requeststatus.id_request_status asc, request.request_date ";
+		
 		
 		List<Request> results =new ArrayList<Request>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
