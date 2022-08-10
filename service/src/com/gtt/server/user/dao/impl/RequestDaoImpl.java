@@ -29,7 +29,8 @@ implements RequestDao{
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		if(objectList != null && objectList.size()>0 ) {
 			for(Object[] obj : objectList){
-			Request item = new Request(Integer.parseInt(String.valueOf(obj[0])));
+			Request item = new Request();
+			item.setId(Integer.parseInt(String.valueOf(obj[0])));
 			projectresult.setProject_name(String.valueOf(obj[1]));
 			item.setId_project(projectresult);
 			item.setRequest_title(String.valueOf(obj[2]));
@@ -55,8 +56,6 @@ implements RequestDao{
 				+ "inner join userproject on request.id_project = userproject.id_project "
 				+ "where user.id_user = "+id 
 				+ " order by requeststatus.id_request_status asc, request.request_date ";
-		
-		
 		List<Request> results =new ArrayList<Request>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		
@@ -68,7 +67,8 @@ implements RequestDao{
 				RequestStatus reqS = new RequestStatus();
 				RequestType reqT = new RequestType();
 				Project project = new Project();
-				Request item = new Request(Integer.parseInt(String.valueOf(obj[0])));
+				Request item = new Request();
+				item.setId(Integer.parseInt(String.valueOf(obj[0])));
 				user.setId(Integer.parseInt(String.valueOf( obj[1])));
 				user.setNickname(String.valueOf(obj[2]));
 				item.setId_user(user);

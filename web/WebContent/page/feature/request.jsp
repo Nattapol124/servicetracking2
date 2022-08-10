@@ -187,15 +187,15 @@ html, body {
 			  confirmButtonText: 'Yes'
 			}).then((result) => {
 				if(result.isConfirmed){
-					document.forms[0].mode.value = "deleteRequest";
-				  	document.forms[0].id.value = id;
-				    document.forms[0].submit();
+					document.forms[0].mode.value = 'deleteRequest';
+					document.forms[0].ids.value = id;
+					document.forms[0].submit();
 				}
 			    
 			  })
 	}
 	
-	function edit(id){
+	function edit(ids){
 		Swal.fire({
 			  title: 'Are you sure?',
 			  text: "You want to save change!",
@@ -207,7 +207,7 @@ html, body {
 			}).then((result) => {
 				if(result.isConfirmed){
 					document.forms[0].mode.value = "editRequest";
-					  document.forms[0].id.value = id;
+					  document.forms[0].ids.value = ids;
 					  document.forms[0].submit();
 				}
 			    
@@ -225,8 +225,14 @@ html, body {
 		
 		<div class="inthebox">
 
-			<html:form action="/index" styleId="eduForm">
+			<html:form action="/index" styleId="indexForm" >
 	<html:hidden property="mode"/>
+	<html:hidden property="id"/>
+	<html:hidden property="ids"/>
+	<html:hidden property="ide"/>
+	<html:hidden property="request_title"/>
+	<html:hidden property="request_remark"/>
+	<html:hidden property="request_file"/>
 	<section class="ftco-section">
 		<div class="container">
 		<div class="wrapper">
@@ -248,8 +254,9 @@ html, body {
 						      <th class = "text-center">NO.</th>
 						      <th class = "text-center">หัวข้อ</th>
 						      <th class = "text-center">ผู้แจ้งเรื่อง</th>
-						      
+						      <th class = "text-center">วันที่ยื่นเรื่อง</th>
 						      <th class = "text-center">สถานะ</th>
+						      
 <!-- 						      <th>ประเภท</th> -->
 <!-- 						      <th>โครงการ</th> -->
 
@@ -265,6 +272,7 @@ html, body {
 								<td align="center"><%= index+1 %></td>
 								<td align="center">${item.request_title }</td>
 								<td align="center">${item.id_user.nickname }</td>
+								<td align="center">${item.request_date }</td>
 								<c:if test="${item.id_request_status.id eq '1' }">
 
 									<td align="center"><a href="#" class="btn btn-warning" data-bs-toggle="modal"  data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
@@ -343,7 +351,7 @@ html, body {
 															</div>
 															<div class="modal-body">
 																<label>หัวข้อ : </label>
-																<input type="text" class="form-control" value="${item.request_title }" required>
+																<input type="text" property="request_title" class="form-control" value="${item.request_title }" required>
 																
 																<label>โครงการ : </label>
 																<html:select property="id" styleClass="form-control">	
@@ -351,11 +359,9 @@ html, body {
 																</html:select>
 																
 																<label>รายละเอียด : </label>
-																<input type="text"  class="form-control" value="${item.request_remark }" required>
-																<label>วันที่ส่งคำร้อง : </label>
-																<input type="Date"  class="form-control" value="${item.request_date }" required>
+																<input type="text" property="request_remark" class="form-control" value="${item.request_remark }" required>
 																<label>ไฟล์ : </label>
-																<input type="file"  class="form-control" value="${item.request_file }" required>
+																<input type="file" property="request_file" class="form-control" value="${item.request_file }" required>
 
 															</div>
 															<div class="modal-footer">

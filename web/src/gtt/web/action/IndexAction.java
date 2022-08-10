@@ -79,7 +79,7 @@ public class IndexAction extends CoreAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "eduForm", null);
+		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "indexForm", null);
 	}
 	
 		
@@ -91,7 +91,7 @@ public class IndexAction extends CoreAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return mappingForward(mapping, request, "mode", "getProject", "index.htm", "eduForm", null);
+		return mappingForward(mapping, request, "mode", "getProject", "index.htm", "indexForm", null);
 	}
 	
 	public ActionForward getProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -112,7 +112,7 @@ public class IndexAction extends CoreAction {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			User user = (User) getObjectSession(request, SESSION_USER);
 			List<Request> requestList = requestService.getReqByCustomer(String.valueOf(user.getId()));
-			dynaForm.set("resultList", requestList);;
+			dynaForm.set("resultList", requestList);
 			request.setAttribute("resultList", requestList);
 			
 			List<Project> projectList = projectService.getProject(String.valueOf(user.getId()));
@@ -157,30 +157,35 @@ public class IndexAction extends CoreAction {
 	public ActionForward deleteRequest(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			requestService.removeItem(Integer.parseInt(dynaForm.getString("id")));
+			requestService.removeItem(Integer.parseInt(dynaForm.getString("ids")));
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "eduForm", null);
+		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "indexForm", null);
 	}
 	public ActionForward editRequest(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			User user = (User) getObjectSession(request, SESSION_USER);
-			Request req = requestService.getItem(Integer.parseInt(dynaForm.getString("id")));
-			req.setRequest_title(dynaForm.getString("title"));
-			req.setRequest_file(dynaForm.getString("file"));
-			req.setRequest_remark(dynaForm.getString("remark"));
+			Request req = requestService.getItem(Integer.parseInt(dynaForm.getString("ids")));
+			req.setRequest_title(dynaForm.getString("request_title"));
+			req.setRequest_file(dynaForm.getString("request_file"));
+			req.setRequest_remark(dynaForm.getString("request_remark"));
 			req.setUpdateBy(user.getUsername());
 			req.setUpdateDate(DateTimeUtil.getSystemDate());
-			
-			requestService.saveOrUpdateItem(req);
+			System.out.println("id : "+dynaForm.getString("ids"));
+			System.out.println("title : "+dynaForm.getString("request_title"));
+			System.out.println("file : "+dynaForm.getString("request_file"));
+			System.out.println("remark : "+dynaForm.getString("request_remark"));
+			requestService.updateItem(req);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "eduForm", null);
+		return mappingForward(mapping, request, "mode", "getRequest", "index.htm", "indexForm", null);
 	}
 	
 	
