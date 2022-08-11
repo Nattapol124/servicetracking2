@@ -48,7 +48,7 @@ implements RequestDao{
 		String sql = "select request.id_request, user.id_user, user.user_nickname, request.id_user_process"
 				+ ", requeststatus.id_request_status, requeststatus.status_name, requesttype.id_request_type"
 				+ ", requesttype.type_name, project.id_project, project.project_name, request.request_title"
-				+ ", request.request_remark, request.request_date, request.request_file from request "
+				+ ", request.request_remark, request.request_date, request.request_dateStart, request.request_dateEnd , request.request_file from request "
 				+ "inner join user on request.id_user = user.id_user "
 				+ "inner join requeststatus on request.id_request_status = requeststatus.id_request_status "
 				+ "inner join requesttype on request.id_request_type = requesttype.id_request_type "
@@ -87,7 +87,9 @@ implements RequestDao{
 				item.setRequest_title(String.valueOf(obj[10]));
 				item.setRequest_remark(String.valueOf(obj[11]));
 				item.setRequest_date((Date) obj[12]);
-				item.setRequest_file(String.valueOf(obj[13]));
+				item.setRequest_dateStart((Date) obj[13]);
+				item.setRequest_dateEnd((Date) obj[14]);
+				item.setRequest_file(String.valueOf(obj[15]));
 
 				
 				results.add(item);

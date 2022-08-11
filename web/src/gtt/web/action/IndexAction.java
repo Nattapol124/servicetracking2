@@ -171,15 +171,15 @@ public class IndexAction extends CoreAction {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			User user = (User) getObjectSession(request, SESSION_USER);
 			Request req = requestService.getItem(Integer.parseInt(dynaForm.getString("ids")));
-			req.setRequest_title(dynaForm.getString("request_title"));
-			req.setRequest_file(dynaForm.getString("request_file"));
-			req.setRequest_remark(dynaForm.getString("request_remark"));
-			req.setUpdateBy(user.getUsername());
+//			req.setRequest_title(dynaForm.getString("request_title"));
+//			req.setRequest_file(dynaForm.getString("request_file"));
+//			req.setRequest_remark(dynaForm.getString("request_remark"));
+//			req.setUpdateBy(user.getUsername());
 			req.setUpdateDate(DateTimeUtil.getSystemDate());
 			System.out.println("id : "+dynaForm.getString("ids"));
-			System.out.println("title : "+dynaForm.getString("request_title"));
-			System.out.println("file : "+dynaForm.getString("request_file"));
-			System.out.println("remark : "+dynaForm.getString("request_remark"));
+			System.out.println("title : "+dynaForm.getString("edit_title"));
+			System.out.println("file : "+dynaForm.getString("edit_file"));
+			System.out.println("remark : "+dynaForm.getString("edit_remark"));
 			requestService.updateItem(req);
 		} catch (Exception e) {
 			e.printStackTrace();

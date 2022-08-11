@@ -22,6 +22,11 @@
 			<form-property name="request_file" type="java.lang.String" />
 			<form-property name="request_remark" type="java.lang.String" />
 			
+			
+			
+			<form-property name="edit_title" type="java.lang.String" />
+			<form-property name="edit_file" type="java.lang.String" />
+			<form-property name="edit_remark" type="java.lang.String" />
 
 		</form-bean>
 	</form-beans>

@@ -213,6 +213,24 @@ html, body {
 			    
 			  })
 	}
+	function myFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[1];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
 		
 	</script>
 
@@ -230,9 +248,6 @@ html, body {
 	<html:hidden property="id"/>
 	<html:hidden property="ids"/>
 	<html:hidden property="ide"/>
-	<html:hidden property="request_title"/>
-	<html:hidden property="request_remark"/>
-	<html:hidden property="request_file"/>
 	<section class="ftco-section">
 		<div class="container">
 		<div class="wrapper">
@@ -243,12 +258,13 @@ html, body {
 				</div>
 			</div>
 			
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="ค้นหาด้วยหัวข้อ.." title="Type in a name">
 			
 				<div class="col-md-12">
 					<div class="table-wrap">
 					<logic:present name="indexForm" property="resultList">
 					<logic:notEmpty name="indexForm" property="resultList">
-						<table class="table table-striped">
+						<table class="table table-striped" id="myTable">
 						  <thead>
 						    <tr>
 						      <th class = "text-center">NO.</th>
@@ -329,7 +345,8 @@ html, body {
 																<p>ประเภท : ${item.id_request_type.type_name }</p>
 																<p>โครงการ : ${item.id_project.project_name }</p>
 																<p>รายละเอียด : ${item.request_remark }</p>
-																<p>วันที่ส่งคำร้อง : ${item.request_date }</p>
+																<p>วันที่เริ่มงาน : ${item.request_dateStart }</p>
+																<p>วันที่เสร็จสิ้น : ${item.request_dateEnd }</p>
 																<p>ไฟล์ : ${item.request_file }</p>
 
 															</div>
@@ -351,7 +368,7 @@ html, body {
 															</div>
 															<div class="modal-body">
 																<label>หัวข้อ : </label>
-																<input type="text" property="request_title" class="form-control" value="${item.request_title }" required>
+																<input type="text" property="edit_title" styleId="edit_title" class="form-control" value="${item.request_title }" required>
 																
 																<label>โครงการ : </label>
 																<html:select property="id" styleClass="form-control">	
@@ -359,13 +376,13 @@ html, body {
 																</html:select>
 																
 																<label>รายละเอียด : </label>
-																<input type="text" property="request_remark" class="form-control" value="${item.request_remark }" required>
+																<input type="text" property="edit_remark" styleId="edit_remark" class="form-control" value="${item.request_remark }" required>
 																<label>ไฟล์ : </label>
-																<input type="file" property="request_file" class="form-control" value="${item.request_file }" required>
+																<input type="file" property="edit_file" styleId="edit_file" class="form-control" value="${item.request_file }" required>
 
 															</div>
 															<div class="modal-footer">
-																<button type="button" class="btn btn-primary" onclick="edit('${item.id}')">Save Change</button>
+																<button type="submit" class="btn btn-primary" onclick="edit('${item.id}')">Save Change</button>
 																<button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
 															</div>
 														</div>
@@ -398,13 +415,6 @@ html, body {
 	</html>
 	</html:form>
 		</div>
-	
-		
-		
-		
-									
-											
-		
 </body>
 
 
