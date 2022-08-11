@@ -280,6 +280,8 @@ html, body {
 										<th class="text-center">ชื่อโครงการ</th>
 										<th class="text-center">หัวข้อ</th>
 										<th class="text-center">คำอธืบาย</th>
+										<th class="text-center"></th>
+										
 									</tr>
 								</thead>
 								<tbody>
@@ -290,7 +292,7 @@ html, body {
 											<td align="center" class="fw-normal mb-1 ">${item.id_project.project_name}</td>
 											<td align="center" class="fw-normal mb-1 ">${item.request_title}</td>
 											<td align="center" class="fw-normal mb-1 ">${item.request_remark}</td>
-										
+											
 
 											<td align="center">
 

@@ -10,6 +10,15 @@
 <%@ include file="/page/inc_header_script.jsp"%>
 
 <style type="text/css">
+    
+ @media print
+{
+  table { page-break-after:auto }
+  tr    { page-break-inside:avoid; page-break-after:auto }
+  td    { page-break-inside:avoid; page-break-after:auto }
+  thead { display:table-header-group }
+  tfoot { display:table-footer-group }
+}
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
 	;
@@ -170,6 +179,12 @@ html, body {
 
 <body>
 	<script type="text/javascript">
+		$(document).ready(function () {
+			  $('#userData').DataTable();
+			  $('.dataTables_length').addClass('bs-select');
+			});
+	
+	
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -255,8 +270,7 @@ html, body {
 										</html:select>
 									</div>	
 				</div>   --%>
-				<input type="text" id="search" onkeyup="searchData()"
-							placeholder="Search for names..">
+				
 				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
 					<button class="btn btn-primary" type="button"
 						onclick="submitFormInit('initAddUser')">
@@ -265,7 +279,8 @@ html, body {
 				</div>
 				<logic:present name="loginForm" property="resultList">
 					<logic:notEmpty name="loginForm" property="resultList">
-						<table cellspacing="0" width="100%"
+						<table id="userData"  cellspacing="0" width="100%"
+   
 							class="table align-middle mb-0 ">
 							
 								<thead>

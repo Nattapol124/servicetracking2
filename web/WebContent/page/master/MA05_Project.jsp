@@ -161,29 +161,24 @@ html, body {
 	top: 20%;
 	border-radius: 15px;
 }
-
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link, .navbar-scroll .navbar-toggler-icon,
 	.navbar-scroll .navbar-brand {
 	color: #262626;
 }
-
 /* Color of the navbar BEFORE scroll */
 .navbar-scroll {
 	background-color: #FFC017;
 }
-
 /* Color of the links AFTER scroll */
 .navbar-scrolled .nav-link, .navbar-scrolled .navbar-toggler-icon,
 	.navbar-scroll .navbar-brand {
 	color: #262626;
 }
-
 /* Color of the navbar AFTER scroll */
 .navbar-scrolled {
 	background-color: #fff;
 }
-
 /* An optional height of the navbar AFTER scroll */
 .navbar.navbar-scroll.navbar-scrolled {
 	padding-top: auto;
@@ -203,7 +198,6 @@ html, body {
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
-
 		}
 		function submitFormEdit(id, mode) {
 			document.loginForm.mode.value = mode;
@@ -232,10 +226,11 @@ html, body {
 				
 		}
 		$(document).ready(
-
 				function() {
 					
-					 
+					 $('#newproject').val('');
+					 $('#newproject').val('');
+
 					$("#eduForm").validate(
 							{
 								rules : {
@@ -265,7 +260,6 @@ html, body {
 		function submitFormSave() {
 			$("#eduForm").submit();
 		}
-
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -298,82 +292,118 @@ html, body {
 
 				</div>
 				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
-					<button type="button" data-bs-toggle="modal" data-bs-target="#addProjectModal"
-													class="btn btn-primary btn-xs">
-													<i class="fa fa-plus">เพิ่มโครงการ</i>
+					<button type="button" data-bs-toggle="modal"
+						data-bs-target="#addProjectModal" class="btn btn-primary btn-xs">
+						<i class="fa fa-plus">เพิ่มโครงการ</i>
 					</button>
 					<div class="modal fade" id="addProjectModal" tabindex="-1"
-													role="dialog" aria-labelledby="exampleModalLabel"
-													aria-hidden="true">
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel"></h5>
+								</div>
+								<div class="modal-body">
+									<label class="control-label col-sm-3">ชื่อโครงการ :</label>
+									<html:text property="newproject" styleId="newproject"
+										styleClass="form-control"></html:text>
+									<label>ชื่อโครงการ</label>
+									<html:select property="id_customerSelected"
+										styleClass="form-control">
+										<option value="" disabled selected>Select your
+											project</option>
+										<html:optionsCollection property="customerAddList" value="id"
+											label="company_name" />
+									</html:select>
+									<logic:present name="loginForm" property="resultProjectList">
+										<logic:notEmpty name="loginForm" property="resultProjectList">
+											<table cellspacing="0" width="100%"
+												class="table align-middle mb-0 ">
+												<a>
+													<thead>
+														<tr>
+															<th class="text-center">ลำดับ</th>
+															<th class="text-center">ชื่อโครงการ</th>
+															<th class="text-center">บริษัทผู้ว่าจ้าง</th>
+															<th class="text-center"></th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<logic:iterate id="item" name="loginForm"
+															property="resultProjectList" indexId="index">
+															<tr class="att">
+																<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
+																<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
+																<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
+
+
+																
+																
+															</tr>
+														</logic:iterate>
+
+													</tbody>
+											</table>
+										</logic:notEmpty>
+									</logic:present>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-primary"
+											data-bs-dismiss="modal">ออก</button>
+										<button type="button" class="btn btn-primary"
+											onclick="submitFormSave();">บันทึก</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<logic:present name="loginForm" property="resultProjectList">
+						<logic:notEmpty name="loginForm" property="resultProjectList">
+							<table cellspacing="0" width="100%"
+								class="table align-middle mb-0 ">
+								<a>
+									<thead>
+										<tr>
+											<th class="text-center">ลำดับ</th>
+											<th class="text-center">ชื่อโครงการ</th>
+											<th class="text-center">บริษัทผู้ว่าจ้าง</th>
+											<th class="text-center"></th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<logic:iterate id="item" name="loginForm"
+											property="resultProjectList" indexId="index">
+											<tr class="att">
+												<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
+												<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
+												<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
+
+
+												<td align="center">
+
+													<button type="button" data-bs-toggle="modal"
+														data-bs-target="#exampleModal${item.id}"
+														class="btn btn-primary btn-xs">
+														<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
+													</button>
+
+												</td>
+												<div class="modal fade" id="exampleModal${item.id}"
+													tabindex="-1" role="dialog"
+													aria-labelledby="exampleModalLabel" aria-hidden="true">
 													<div class="modal-dialog" role="document">
 														<div class="modal-content">
 															<div class="modal-header">
 																<h5 class="modal-title" id="exampleModalLabel"></h5>
 															</div>
 															<div class="modal-body">
-															<label class="control-label col-sm-3">ชื่อโครงการ :</label>
-																<html:text  property="newproject" styleId="newproject"
-																	styleClass="form-control"></html:text>
-														 	<label>ชื่อโครงการ</label>
-         	<html:select property="id_customerSelected" styleClass="form-control">
-         		<option value="" disabled selected>Select your project</option> 
-				<html:optionsCollection property="customerAddList" value="id" label="company_name"/>
-			</html:select>  
-         	
-															<div class="modal-footer">
-																<button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-																	>ออก</button>
-																<button type="button" class="btn btn-primary" onclick="submitFormSave();"
-																	>บันทึก</button>
-															</div>
-														</div>
-													</div>
-												</div>
-				</div>
-				<logic:present name="loginForm" property="resultProjectList">
-					<logic:notEmpty name="loginForm" property="resultProjectList">
-						<table cellspacing="0" width="100%"
-							class="table align-middle mb-0 ">
-							<a>
-								<thead>
-									<tr>
-										<th class="text-center">ลำดับ</th>
-										<th class="text-center">ชื่อโครงการ</th>
-										<th class="text-center">บริษัทผู้ว่าจ้าง</th>
-										<th class="text-center"></th>
-										
-									</tr>
-								</thead>
-								<tbody>
-									<logic:iterate id="item" name="loginForm" property="resultProjectList"
-										indexId="index">
-										<tr class="att">
-											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
-											
-
-											<td align="center">
-
-												<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"
-													class="btn btn-primary btn-xs">
-													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
-												</button>
-												
-											</td>
-											<div class="modal fade" id="exampleModal${item.id}" tabindex="-1"
-													role="dialog" aria-labelledby="exampleModalLabel"
-													aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel"></h5>
-															</div>
-															<div class="modal-body">
-																<label>ชื่อผู้ใช้ : </label>
-																<input type="text" class="form-control" value="${item.project_name }" disabled>
-																<label>ชื่อจริง : </label>
-																<input type="text" class="form-control" value="${item.id_customer.company_name }" disabled>
+																<label>ชื่อผู้ใช้ : </label> <input type="text"
+																	class="form-control" value="${item.project_name }"
+																	disabled> <label>ชื่อจริง : </label> <input
+																	type="text" class="form-control"
+																	value="${item.id_customer.company_name }" disabled>
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary"
@@ -382,17 +412,15 @@ html, body {
 														</div>
 													</div>
 												</div>
-										</tr>
-									</logic:iterate>
+											</tr>
+										</logic:iterate>
 
-								</tbody>
-						</table>
-					</logic:notEmpty>
-				</logic:present>
+									</tbody>
+							</table>
+						</logic:notEmpty>
+					</logic:present>
 			</html:form>
 		</div>
-		
-	
 </body>
 
 
@@ -402,4 +430,3 @@ html, body {
 <script src="js/main.js"></script>
 
 </html>
-	

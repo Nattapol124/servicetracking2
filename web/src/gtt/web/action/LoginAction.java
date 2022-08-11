@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.DynaActionForm;
+import org.hibernate.type.BigIntegerType;
 
 import com.gtt.server.user.entity.Company;
 import com.gtt.server.user.entity.Project;
@@ -394,7 +395,8 @@ public class LoginAction extends CoreAction {
 			entity.setUpdateDate(DateTimeUtil.getSystemDate());
 			entity.setProject_name(dynaForm.getString("newproject"));
 			Company customer = new Company();
-			customer.setId(1);
+		
+			customer.setId(Integer.parseInt(dynaForm.getString("id_customerSelected")));
 			entity.setId_customer(customer);
 
 ////			
@@ -411,6 +413,34 @@ public class LoginAction extends CoreAction {
 			e.printStackTrace();
 		}
 		return mappingForward(mapping, request, "mode", "showProject", "login.htm", "loginForm", null);
+	}
+	public ActionForward showUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		 User obj = (User) getObjectSession(request, SESSION_USER);
+//		 System.out.println(obj.getId_company().getId()+":sesssion");
+//		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
+//		 String company = String.valueOf(obj.getId_company().getId());
+		 try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			List<User> userList = userService.getUserList(company);
+			User user = userList.iterator().next();
+//				
+//			dynaForm.set("username", user.getUsername());
+//			dynaForm.set("user_firstName", user.getUser_firstname());
+//			dynaForm.set("user_lastName", user.getUser_lastname());
+//			dynaForm.set("user_email", user.getUser_email());
+//			dynaForm.set("user_phone", user.getUser_phone());
+
+			dynaForm.set("resultUserProjectList", userList);
+			request.setAttribute("resultUserProjectList", userList);
+
+			System.out.println(String.valueOf(userList));
+	
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA01");
 	}
 	
 	public ProjectService getProjectService() {
