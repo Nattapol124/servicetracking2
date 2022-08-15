@@ -289,20 +289,20 @@ html, body {
 							&nbsp;ดูรายชื่อบัญชีทั้งหมด
 						</button>
 					</div>
+					
 
 				</div>
-				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
 					<button type="button" data-bs-toggle="modal"
 						data-bs-target="#addProjectModal" class="btn btn-primary btn-xs">
 						<i class="fa fa-plus">เพิ่มโครงการ</i>
 					</button>
 					<div class="modal fade" id="addProjectModal" tabindex="-1"
-						role="dialog" aria-labelledby="exampleModalLabel"
+						role="dialog" aria-labelledby="addProjectModalLabel"
 						aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"></h5>
+									<h5 class="modal-title" id="addProjectModalLabel"></h5>
 								</div>
 								<div class="modal-body">
 									<label class="control-label col-sm-3">ชื่อโครงการ :</label>
@@ -336,11 +336,7 @@ html, body {
 															<tr class="att">
 																<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
 																<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
-																<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
-
-
-																
-																
+																<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>																													
 															</tr>
 														</logic:iterate>
 
@@ -358,6 +354,9 @@ html, body {
 							</div>
 						</div>
 					</div>
+					
+					
+					
 					<logic:present name="loginForm" property="resultProjectList">
 						<logic:notEmpty name="loginForm" property="resultProjectList">
 							<table cellspacing="0" width="100%"
@@ -390,7 +389,9 @@ html, body {
 													</button>
 
 												</td>
-												<div class="modal fade" id="exampleModal${item.id}"
+												
+											</tr>
+											<div class="modal fade" id="exampleModal${item.id}"
 													tabindex="-1" role="dialog"
 													aria-labelledby="exampleModalLabel" aria-hidden="true">
 													<div class="modal-dialog" role="document">
@@ -398,27 +399,59 @@ html, body {
 															<div class="modal-header">
 																<h5 class="modal-title" id="exampleModalLabel"></h5>
 															</div>
-															<div class="modal-body">
+															<div class="modal-body">															
 																<label>ชื่อผู้ใช้ : </label> <input type="text"
 																	class="form-control" value="${item.project_name }"
 																	disabled> <label>ชื่อจริง : </label> <input
 																	type="text" class="form-control"
 																	value="${item.id_customer.company_name }" disabled>
+												
+	    <thead>
+	      <tr>
+	        <th>Firstname</th>
+	        <th>Lastname</th>
+	        <th>Email</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>John</td>
+	        <td>Doe</td>
+	        <td>john@example.com</td>
+	      </tr>
+	      <tr>
+	        <td>Mary</td>
+	        <td>Moe</td>
+	        <td>mary@example.com</td>
+	      </tr>
+	      <tr>
+	        <td>July</td>
+	        <td>Dooley</td>
+	        <td>july@example.com</td>
+	      </tr>
+	    </tbody>
+
+										
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary"
-																	data-bs-dismiss="modal">ออก</button>
+																	data-bs-dismiss="modal">ออก	</button>
 															</div>
 														</div>
 													</div>
 												</div>
-											</tr>
 										</logic:iterate>
-
+							
 									</tbody>
+									
 							</table>
+							
 						</logic:notEmpty>
+					
+					
 					</logic:present>
+					
+					
 			</html:form>
 		</div>
 </body>

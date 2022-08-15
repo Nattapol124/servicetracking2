@@ -11,17 +11,7 @@
 
 <style type="text/css">
     
- @media print
-{
-  table { page-break-after:auto }
-  tr    { page-break-inside:avoid; page-break-after:auto }
-  td    { page-break-inside:avoid; page-break-after:auto }
-  thead { display:table-header-group }
-  tfoot { display:table-footer-group }
-}
-@import
-	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
-	;
+
 	
 .popup .content {
 	position: absolute;
@@ -153,11 +143,7 @@ html, body {
 	background: #f5f5f9;
 }
 
-.table {
-	margin-top: 4%;
-	border-collapse: separate;
-	border-radius: 20px;
-}
+
 
 .att:hover {
 	background-color: #f5f5f9;
@@ -180,7 +166,7 @@ html, body {
 <body>
 	<script type="text/javascript">
 		$(document).ready(function () {
-			  $('#userData').DataTable();
+			  $('#dtBasicExample').DataTable();
 			  $('.dataTables_length').addClass('bs-select');
 			});
 	
@@ -215,29 +201,21 @@ html, body {
 				       
 				     })
 			
-					function searchData() {
-			var input, filter, table, tr, td, i, txtValue;
-			input = document.getElementById("search");
-			filter = input.value.toUpperCase();
-			table = document.getElementById("userData");
-			tr = table.getElementsByTagName("tr");
-			for (i = 0; i < tr.length; i++) {
-				td = tr[i].getElementsByTagName("td")[1];
-				if (td) {
-					txtValue = td.textContent || td.innerText;
-					if (txtValue.toUpperCase().indexOf(filter) > -1) {
-						tr[i].style.display = "";
-					} else {
-						tr[i].style.display = "none";
-					}
-				}
-			}
-		}		
+					
 				
 		}
 		
 	</script>
-
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/mdb.min.css">
+	<!-- Plugin file -->
+	<link rel="stylesheet" href="./css/addons/datatables.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	
 	<%@ include file="/page/inc_menu.jsp"%>
 
 	<div class="topbar">
@@ -279,9 +257,9 @@ html, body {
 				</div>
 				<logic:present name="loginForm" property="resultList">
 					<logic:notEmpty name="loginForm" property="resultList">
-						<table id="userData"  cellspacing="0" width="100%"
+							<table id="dtBasicExample" class="table" cellspacing="0" width="100%">
    
-							class="table align-middle mb-0 ">
+				
 							
 								<thead>
 									<tr>
@@ -380,57 +358,14 @@ html, body {
   .classList.toggle("active");
 }
 </script>
-		<!-- <table class="table align-middle mb-0 ">
-  <thead class="bg-light">
-    <tr>
-       <th  class="text-center">ลำดับ</th>
-       <th class="text-center">ชื่อผู้ใช้</th>								          
-       <th class="text-center">ชื่อจริง</th>
-       <th class="text-center">นามสกุล</th>
-		<th class="text-center">เมล</th>
-	   <th class="text-center">เบอร์</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">John Doe</p>
-            <p class="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Software engineer</p>
-        <p class="text-muted mb-0">IT department</p>
-      </td>
-      <td>
-        <span class="badge badge-success rounded-pill d-inline">Active</span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
-          Edit
-        </button>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-   -->
+		
 </body>
 
-
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
-
+	
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- Plugin file -->
+<script src="./js/addons/datatables.min.js"></script>
 </html>

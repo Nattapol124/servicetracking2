@@ -421,8 +421,9 @@ public class LoginAction extends CoreAction {
 //		 String company = String.valueOf(obj.getId_company().getId());
 		 try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			List<User> userList = userService.getUserList(company);
-			User user = userList.iterator().next();
+			List<UserProject> userProjectList = userProjectService.getUserProject("6");
+		
+			UserProject userProject = userProjectList.iterator().next();
 //				
 //			dynaForm.set("username", user.getUsername());
 //			dynaForm.set("user_firstName", user.getUser_firstname());
@@ -430,17 +431,17 @@ public class LoginAction extends CoreAction {
 //			dynaForm.set("user_email", user.getUser_email());
 //			dynaForm.set("user_phone", user.getUser_phone());
 
-			dynaForm.set("resultUserProjectList", userList);
-			request.setAttribute("resultUserProjectList", userList);
+			dynaForm.set("resultUserProjectList", userProjectList);
+			request.setAttribute("resultUserProjectList", userProjectList);
 
-			System.out.println(String.valueOf(userList));
+			System.out.println(String.valueOf("UserProject"+userProjectList));
 	
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return mapping.findForward("MA01");
+		return mapping.findForward("MA05");
 	}
 	
 	public ProjectService getProjectService() {

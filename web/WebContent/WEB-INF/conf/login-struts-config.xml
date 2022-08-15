@@ -54,6 +54,7 @@
 			<form-property name="newcustomer" type="java.lang.String" />			
 			<form-property name="projectList" type="java.util.List" />
 			<form-property name="projectAddList" type="java.util.List" />
+			<form-property name="id_user" type="java.util.List" />
 			
 			<form-property name="id_customerSelected" type="java.lang.String" />
 			
