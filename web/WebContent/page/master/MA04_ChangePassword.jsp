@@ -130,6 +130,7 @@ html, body {
 								errorPlacement : function(error, element) {
 								},
 								submitHandler : function(form) {
+									
 									document.forms[0].mode.value = 'savePassword';
 									document.forms[0].submit();
 								}
@@ -137,6 +138,7 @@ html, body {
 				});
 
 		function submitFormSave() {
+			
 			$("#eduForm").submit();
 			
 		}

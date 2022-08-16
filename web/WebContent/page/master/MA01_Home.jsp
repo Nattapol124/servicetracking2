@@ -174,12 +174,24 @@ html, body {
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
-
+			
 		}
 		function submitFormEdit(id, mode) {
+			 Swal.fire({
+			     title: 'Are you sure?',
+			     text: "คุณต้องการจะรีเซ็ทรหัสผ่านหรือไม่?",
+			     icon: 'warning',
+			     showCancelButton: true,
+			     confirmButtonColor: '#3085d6',
+			     cancelButtonColor: '#d33',
+			     confirmButtonText: 'Yes'
+			   }).then((result) => {
+			    if(result.isConfirmed){
 			document.loginForm.mode.value = mode;
 			document.loginForm.id.value = id;
 			document.loginForm.submit();
+			    }
+			   })
 		}
 		function submitFormRemove(id) {
 			 
@@ -204,6 +216,7 @@ html, body {
 					
 				
 		}
+		
 		
 	</script>
 	<link rel="stylesheet"
@@ -288,9 +301,9 @@ html, body {
 
 											<td align="center" >
 
-												<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"
+												<button type="button" onclick="submitFormEdit('${item.id}', 'resetPassword')" 
 													class="btn btn-primary btn-xs">
-													<i class="fa fa-edit">รีเซ็ทรหัสผ่าน</i>
+													<i class="fa fa-edit">รีเซ็ทรหัส</i>
 												</button>
 												<button type="button"
 													onclick="submitFormRemove('${item.id}');"

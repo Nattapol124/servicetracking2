@@ -1,6 +1,7 @@
 package gtt.web.action;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -188,7 +189,56 @@ public class LoginAction extends CoreAction {
 
 		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
 	}
-	
+	public ActionForward resetPassword(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			  String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		      String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+		      String specialCharacters = "!@#$";
+		      String numbers = "1234567890";
+		      String combinedChars = capitalCaseLetters + lowerCaseLetters + specialCharacters + numbers;
+		      Random random = new Random();
+		      char[] password = new char[8];
+
+		      password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
+		      password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
+		      password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
+		      password[3] = numbers.charAt(random.nextInt(numbers.length()));
+		   
+		      for(int i = 4; i< 8 ; i++) {
+		         password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
+		      }
+		     System.out.println("resetPassword"+password);
+			 User obj = (User) getObjectSession(request, SESSION_USER);
+			 String id = String.valueOf(obj.getId());
+			 String username = String.valueOf(obj.getUsername());
+			 String s = String.valueOf(password);
+			 System.out.println(id);
+			User entity = null;
+			if (id != null && !id.equals("")) {
+				entity = userService.getItem(Integer.parseInt(id));
+				entity.setUpdateBy(username);
+				entity.setUpdateDate(DateTimeUtil.getSystemDate());
+				entity.setPassword(s);
+
+			} else 
+			{
+//				entity = new ExamSuite();
+//				entity.setCreateBy(getUserSession(request).getUsername());
+//				entity.setCreateDate(DateTimeUtil.getSystemDate());
+//				entity.setTotalQuestion(0);
+			}
+
+//			
+			userService.saveOrUpdateItem(entity);
+
+		}
+			catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
+	}
 	public ActionForward initAddUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
