@@ -180,7 +180,7 @@ html, body {
 			 Swal.fire({
 			     title: 'Are you sure?',
 			     text: "คุณต้องการจะรีเซ็ทรหัสผ่านหรือไม่?",
-			     icon: 'warning',
+			     icon: 'warnig',
 			     showCancelButton: true,
 			     confirmButtonColor: '#3085d6',
 			     cancelButtonColor: '#d33',

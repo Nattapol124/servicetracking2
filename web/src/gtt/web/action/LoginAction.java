@@ -216,7 +216,7 @@ public class LoginAction extends CoreAction {
 			 System.out.println(id);
 			User entity = null;
 			if (id != null && !id.equals("")) {
-				entity = userService.getItem(Integer.parseInt(id));
+				entity = userService.getItem(Integer.parseInt(dynaForm.getString("id")));
 				entity.setUpdateBy(username);
 				entity.setUpdateDate(DateTimeUtil.getSystemDate());
 				entity.setPassword(s);
@@ -237,8 +237,7 @@ public class LoginAction extends CoreAction {
 			e.printStackTrace();
 		}
 
-		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
-	}
+		return mapping.findForward("MA07");	}
 	public ActionForward initAddUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;

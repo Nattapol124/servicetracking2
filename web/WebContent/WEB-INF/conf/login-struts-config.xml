@@ -94,7 +94,7 @@
 			<forward name="MA04" path="/page/master/MA04_ChangePassword.jsp" />
 			<forward name="MA05" path="/page/master/MA05_Project.jsp" />
 			<forward name="MA06" path="/page/master/MA06_Request.jsp" />
-			<forward name="MA07" path="/page/master/MA07_test.jsp" />
+			<forward name="MA07" path="/page/master/MA07_NewPassword.jsp" />
 			
 			
 
