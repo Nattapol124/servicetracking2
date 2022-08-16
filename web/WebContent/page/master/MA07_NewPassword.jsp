@@ -180,7 +180,7 @@ html, body {
 			 Swal.fire({
 			     title: 'Are you sure?',
 			     text: "คุณต้องการจะรีเซ็ทรหัสผ่านหรือไม่?",
-			     icon: 'warnig',
+			     icon: 'warning',
 			     showCancelButton: true,
 			     confirmButtonColor: '#3085d6',
 			     cancelButtonColor: '#d33',
@@ -217,7 +217,20 @@ html, body {
 				
 		}
 		
-		
+		function myFunction() {
+			  /* Get the text field */
+			  var copyText = document.getElementById("myInput");
+
+			  /* Select the text field */
+			  copyText.select();
+			  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+			   /* Copy the text inside the text field */
+			  navigator.clipboard.writeText(copyText.value);
+
+			  /* Alert the copied text */
+			  alert("Copied the text: " + copyText.value);
+			}
 	</script>
 	<link rel="stylesheet"
 		href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -234,7 +247,13 @@ html, body {
 	<div class="topbar">
 		<!-- Navbar -->
 		<%@ include file="/page/inc_header.jsp"%>
+		<div class="interbox">
+	<!-- The text field -->
+<input type="text" property="NewResetPassword" id="myInput" disabled>
 
+<!-- The button used to copy the text -->
+<button onclick="myFunction()">Copy text</button>
+		</div>
 	</div>
 		
 		

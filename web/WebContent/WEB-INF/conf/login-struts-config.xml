@@ -52,6 +52,11 @@
 			<form-property name="nickname" type="java.lang.String" />
 			<form-property name="newproject" type="java.lang.String" />
 			<form-property name="newcustomer" type="java.lang.String" />			
+			<form-property name="NewResetPassword" type="java.lang.String" />			
+			
+			
+			
+			
 			<form-property name="projectList" type="java.util.List" />
 			<form-property name="projectAddList" type="java.util.List" />
 			<form-property name="id_user" type="java.util.List" />
@@ -95,6 +100,7 @@
 			<forward name="MA05" path="/page/master/MA05_Project.jsp" />
 			<forward name="MA06" path="/page/master/MA06_Request.jsp" />
 			<forward name="MA07" path="/page/master/MA07_NewPassword.jsp" />
+			<forward name="MA08" path="/page/master/MA08_AddUserProject.jsp" />
 			
 			
 

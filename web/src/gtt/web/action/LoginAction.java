@@ -213,7 +213,6 @@ public class LoginAction extends CoreAction {
 			 String id = String.valueOf(obj.getId());
 			 String username = String.valueOf(obj.getUsername());
 			 String s = String.valueOf(password);
-			 System.out.println(id);
 			User entity = null;
 			if (id != null && !id.equals("")) {
 				entity = userService.getItem(Integer.parseInt(dynaForm.getString("id")));
@@ -237,7 +236,7 @@ public class LoginAction extends CoreAction {
 			e.printStackTrace();
 		}
 
-		return mapping.findForward("MA07");	}
+		return mapping.findForward("MA01");	}
 	public ActionForward initAddUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
@@ -463,6 +462,36 @@ public class LoginAction extends CoreAction {
 		}
 		return mappingForward(mapping, request, "mode", "showProject", "login.htm", "loginForm", null);
 	}
+	public ActionForward initUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		 User obj = (User) getObjectSession(request, SESSION_USER);
+//		 System.out.println(obj.getId_company().getId()+":sesssion");
+//		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
+//		 String company = String.valueOf(obj.getId_company().getId());
+		 try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+//			List<UserProject> userProjectList = userProjectService.getUserProject("6");
+//		
+//			UserProject userProject = userProjectList.iterator().next();
+//				
+//			dynaForm.set("username", user.getUsername());
+//			dynaForm.set("user_firstName", user.getUser_firstname());
+//			dynaForm.set("user_lastName", user.getUser_lastname());
+//			dynaForm.set("user_email", user.getUser_email());
+//			dynaForm.set("user_phone", user.getUser_phone());
+//
+//			dynaForm.set("resultUserProjectList", userProjectList);
+//			request.setAttribute("resultUserProjectList", userProjectList);
+//
+//			System.out.println(String.valueOf("UserProject"+userProjectList));
+//	
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA08");
+	}
+	
 	public ActionForward showUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		 User obj = (User) getObjectSession(request, SESSION_USER);
 //		 System.out.println(obj.getId_company().getId()+":sesssion");

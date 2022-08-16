@@ -14,42 +14,6 @@
 	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
 	;
 
-.popup .content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -150%) scale(0);
-	width: 300px;
-	height: 450px;
-	z-index: 2;
-	text-align: center;
-	padding: 20px;
-	border-radius: 20px;
-	background: white;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	z-index: 1;
-}
-
-.popup .close-btn {
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	width: 30px;
-	height: 30px;
-	color: black;
-	font-size: 30px;
-	border-radius: 50%;
-	padding: 2px 5px 7px 5px;
-	background: white;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.popup.active .content {
-	transition: all 300ms ease-in-out;
-	transform: translate(-50%, -50%) scale(1);
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
 h1 {
 	text-align: center;
 	font-size: 32px;
@@ -61,57 +25,6 @@ h1 {
 a {
 	font-weight: 600;
 	color: white;
-}
-
-.input-field .validate {
-	padding: 20px;
-	font-size: 16px;
-	border-radius: 10px;
-	border: none;
-	margin-bottom: 15px;
-	color: #bfc0c0;
-	background: #f5f5f9;
-	outline: none;
-}
-
-.first-button {
-	color: white;
-	font-size: 18px;
-	font-weight: 500;
-	padding: 30px 50px;
-	border-radius: 40px;
-	border: none;
-	position: absolute;
-	top: 50%;
-	left: 20%;
-	transform: translate(-50%, -50%);
-	background: white;
-	transition: box-shadow .35s ease !important;
-	outline: none;
-}
-
-.first-button:active {
-	background: linear-gradient(145deg, #222222, #292929);
-	border: none;
-}
-
-.second-button {
-	color: white;
-	font-size: 18px;
-	font-weight: 500;
-	margin-top: 20px;
-	padding: 20px 30px;
-	border-radius: 40px;
-	border: none;
-	background: white;
-	transition: box-shadow .35s ease !important;
-	outline: none;
-}
-
-.second-button:active {
-	background: linear-gradient(145deg, #222222, #292929);
-	border: none;
-	outline: none;
 }
 
 p {
@@ -160,34 +73,6 @@ html, body {
 	background: #e8ffff;
 	top: 20%;
 	border-radius: 15px;
-}
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link, .navbar-scroll .navbar-toggler-icon,
-	.navbar-scroll .navbar-brand {
-	color: #262626;
-}
-/* Color of the navbar BEFORE scroll */
-.navbar-scroll {
-	background-color: #FFC017;
-}
-/* Color of the links AFTER scroll */
-.navbar-scrolled .nav-link, .navbar-scrolled .navbar-toggler-icon,
-	.navbar-scroll .navbar-brand {
-	color: #262626;
-}
-/* Color of the navbar AFTER scroll */
-.navbar-scrolled {
-	background-color: #fff;
-}
-/* An optional height of the navbar AFTER scroll */
-.navbar.navbar-scroll.navbar-scrolled {
-	padding-top: auto;
-	padding-bottom: auto;
-}
-
-.navbar-brand {
-	font-size: unset;
-	height: 3.5rem;
 }
 </style>
 <style type="text/css">
@@ -384,46 +269,68 @@ html, body {
 
 											<td align="center">
 
-												<button type="button" data-bs-toggle="modal"
-													data-bs-target="#exampleModal${item.id}"
+												<button type="button" onclick="submitFormInit('initUserProject')"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
 												</button>
-											
+
 											</td>
+											
+ 
+		
 											<div class="modal fade" id="exampleModal${item.id}"
-											tabindex="-1" role="dialog"
-											aria-labelledby="exampleModalLabel" aria-hidden="true">
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<h5 class="modal-title" id="exampleModalLabel"></h5>
-													</div>
-													<div class="modal-body">
-														<label>ชื่อผู้ใช้ : </label> <input type="text"
-															class="form-control" value="${item.project_name }"
-															disabled> <label>ชื่อจริง : </label> <input
-															type="text" class="form-control"
-															value="${item.id_customer.company_name }" disabled>
+												tabindex="-1" role="dialog"
+												aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel"></h5>
+														</div>
+														<div class="modal-body">
+															<label>ชื่อผู้ใช้ : </label> <input type="text"
+																class="form-control" value="${item.project_name }"
+																disabled> <label>ชื่อจริง : </label> <input
+																type="text" class="form-control"
+																value="${item.id_customer.company_name }" disabled>
+																<div class="col-xl-6 mb-4">
+<%--     <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+            />
+            <div class="ms-1">
+               ${item.project_name }
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div> --%>
+																			
+
+
+														</div>
 														
-
-
-
-													</div>
-													<div class="modal-footer">
-														<button type="button" class="btn btn-primary"
-															data-bs-dismiss="modal">ออก</button>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-primary"
+																data-bs-dismiss="modal">ออก</button>
+														</div>
 													</div>
 												</div>
 											</div>
-										</div>
 										</tr>
-										
+
 									</logic:iterate>
 
 								</tbody>
 						</table>
-						
+
 
 					</logic:notEmpty>
 
@@ -433,7 +340,6 @@ html, body {
 
 			</html:form>
 		</div>
-		
 </body>
 
 

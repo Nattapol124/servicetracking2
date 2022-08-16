@@ -13,106 +13,7 @@
     
 
 	
-.popup .content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -150%) scale(0);
-	width: 600px;
-	height: 900px;
-	z-index: 2;
-	text-align: center;
-	padding: 20px;
-	border-radius: 20px;
-	background: white;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-	z-index: 1;
-	backdrop-filter: blur(5px);
 
-}
-
-.popup .close-btn {
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	width: 30px;
-	height: 30px;
-	color: black;
-	font-size: 30px;
-	border-radius: 50%;
-	padding: 2px 5px 7px 5px;
-	background: white;
-}
-
-.popup.active .content {
-	transition: all 300ms ease-in-out;
-	transform: translate(-50%, -50%) scale(1);
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-	text-align: center;
-	font-size: 32px;
-	font-weight: 600;
-	padding-top: 20px;
-	padding-bottom: 10px;
-}
-
-a {
-	font-weight: 600;
-	color: white;
-}
-
-.input-field .validate {
-	padding: 20px;
-	font-size: 16px;
-	border-radius: 10px;
-	border: none;
-	margin-bottom: 15px;
-	color: black;
-	background: #f5f5f9;
-	outline: none;
-}
-
-.first-button {
-	color: white;
-	font-size: 18px;
-	font-weight: 500;
-	padding: 30px 50px;
-	border-radius: 40px;
-	border: none;
-	position: absolute;
-	top: 50%;
-	left: 20%;
-	transform: translate(-50%, -50%);
-	background: white;
-	transition: box-shadow .35s ease !important;
-	outline: none;
-}
-
-.first-button:active {
-	background: linear-gradient(145deg, #222222, #292929);
-	border: none;
-}
-
-.second-button {
-	color: white;
-	font-size: 18px;
-	font-weight: 500;
-	margin-top: 20px;
-	padding: 20px 30px;
-	border-radius: 40px;
-	border: none;
-	background: white;
-	transition: box-shadow .35s ease !important;
-	outline: none;
-}
-
-.second-button:active {
-	background: linear-gradient(145deg, #222222, #292929);
-	border: none;
-	outline: none;
-}
 
 p {
 	color: #f5f5f9;
@@ -249,30 +150,18 @@ html, body {
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-8">
 						<button class="btn btn-primary" type="button"
-							onclick="submitFormInit('showtable')">
+							onclick="submitFormInit('showUserProject')">
 							<i class="fa fa-users" aria-hidden="true"></i>
 							&nbsp;ดูรายชื่อบัญชีทั้งหมด
 						</button>
 					</div>
 
 				</div>
-				<%-- <div class="form-group">
-					        		<label class="control-label col-sm-3">ตัวชี้วัด :</label>
-									<div class="col-sm-4">
-										<html:select property="projectindi" styleClass="form-control">
-											<html:optionsCollection property="comboIndicator" value="id" label="nameShort"/>
-										</html:select>
-									</div>	
-				</div>   --%>
 				
-				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
-					<button class="btn btn-primary" type="button"
-						onclick="submitFormInit('initAddUser')">
-						<i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp;เพิ่มผู้ใช้
-					</button>
-				</div>
-				<logic:present name="loginForm" property="resultList">
-					<logic:notEmpty name="loginForm" property="resultList">
+				
+			
+				<logic:present name="loginForm" property="resultUserProjectList">
+					<logic:notEmpty name="loginForm" property="resultUserProjectList">
 							<table id="dtBasicExample" class="table" cellspacing="0" width="100%">
    
 				
@@ -290,24 +179,18 @@ html, body {
 									</tr>
 								</thead>
 								<tbody>
-									<logic:iterate id="item" name="loginForm" property="resultList"
+									<logic:iterate id="item" name="loginForm" property="resultUserProjectList"
 										indexId="index">
 										<tr class="att" >
 										
 											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.username}</td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_firstname}</td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_lastname}</td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_email}</td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_phone}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user}</td>
 											</div>
 
 											<td align="center" >
 
-												<button type="button" onclick="submitFormEdit('${item.id}', 'resetPassword')" 
-													class="btn btn-primary btn-xs">
-													<i class="fa fa-edit">รีเซ็ทรหัส</i>
-												</button>
+												
 												<button type="button"
 													onclick="submitFormRemove('${item.id}');"
 													class="btn btn-danger btn-xs">
@@ -330,19 +213,10 @@ html, body {
 															</div>
 															<div class="modal-body">
 																<label>ชื่อผู้ใช้ : </label>
-																<input type="text" class="form-control" value="${item.username }" disabled>
+																<input type="text" class="form-control" value="${item.id }" disabled>
 																<label>ชื่อจริง : </label>
-																<input type="text" class="form-control" value="${item.user_firstname }" disabled>
-																<label>นามสกุล: </label>
-																<input type="text" class="form-control" value="${item.user_lastname }" disabled>
-																<label>อีเมล : </label>
-																<input type="text" class="form-control" value="${item.user_email }" disabled>
-																<label>มือถือ : </label>
-																<input type="text" class="form-control" value="${item.user_phone }" disabled>
-																<label>บริษัท : </label>
-																<input type="text" class="form-control" value="${item.id_customer.company_name }" disabled>
-																<label>ตำแหน่ง : </label>
-																<input type="text" class="form-control" value="${item.id_user_position.position_name }" disabled>
+																<input type="text" class="form-control" value="${item.id }" disabled>
+																
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary"
