@@ -20,9 +20,12 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 	
 	@Override
 	public List findProjectList(String company) throws DataAccessException {
-		System.out.println("findProjectList!!");
-		String sql = "SELECT project.id_project, project.project_name, customer.company_name , company.company_name  FROM user inner join project on user.id_customer = project.id_customer inner join company on user.id_company = company.id_company inner join company customer on user.id_customer = customer.id_company WHERE user.id_company='"+company+"' GROUP BY project.id_project";
-		System.out.println("sql project = " + sql);
+		String sql = "SELECT project.id_project, project.project_name, customer.company_name , company.company_name  FROM user "
+				+ "inner join project on user.id_customer = project.id_customer "
+				+ "inner join company on user.id_company = company.id_company "
+				+ "inner join company customer on user.id_customer = customer.id_company "
+				+ "WHERE user.id_company='"+company+"' "
+						+ "GROUP BY project.id_project";
 		List<Project> results = new ArrayList<Project>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		System.out.println("objectList project = " + objectList);

@@ -171,9 +171,7 @@ html, body {
 										<th class="text-center">ลำดับ</th>
 										<th class="text-center">ชื่อผู้ใช้</th>
 										<th class="text-center">ชื่อจริง</th>
-										<th class="text-center">นามสกุล</th>
-										<th class="text-center">เมล</th>
-										<th class="text-center">เบอร์</th>
+									
 										<th class="text-center"></th>
 										
 									</tr>

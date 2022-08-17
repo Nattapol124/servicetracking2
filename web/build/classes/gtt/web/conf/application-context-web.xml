@@ -31,7 +31,9 @@
 			<ref bean="companyService" />
 		</property>
 	
-	
+			<property name="requestStatusService">
+			<ref bean="requestStatusService" />
+		</property>
 	</bean>
 	
 	

@@ -10,9 +10,14 @@
 <%@ include file="/page/inc_header_script.jsp"%>
 
 <style type="text/css">
+<<<<<<< HEAD
     
 
 	
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
+	;
+
 .popup .content {
 	position: absolute;
 	top: 50%;
@@ -28,7 +33,6 @@
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	z-index: 1;
 	backdrop-filter: blur(5px);
-
 }
 
 .popup .close-btn {
@@ -157,8 +161,6 @@ html, body {
 	top: 20%;
 	border-radius: 15px;
 }
-
-
 </style>
 <style type="text/css">
 </style>
@@ -170,7 +172,7 @@ html, body {
 			  $('.dataTables_length').addClass('bs-select');
 			});
 	
-	
+
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -215,11 +217,8 @@ html, body {
 				    }
 				       
 				     })
-			
-					
-				
 		}
-		
+	
 		
 	</script>
 	<link rel="stylesheet"
@@ -239,7 +238,9 @@ html, body {
 		<%@ include file="/page/inc_header.jsp"%>
 
 		<!-- Navbar -->
+
 		
+
 		<div class="inthebox">
 
 			<html:form action="/login" styleId="eduForm"
@@ -265,10 +266,12 @@ html, body {
 									</div>	
 				</div>   --%>
 				
+
 				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
 					<button class="btn btn-primary" type="button"
 						onclick="submitFormInit('initAddUser')">
-						<i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp;เพิ่มผู้ใช้
+						<i class="fa fa-user-plus" aria-hidden="true"></i>
+						&nbsp;เพิ่มผู้ใช้
 					</button>
 				</div>
 				<logic:present name="loginForm" property="resultList">
@@ -357,10 +360,11 @@ html, body {
 											
 											
 								</tbody>
+
 						</table>
 					</logic:notEmpty>
-				</logic:present>		
-			</html:form>			
+				</logic:present>
+			</html:form>
 		</div>
 	
 		
