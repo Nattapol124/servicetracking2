@@ -22,7 +22,7 @@ public class UserProjectDaoImpl extends CoreDaoImpl<UserProject, Serializable> i
 
 	@Override
 	public List findUserProject(String id_project) throws DataAccessException {
-			String sql = "SELECT userproject.id_user_project,userproject.id_project,user.id_user,user.username,user.user_firstname,user.user_lastname FROM `userproject` INNER JOIN user ON userproject.id_user=user.id_user WHERE id_project='6'AND user.id_customer='0'";
+		String sql = "SELECT userproject.id_user_project,userproject.id_project,user.id_user,user.username,user.user_firstname,user.user_lastname FROM `userproject` INNER JOIN user ON userproject.id_user=user.id_user WHERE id_project='"+id_project+"' AND user.id_customer='99'";
 		List<UserProject> results = new ArrayList<UserProject>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		if(objectList != null && objectList.size()>0 ) {

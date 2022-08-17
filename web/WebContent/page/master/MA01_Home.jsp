@@ -10,7 +10,6 @@
 <%@ include file="/page/inc_header_script.jsp"%>
 
 <style type="text/css">
-<<<<<<< HEAD
     
 
 	
@@ -171,8 +170,7 @@ html, body {
 			  $('#dtBasicExample').DataTable();
 			  $('.dataTables_length').addClass('bs-select');
 			});
-	
-
+		
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -257,14 +255,7 @@ html, body {
 					</div>
 
 				</div>
-				<%-- <div class="form-group">
-					        		<label class="control-label col-sm-3">ตัวชี้วัด :</label>
-									<div class="col-sm-4">
-										<html:select property="projectindi" styleClass="form-control">
-											<html:optionsCollection property="comboIndicator" value="id" label="nameShort"/>
-										</html:select>
-									</div>	
-				</div>   --%>
+				
 				
 
 				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">

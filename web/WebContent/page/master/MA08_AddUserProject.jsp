@@ -171,6 +171,7 @@ html, body {
 										<th class="text-center">ลำดับ</th>
 										<th class="text-center">ชื่อผู้ใช้</th>
 										<th class="text-center">ชื่อจริง</th>
+										<th class="text-center">นามสกุล</th>
 									
 										<th class="text-center"></th>
 										
@@ -182,8 +183,10 @@ html, body {
 										<tr class="att" >
 										
 											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id}</td>
-											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user.username}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user.user_firstname}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user.user_lastname}</td>
+											
 											</div>
 
 											<td align="center" >

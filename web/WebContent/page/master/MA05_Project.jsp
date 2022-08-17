@@ -269,7 +269,7 @@ html, body {
 
 											<td align="center">
 
-												<button type="button" onclick="submitFormInit('initUserProject')"
+												<button type="button" onclick="submitFormEdit('${item.id}','showUserProject')"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
 												</button>

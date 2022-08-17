@@ -474,6 +474,8 @@ public class LoginAction extends CoreAction {
 			User obj = (User) getObjectSession(request, SESSION_USER);
 			System.out.println(obj.getUsername());
 			
+			
+			
 //			UserPrefix entity = null;
 //			entity = new UserPrefix();
 //			entity.setPrefix_name(dynaForm.getString("newuser"));
@@ -489,8 +491,16 @@ public class LoginAction extends CoreAction {
 		
 			customer.setId(Integer.parseInt(dynaForm.getString("id_customerSelected")));
 			entity.setId_customer(customer);
-
-////			
+			
+			UserProject entityUserProject = null;
+			entityUserProject = new UserProject();
+			entityUserProject.setId_project(entity);
+			
+			entityUserProject.setId_user(obj);
+			entityUserProject.setCreateBy(obj.getUsername());
+			entityUserProject.setCreateDate(DateTimeUtil.getSystemDate());
+			entityUserProject.setUpdateBy(obj.getUsername());
+			entityUserProject.setUpdateDate(DateTimeUtil.getSystemDate());
 
 //
 			
@@ -498,6 +508,7 @@ public class LoginAction extends CoreAction {
 			
 //			User merge = UserService.mergeItem(entity);
 			projectService.saveOrUpdateItem(entity);
+			userProjectService.saveOrUpdateItem(entityUserProject);
 //			userPrefixService.saveOrUpdateItem(entity);
 //			
 		} catch (Exception e) {
@@ -542,7 +553,7 @@ public class LoginAction extends CoreAction {
 //		 String company = String.valueOf(obj.getId_company().getId());
 		 try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			List<UserProject> userProjectList = userProjectService.getUserProject("6");
+			List<UserProject> userProjectList = userProjectService.getUserProject(dynaForm.getString("id"));
 		
 			UserProject userProject = userProjectList.iterator().next();
 //				
@@ -562,7 +573,7 @@ public class LoginAction extends CoreAction {
 			e.printStackTrace();
 		}
 
-		return mapping.findForward("MA05");
+		return mapping.findForward("MA08");
 	}
 	
 	//แก้ไข สถานะ ของ request
