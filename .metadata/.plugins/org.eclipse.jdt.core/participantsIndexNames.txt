@@ -1,9 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\pongs\Desktop\GTT Project\servicetracking2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2877015270.index
-\web\src
-C:\Users\pongs\Desktop\GTT Project\servicetracking2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2315654186.index
-\web\src
-C:\Users\pongs\Desktop\GTT Project\servicetracking2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2128325409.index
-\web\src
-C:\Users\pongs\Desktop\GTT Project\servicetracking2\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1173007322.index
-\web\src

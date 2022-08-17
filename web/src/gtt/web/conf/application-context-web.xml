@@ -24,6 +24,9 @@
 		<property name="projectService">
 			<ref bean="projectService" />
 		</property>
+			<property name="requestStatusService">
+			<ref bean="requestStatusService" />
+		</property>
 	</bean>
 	
 	

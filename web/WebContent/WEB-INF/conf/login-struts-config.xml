@@ -50,14 +50,19 @@
 			<form-property name="newphone" type="java.lang.String" />
 			<form-property name="projectindi" type="java.lang.String" />
 			<form-property name="nickname" type="java.lang.String" />
+			<form-property name="id_request_status" type="java.lang.String" />
+			<form-property name="id_request" type="java.lang.String" />
 			
-			
-			
+			<form-property name="projectName" type="java.lang.String" />
+			<form-property name="requestTitle" type="java.lang.String" />
+			<form-property name="requestRemark" type="java.lang.String" />
+			<form-property name="statusName" type="java.lang.String" />
 			
 			
 			<form-property name="resultProjectList" type="java.util.ArrayList" />
 			<form-property name="resultRequestList" type="java.util.ArrayList" />
 			<form-property name="comboIndicator" type="java.util.ArrayList" />
+			<form-property name="comboRequestStatus" type="java.util.List" />
 			
 			
 			

@@ -27,6 +27,10 @@ public class RequestStatus extends CoreEntity {
 		public RequestStatus() {
 			
 		}
+		
+		public RequestStatus(int id) {
+			this.setId(id);
+		}
 
 
 		public int getId() {
