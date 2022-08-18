@@ -12,5 +12,6 @@ public interface RequestDao extends CoreDao<Request, Serializable>
 {
 	public List findRequestList(String id)throws DataAccessException;
 	public List findReqByCustomer(String id) throws DataAccessException;
+	List findRequestById(String id) throws DataAccessException;
 
 }

@@ -170,32 +170,20 @@ html, body {
 
 <body>
 	<script type="text/javascript">
-	function add() {
-// 		Swal.fire({
-// 			  title: 'Are you sure?',
-// 			  text: "You want to logout!",
-// 			  icon: 'warning',
-// 			  showCancelButton: true,
-// 			  confirmButtonColor: '#3085d6',
-// 			  cancelButtonColor: '#d33',
-// 			  confirmButtonText: 'Yes'
-// 			}).then((result) => {
-// 				if(result.isConfirmed){
-// 					document.forms[0].mode.value = "addRequest";
-// 					document.forms[0].submit();
-// 				}
-			    
-// 			  })
-			document.forms[0].mode.value = "addRequest";
-			document.forms[0].submit();
-	}
-
+	
+	
 	function submitEnter() {
 		if (checkKeyEnter() == true) submitFormLogin();
 	}
 	
 	function checkKeyEnter(){
 		   if(event.keyCode==13) return true;
+	}
+	
+	
+	function edit(ids){
+		document.forms[0].mode.value = 'editRequest';
+   	 	document.forms[0].submit();
 	}
 		
 	</script>
@@ -209,50 +197,43 @@ html, body {
 		
 		<div class="inthebox">
 
-			<html:form action="/index" styleId="eduForm">
+		<html:form action="/index" styleId="eduForm">
 			<html:hidden property="mode"/>
-	<div class="topbar">
+	    	<html:hidden property="id"/>
+	    	<html:hidden property="ids"/>
+			<div class="topbar">
 
 	
-		<section id="main-content">
-		<section class="wrapper">
-         <div>
-         	<h2>รายงานปัญหา</h2>
-         	<label>ชื่อโครงการ</label>
-         	<html:select property="id_project" styleClass="form-control">
-         		<<html:option value="">Select your project</html:option>
+			<section id="main-content">
+			<section class="wrapper">
+         		<div>
+         			<h2>แก้ไขรายงานปัญหา</h2>
+									<label>หัวข้อ : </label> 
+									<html:text property="edit_title" styleId="edit_title" styleClass="form-control"></html:text>
+								
+									<label>โครงการ : </label>
+									<html:select property="id_project" styleClass="form-control">
+										<html:optionsCollection property="projectList" value="id" label="project_name" /> 
+									</html:select>
 
-				<html:optionsCollection property="projectList" value="id" label="project_name" />
-			</html:select> 
-         </div>
-         
-         <div>
-         	<label>หัวข้อปัญหา</label>
-         	<html:text property="request_title" onkeypress="submitEnter();" styleClass="form-control" styleId="title" placeHolder="หัวข้อปัญหา" maxlength="10%" />
-         </div>
-         
-        <div>
-        <label>Select a file to upload: </label>
-         <input property="request_file" type = "file" accept=".pdf, .png, .jpg, .jpeg"/>
-        </div>
-        
-        <div>
-        <label>ปัญหาที่เกิด</label>
-         <html:text property="request_remark" onkeypress="submitEnter();" styleClass="form-control" styleId="remark" placeHolder="ปัญหาที่เกิด" />
-        </div>
-         
-         <button class="btn-blue btn-sm" onClick="add()">add</button>
-        
-         
-         
-		</section>
-		</section>
-</div>
- </html>
-</html:form>   
+									<label>รายละเอียด : </label>
+									<html:text property="edit_remark" styleId="edit_remark" styleClass="form-control"></html:text>
+									
+									<label>ไฟล์ : </label>
+									<html:file property="edit_file" styleId="edit_file" styleClass="form-control"></html:file>
+									
+									<button class="btn btn-primary" onClick="edit()">Save</button>
+								</div>
+			</section>
+			</section>
+			</div>
+ 			</html>
+		</html:form>   
 		</div>
 	
 </body>
+
+
 
 
 </html>

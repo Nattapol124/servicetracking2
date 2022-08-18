@@ -58,6 +58,7 @@ public abstract class CoreAction extends DispatchActionSupport {
 
 	public static final String SESSION_USER_ONLINE = "SSUserOnlineCounter";
 	public static final String SESSION_USER = "SSUser";
+	public static final String SESSION_REQ = "SSReq";
 	public static final String SESSION_DEFAULT_YEAR = "SSDefaultYear";
 
 	public static final String LOG_STATUS = "SSLogStatus";

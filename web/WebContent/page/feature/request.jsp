@@ -170,11 +170,47 @@ html, body {
 
 <body>
 	<script type="text/javascript">
-	function add(){
-		document.forms[0].mode.value = "requestBtn";
-		document.forms[0].submit();
-	}
-	
+// 	$(document).ready(function() {
+// 		$('#edit_title').attr('autocomplete','off');
+// 		$('#edit_remark').attr('autocomplete','off');
+// 		$('#edit_file').attr('autocomplete','off');
+// 		$('#edit_title').val('');
+// 		$('#edit_remark').val('');
+// 		$('#edit_file').val('');
+		
+// 		jQuery.ajaxSetup({
+// 			  beforeSend: function() {
+// 			     $('#loader').show();
+// 			  },
+// 			  complete: function(){
+// 			     $('#loader').hide();
+// 			  },
+// 			  success: function() {}
+// 		});
+
+		
+// 		$("#indexForm").validate({
+// 			rules: {
+// 				edit_title: "required",
+// 				edit_remark: "required",
+// 			},
+// 			highlight: function(element) {
+// 	            $(element).closest('.form-control').addClass('has-error-input');
+// 	        },
+// 	        unhighlight: function(element) {
+// 	            $(element).closest('.form-control').removeClass('has-error-input');
+// 	        },
+// 	        errorElement: 'span',
+// 	        errorClass: 'has-error-block',
+// 	        errorPlacement: function(error, element) {},
+// 	      	submitHandler: function(form) {
+// 	      		document.forms[0].mode.value = 'editRequest';
+// 		   	 	document.forms[0].submit();
+// 			}
+// 		});
+		
+// 	});
+
 	
 	function del(id){
 		Swal.fire({
@@ -187,28 +223,9 @@ html, body {
 			  confirmButtonText: 'Yes'
 			}).then((result) => {
 				if(result.isConfirmed){
-					document.forms[0].mode.value = 'deleteRequest';
+					document.forms[0].mode.value = "deleteRequest";
 					document.forms[0].ids.value = id;
 					document.forms[0].submit();
-				}
-			    
-			  })
-	}
-	
-	function edit(ids){
-		Swal.fire({
-			  title: 'Are you sure?',
-			  text: "You want to save change!",
-			  icon: 'warning',
-			  showCancelButton: true,
-			  confirmButtonColor: '#3085d6',
-			  cancelButtonColor: '#d33',
-			  confirmButtonText: 'Yes'
-			}).then((result) => {
-				if(result.isConfirmed){
-					document.forms[0].mode.value = "editRequest";
-					  document.forms[0].ids.value = ids;
-					  document.forms[0].submit();
 				}
 			    
 			  })
@@ -231,7 +248,47 @@ html, body {
 		    }       
 		  }
 		}
-		
+	
+	function edit(ids){
+// 		$.post("${pageContext.request.contextPath}/index.htm?mode=editRequest",
+// 				{
+// 					pids: ids
+// 				}, function(data) {
+// 					if (data != null) {
+// 						$('#edit_title').val(data[0].edit_title);
+// 						$('#edit_remark').val(data[0].edit_remark);
+// 						$('#edit_file').val(data[0].edit_file);
+// 					}
+// 				},'json');
+		document.forms[0].mode.value = "getEdit";
+		document.forms[0].ids.value = ids;
+		document.forms[0].submit();
+// 		$("#indexForm").submit();
+// 		Swal.fire({
+// 			  title: 'Are you sure?',
+// 			  text: "You want to save change!",
+// 			  icon: 'warning',
+// 			  showCancelButton: true,
+// 			  confirmButtonColor: '#3085d6',
+// 			  cancelButtonColor: '#d33',
+// 			  confirmButtonText: 'Yes'
+// 			}).then((result) => {
+// 				if(result.isConfirmed){
+					
+// // 					document.forms[0].action = 'index.htm?mode=editRequest';
+
+// 					document.forms[0].mode.value = "editRequest";
+// 					document.forms[0].ids.value = ids;
+// // 					document.forms[0].edit_title.value = edit_title;
+// 			   	 	document.forms[0].submit();
+					
+					
+// // 					document.forms[0].submit();
+// 				}
+			    
+// 			  })
+	}
+ 	
 	</script>
 
 	<%@ include file="/page/inc_menu.jsp"%>
@@ -243,11 +300,11 @@ html, body {
 		
 		<div class="inthebox">
 
-			<html:form action="/index" styleId="indexForm" >
+			<html:form action="/index" styleId="indexForm" styleClass="form-horizontal form-validate">
 	<html:hidden property="mode"/>
 	<html:hidden property="id"/>
 	<html:hidden property="ids"/>
-	<html:hidden property="ide"/>
+	<html:hidden property="edit_title"/>
 	<section class="ftco-section">
 		<div class="container">
 		<div class="wrapper">
@@ -310,6 +367,9 @@ html, body {
 									<td align="center"><a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name }</a></td>
 
 								</c:if>
+
+
+		
 								
 								
 <%-- 									<td>${item.request_type.name }</td> --%>
@@ -320,7 +380,9 @@ html, body {
 <%-- 								<td>${item.file }</td> --%>
 								<c:if test="${item.id_request_status.id eq '1' }">
 									<td>
-										<button type="button" data-bs-toggle="modal" data-bs-target="#editModal${item.id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>edit</button>
+<%-- 										<button type="button" data-bs-toggle="modal" data-bs-target="#editModal${item.id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>edit</button> --%>
+										<button type="button" onclick="edit('${item.id}')" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>edit</button>
+										
 										<button type="button" onclick="del('${item.id}')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>delete</button>
 									</td>
 								
@@ -357,36 +419,38 @@ html, body {
 														</div>
 													</div>
 												</div>
-												
-												<div class="modal fade" id="editModal${item.id}" tabindex="-1"
-													role="dialog" aria-labelledby="exampleModalLabel"
-													aria-hidden="true">
-													<div class="modal-dialog" role="document">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">แก้ไข : ${item.request_title }</h5>
-															</div>
-															<div class="modal-body">
-																<label>หัวข้อ : </label>
-																<input type="text" property="edit_title" styleId="edit_title" class="form-control" value="${item.request_title }" required>
+<!-- 												<form method="POST"> -->
+<%-- 												<div class="modal fade" id="editModal${item.id}" tabindex="-1" --%>
+<!-- 													role="dialog" aria-labelledby="exampleModalLabel" -->
+<!-- 													aria-hidden="true"> -->
+<!-- 													<form method="POST"> -->
+<!-- 													<div class="modal-dialog" role="document"> -->
+<!-- 														<div class="modal-content"> -->
+<!-- 															<div class="modal-header"> -->
+<%-- 																<h5 class="modal-title" id="exampleModalLabel">แก้ไข : ${item.request_title }</h5> --%>
+<!-- 															</div> -->
+<!-- 															<div class="modal-body"> -->
+<!-- 																<label>หัวข้อ : </label> -->
+<%-- 																<input type="text" property="edit_title" styleId="edit_title" class="form-control" value="${item.request_title }" required> --%>
 																
-																<label>โครงการ : </label>
-																<html:select property="id" styleClass="form-control">	
-																	<html:optionsCollection property="projectList" value="id" label="project_name" />
-																</html:select>
+<!-- 																<label>โครงการ : </label> -->
+<%-- 																<html:select property="id" styleClass="form-control">	 --%>
+<%-- 																	<html:optionsCollection property="projectList" value="id" label="project_name" /> --%>
+<%-- 																</html:select> --%>
 																
-																<label>รายละเอียด : </label>
-																<input type="text" property="edit_remark" styleId="edit_remark" class="form-control" value="${item.request_remark }" required>
-																<label>ไฟล์ : </label>
-																<input type="file" property="edit_file" styleId="edit_file" class="form-control" value="${item.request_file }" required>
+<!-- 																<label>รายละเอียด : </label> -->
+<%-- 																<input type="text" property="edit_remark" styleId="edit_remark" class="form-control" value="${item.request_remark }" required> --%>
+<!-- 																<label>ไฟล์ : </label> -->
+<%-- 																<input type="file" property="edit_file" styleId="edit_file" class="form-control" value="${item.request_file }" required> --%>
 
-															</div>
-															<div class="modal-footer">
-																<button type="submit" class="btn btn-primary" onclick="edit('${item.id}')">Save Change</button>
-																<button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
-															</div>
-														</div>
-													</div>
+<!-- 															</div> -->
+<!-- 															<div class="modal-footer"> -->
+<%-- 																<button type="button" class="btn btn-primary" onclick="edit('${item.id}')">Save Change</button> --%>
+<!-- 																<button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button> -->
+<!-- 															</div> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 													</form> -->
 												</div>
 
 								</logic:iterate>
@@ -396,7 +460,7 @@ html, body {
 					</logic:notEmpty>
 					</logic:present>
 					</div>
-					<button class="btn-blue btn-sm" onclick="add()">รายงานปัญหา</button>
+				
 				</div>
 				
 			</div>
@@ -405,11 +469,6 @@ html, body {
 	</section>
 	
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-  
 
 	
 	</html>
@@ -417,10 +476,5 @@ html, body {
 		</div>
 </body>
 
-
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 
 </html>

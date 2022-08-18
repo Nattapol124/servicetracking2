@@ -63,7 +63,7 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 	}
 	@Override
 	public List<Project> getProject(String userId) throws DataAccessException{
-		String sql = "select project.project_name, project.id_customer from project "
+		String sql = "select project.project_name, project.id_customer,project.id_project from project "
 				+ "inner join userproject on project.id_project = userproject.id_project "
 				+ "where userproject.id_user =" + userId;
 		
@@ -73,6 +73,7 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 			for(Object[] obj : objectList) {
 				Project project = new Project();
 				project.setProject_name(String.valueOf(obj[0]));
+				project.setId(Integer.parseInt(String.valueOf(obj[2])));
 				Company customer = new Company();
 				customer.setId(Integer.parseInt(String.valueOf(obj[1])));
 				project.setId_customer(customer);

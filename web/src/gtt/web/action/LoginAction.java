@@ -68,17 +68,6 @@ public class LoginAction extends CoreAction {
 			List<User> users = userService.getLogin(dynaForm.getString("un"), dynaForm.getString("pw"));
 			if (users != null && users.size() > 0)  {
 				User user = users.iterator().next();
-//				dynaForm.set("un",user.getUsername());
-//				dynaForm.set("pw", user.getPassword());
-//				dynaForm.set("firstname", user.getUser_firstname());
-//				dynaForm.set("lastname", user.getUser_lastname());
-//				dynaForm.set("email", user.getUser_email());
-//				dynaForm.set("phone", user.getUser_phone());
-//				String id_comp = String.valueOf(user.getId_company().getId());
-//				String id_comp2 = Integer.toString(user.getId_company().getId());
-//				String id_comp3 = String.format("%d",user.getId_company().getId());
-//				System.out.println("id_comp : "+ id_comp + " , id_comp2 : " + id_comp2 + " id_comp3 : " + id_comp3);
-//				dynaForm.set("company", "gggggg");
 
 				setObjectSession(request, SESSION_USER, user);
 			} else {

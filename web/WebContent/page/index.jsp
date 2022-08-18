@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <%@page contentType="text/html; charset=utf-8"%>
 <%@taglib uri="/tld/struts-html.tld" prefix="html"%>
 <%@taglib uri="/tld/struts-logic.tld" prefix="logic"%>

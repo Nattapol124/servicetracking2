@@ -26,4 +26,8 @@ implements RequestService{
 	public List getReqByCustomer(String id) throws DataAccessException {
 		return requestDao.findReqByCustomer(id);
 	}
+	@Override
+	public List getReqById(String id) throws DataAccessException {
+		return requestDao.findRequestById(id);
+	}
 }
