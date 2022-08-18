@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="siteForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="id" type="java.lang.String" />
+			<form-property name="mode" type="java.lang.String" />
+			
+			<form-property name="username" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+			<form-property name="passwordConfirm" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="remember" type="java.lang.String" />
+			<form-property name="userType" type="java.lang.String" />
+			<form-property name="prefixId" type="java.lang.String" />
+			<form-property name="organizationId" type="java.lang.String" />
+			<form-property name="firstName" type="java.lang.String" />
+			<form-property name="lastName" type="java.lang.String" />
+			<form-property name="gender" type="java.lang.String" />
+			<form-property name="personId" type="java.lang.String" />
+			<form-property name="phone" type="java.lang.String" />
+			<form-property name="smeId" type="java.lang.String" />
+			<form-property name="position" type="java.lang.String" />
+			
+			<form-property name="uploadFile" type="org.apache.struts.upload.FormFile" />
+			
+			<form-property name="ssUser" type="com.sme.server.user.entity.Account" />
+			
+			<form-property name="comboPrefix" type="java.util.List" />
+			<form-property name="comboOrganization" type="java.util.List" />
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action name="siteForm" scope="session" parameter="mode" path="/site"
+			type="org.springframework.web.struts.DelegatingActionProxy">
+
+			<!-- Font-end -->
+			<forward name="FA01" path="/page/FA01_index.jsp" />
+			<forward name="FA02" path="/page/FA02_signin.jsp" />
+			<forward name="FA03" path="/page/FA03_signup.jsp" />
+			
+			<forward name="FB01" path="/page/FB01_profile.jsp" />
+			<forward name="FB02" path="/page/FB02_course_favorite.jsp" />
+			<forward name="FB03" path="/page/FB03_course_online.jsp" />
+			<forward name="FB04" path="/page/FB04_cert.jsp" />
+			
+			
+			<forward name="course" path="/page/course.jsp" />
+			<forward name="course2" path="/page/course2.jsp" />
+			<forward name="course_detail" path="/page/course_detail.jsp" />
+			<forward name="course_watch" path="/page/course_watch.jsp" />
+			<forward name="video" path="/page/video.jsp" />
+			<forward name="teacher" path="/page/teacher.jsp" />
+			<forward name="other" path="/page/other.jsp" />
+
+			<forward name="json_tag" path="/page/json_tag.jsp" />
+			<forward name="redirect" path="/page/redirect.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>
