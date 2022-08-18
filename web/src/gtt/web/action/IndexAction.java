@@ -186,8 +186,8 @@ public class IndexAction extends CoreAction {
 			User user = (User) getObjectSession(request, SESSION_USER);
 			String id = dynaForm.getString("ids");
 			Request req = requestService.getItem(Integer.parseInt(id));
-			Project project = projectService.getItem(dynaForm.getString("id_project"));
-			req.setId_project(project);
+//			Project project = projectService.getItem(dynaForm.getString("id_project"));
+//			req.setId_project(project);
 			req.setRequest_title(dynaForm.getString("edit_title"));
 			req.setRequest_file(dynaForm.getString("edit_file"));
 			req.setRequest_remark(dynaForm.getString("edit_remark"));

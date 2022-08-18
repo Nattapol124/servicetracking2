@@ -17,7 +17,7 @@
 			
 			<form-property name="projectList" type="java.util.List" />
 			
-			<form-property name="id_project" type="java.lang.String" />
+			<form-property name="id_project" type="java.lang.Integer" />
 			<form-property name="request_title" type="java.lang.String" />
 			<form-property name="request_file" type="java.lang.String" />
 			<form-property name="request_remark" type="java.lang.String" />
