@@ -113,20 +113,29 @@ html, body {
 		$(document).ready(
 				function() {
 					
-					 $('#newproject').val('');
-					 $('#newproject').val('');
+					 $('#newcompanyname').val('');
+					 $('#newcompanyaddress').val('');
+					 $('#newcompanyphone').val('');
+					 $('#newcompanyfax').val('');
+					 $('#newcompanyemail').val('');
 
 					$("#eduForm").validate(
 							{
 								rules : {
-									 newproject : {
+									newcompanyname : {
 										required: true,	
 										minlength : 3,
 					                },
-					                id_customerSelected :{
+					                newcompanyaddress :{
 					                	required: true,	
 					                },
-					               
+					                newcompanyphone :{
+					                	required: true,	
+					                }, newcompanyfax :{
+					                	required: true,	
+					                }, newcompanyemail :{
+					                	required: true,	
+					                },
 								},
 								highlight : function(element) {
 									$(element).closest('.form-control').addClass('has-error-input');
@@ -139,7 +148,7 @@ html, body {
 								errorPlacement : function(error, element) {
 								},
 								submitHandler : function(form) {
-									document.forms[0].mode.value = 'saveProject';
+									document.forms[0].mode.value = 'saveCompany';
 									document.forms[0].submit();
 								}
 							});
@@ -170,19 +179,13 @@ html, body {
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
 				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-8">
-						<button class="btn btn-primary" type="button"
-							onclick="submitFormInit('showProject')">
-							<i class="fa fa-users" aria-hidden="true"></i>
-							&nbsp;ดูรายชื่อบัญชีทั้งหมด
-						</button>
-					</div>
+					
 
 
 				</div>
 				<button type="button" data-bs-toggle="modal"
 					data-bs-target="#addProjectModal" class="btn btn-primary btn-xs">
-					<i class="fa fa-plus">เพิ่มโครงการ</i>
+					<i class="fa fa-plus">เพิ่มบริษัท</i>
 				</button>
 				<div class="modal fade" id="addProjectModal" tabindex="-1"
 					role="dialog" aria-labelledby="addProjectModalLabel"
@@ -194,15 +197,22 @@ html, body {
 							</div>
 							<div class="modal-body">
 								<label class="control-label col-sm-3">ชื่อโครงการ :</label>
-								<html:text property="newproject" styleId="newproject"
+								<html:text property="newcompanyname" styleId="newcompanyname"
 									styleClass="form-control"></html:text>
-								<label>บริษัทผู้ว่าจ้าง:</label>
-								<html:select property="id_customerSelected"
-									styleClass="form-control">
-									<option value="" disabled selected>Select your project</option>
-									<html:optionsCollection property="customerAddList" value="id"
-										label="company_name" />
-								</html:select>
+								<label class="control-label col-sm-3">ที่อยู่ :</label>
+								<html:text property="newcompanyaddress" styleId="newcompanyaddress"
+									styleClass="form-control"></html:text>
+								<label class="control-label col-sm-3">โทรศัพท์ :</label>
+								<html:text property="newcompanyphone" styleId="newcompanyphone"
+									styleClass="form-control"></html:text>
+								<label class="control-label col-sm-3">แฟกซ์ :</label>
+								<html:text property="newcompanyfax" styleId="newcompanyfax"
+									styleClass="form-control"></html:text>
+								<label class="control-label col-sm-3">อีเมล :</label>
+								<html:text property="newcompanyemail" styleId="newcompanyemail"
+									styleClass="form-control"></html:text>
+								
+								
 								
 								<div class="modal-footer">
 									<button type="button" class="btn btn-primary"
@@ -217,35 +227,37 @@ html, body {
 
 
 
-				<logic:present name="loginForm" property="resultProjectList">
-					<logic:notEmpty name="loginForm" property="resultProjectList">
+				<logic:present name="loginForm" property="customerAddList">
+					<logic:notEmpty name="loginForm" property="customerAddList">
 						<table cellspacing="0" width="100%"
 							class="table align-middle mb-0 ">
 							<a>
 								<thead>
 									<tr>
 										<th class="text-center">ลำดับ</th>
-										<th class="text-center">ชื่อโครงการ</th>
-										<th class="text-center">บริษัทผู้ว่าจ้าง</th>
-										<th class="text-center"></th>
+										<th class="text-center">บริษัท</th>
+										<th class="text-center">อีเมล</th>
+										<th class="text-center">โทรศัพท์</th>
 
 									</tr>
 								</thead>
 								<tbody>
 									<logic:iterate id="item" name="loginForm"
-										property="resultProjectList" indexId="index">
+										property="customerAddList" indexId="index">
 										<tr class="att">
-											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.company_name}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.company_email}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.company_phone}</td>
+											
 
 
 											<td align="center">
 
-												<button type="button" onclick="submitFormEdit('${item.id}','showUserProject')"
+												<%-- <button type="button" onclick="submitFormEdit('${item.id}','showUserProject')"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
-												</button>
+												</button> --%>
 
 											</td>
 											
@@ -261,30 +273,21 @@ html, body {
 														</div>
 														<div class="modal-body">
 															<label>ชื่อผู้ใช้ : </label> <input type="text"
-																class="form-control" value="${item.project_name }"
-																disabled> <label>ชื่อจริง : </label> <input
+																class="form-control" value="${item.company_name}"
+																disabled> 
+															<label>ที่อยู่ : </label> <input
 																type="text" class="form-control"
-																value="${item.id_customer.company_name }" disabled>
-																<div class="col-xl-6 mb-4">
-<%--     <div class="card">
-      <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-            />
-            <div class="ms-1">
-               ${item.project_name }
-            </div>
-          </div>
-        </div>
-      </div>
-     
-    </div>
-  </div> --%>
+																value="${item.company_address }" disabled>
+															<label>โทรศัพท์ : </label> <input
+																type="text" class="form-control"
+																value="${item.company_phone }" disabled>
+															<label>อีเมล : </label> <input
+																type="text" class="form-control"
+																value="${item.company_email }" disabled>
+															<label>แฟกซ์ : </label> <input
+																type="text" class="form-control"
+																value="${item.company_fax }" disabled>
+	
 																			
 
 

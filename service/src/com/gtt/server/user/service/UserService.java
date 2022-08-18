@@ -13,4 +13,6 @@ public interface UserService extends CoreService<User,Serializable>{
 //	public boolean saveUser(List<User> entityList);
 	public List getLogin(String username, String password) throws DataAccessException;
 	public List getUserList (String company) throws DataAccessException;
+	public List getaddUserList (String company,String id_company) throws DataAccessException;
+
 }

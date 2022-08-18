@@ -32,6 +32,11 @@ implements UserService
 		return userDao.findUserList(company);
 	}
 
+	@Override
+	public List getaddUserList(String company,String id_company) throws DataAccessException {
+		return userDao.findAddUserList(company,id_company);
+	}
+
 	
 
 	

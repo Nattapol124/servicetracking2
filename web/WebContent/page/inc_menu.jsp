@@ -56,7 +56,12 @@ $( '#topheader .navbar-nav a' ).on( 'click', function () {
           PROJECT
         </a>
       </li>
-   
+   	 <li>
+        <a href="login.htm?mode=showCompany" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+          Company
+        </a>
+      </li>
     </ul>
     <hr>
     <div class="dropdown" >

@@ -13,6 +13,7 @@ import org.apache.struts.action.DynaActionForm;
 import org.hibernate.type.BigIntegerType;
 
 import com.gtt.server.user.entity.Company;
+import com.gtt.server.user.entity.CompanyType;
 import com.gtt.server.user.entity.Project;
 import com.gtt.server.user.entity.Request;
 import com.gtt.server.user.entity.RequestStatus;
@@ -480,8 +481,7 @@ public class LoginAction extends CoreAction {
 //			entity = new UserPrefix();
 //			entity.setPrefix_name(dynaForm.getString("newuser"));
 //
-			Project entity = null;
-			entity = new Project();
+			Project entity = new Project();
 			entity.setCreateBy(obj.getUsername());
 			entity.setCreateDate(DateTimeUtil.getSystemDate());
 			entity.setUpdateBy(obj.getUsername());
@@ -547,26 +547,28 @@ public class LoginAction extends CoreAction {
 	}
 	
 	public ActionForward showUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		 User obj = (User) getObjectSession(request, SESSION_USER);
+		 User obj = (User) getObjectSession(request, SESSION_USER);
 //		 System.out.println(obj.getId_company().getId()+":sesssion");
 //		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
-//		 String company = String.valueOf(obj.getId_company().getId());
+		 String company = String.valueOf(obj.getId_company().getId());
 		 try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
+			System.out.println(dynaForm.getString("id")+"idsome");
 			List<UserProject> userProjectList = userProjectService.getUserProject(dynaForm.getString("id"));
-		
+			List<User> userAddToProjectList = userService.getaddUserList(dynaForm.getString("id"),company);
 			UserProject userProject = userProjectList.iterator().next();
-//				
 //			dynaForm.set("username", user.getUsername());
 //			dynaForm.set("user_firstName", user.getUser_firstname());
 //			dynaForm.set("user_lastName", user.getUser_lastname());
 //			dynaForm.set("user_email", user.getUser_email());
 //			dynaForm.set("user_phone", user.getUser_phone());
+			dynaForm.set("userAddToProjectList", userAddToProjectList);
+			request.setAttribute("userAddToProjectList", userAddToProjectList);
 
 			dynaForm.set("resultUserProjectList", userProjectList);
 			request.setAttribute("resultUserProjectList", userProjectList);
 
-			System.out.println(String.valueOf("UserProject"+userProjectList));
+			System.out.println((String.valueOf("UserProject"+userProjectList.size())));
 	
 
 		} catch (Exception e) {
@@ -575,7 +577,65 @@ public class LoginAction extends CoreAction {
 
 		return mapping.findForward("MA08");
 	}
-	
+	public ActionForward saveUserAddToProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			
+			DynaActionForm dynaForm = (DynaActionForm) form;
+
+
+			User obj = (User) getObjectSession(request, SESSION_USER);
+			System.out.println(obj.getUsername());
+			
+//
+//			UserProject entity = null;
+//			entity = new UserProject();
+//			entity.setCreateBy(obj.getUsername());
+//			entity.setCreateDate(DateTimeUtil.getSystemDate());
+//			entity.setUpdateBy(obj.getUsername());
+//			entity.setUpdateDate(DateTimeUtil.getSystemDate());
+//			entity.setId_user((User)getObjectSession(request, "userAddToProjectSelect"));
+			User entityUser = new User();
+			entityUser.setId(Integer.parseInt(dynaForm.getString("userAddToProjectSelect")));
+			Project entityProject = new Project();
+			entityProject.setId(Integer.parseInt(dynaForm.getString("id")));
+			UserProject entityUserProject = null;
+			entityUserProject = new UserProject();
+			entityUserProject.setId_project(entityProject);
+			System.out.println(entityProject+"idProject");
+
+			entityUserProject.setId_user(entityUser);
+			System.out.println(entityUser+"idUser");
+			entityUserProject.setCreateBy(obj.getUsername());
+			entityUserProject.setCreateDate(DateTimeUtil.getSystemDate());
+			entityUserProject.setUpdateBy(obj.getUsername());
+			entityUserProject.setUpdateDate(DateTimeUtil.getSystemDate());
+
+//
+			
+//		
+			
+//			User merge = UserService.mergeItem(entity);
+			
+			userProjectService.saveOrUpdateItem(entityUserProject);
+//			userPrefixService.saveOrUpdateItem(entity);
+//			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mappingForward(mapping, request, "mode", "showUserProject", "login.htm", "loginForm", null);
+	}
+	public ActionForward deleteUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			userProjectService.removeItem(Integer.parseInt(dynaForm.getString("ids")));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mappingForward(mapping, request, "mode", "showUserProject", "login.htm", "loginForm", null);
+	}
+
 	//แก้ไข สถานะ ของ request
 	public ActionForward editRequest (ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -595,7 +655,71 @@ public class LoginAction extends CoreAction {
 
 		return mappingForward(mapping, request, "mode", "showRequest", "login.htm", "loginForm", null);
 	}
+	public ActionForward showCompany(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		 User obj = (User) getObjectSession(request, SESSION_USER);
+//		 System.out.println(obj.getId_company().getId()+":sesssion");
+//		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
+		 String company = String.valueOf(obj.getId_company().getId());
+		 try {
+			DynaActionForm dynaForm = (DynaActionForm) form;
+			System.out.println(dynaForm.getString("id")+"idsome");
+			List<Company> companyList = companyService.getCustomerList(company);
+			Company companys = companyList.iterator().next();
 
+			
+
+			dynaForm.set("customerAddList", companyList);
+			request.setAttribute("customerAddList", companyList);
+
+			System.out.println((String.valueOf("UserProject"+companyList.size())));
+	
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return mapping.findForward("MA09");
+	}
+	public ActionForward saveCompany(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		try {
+			
+			DynaActionForm dynaForm = (DynaActionForm) form;
+
+
+			User obj = (User) getObjectSession(request, SESSION_USER);
+			System.out.println(obj.getUsername());
+			
+			
+			
+//			UserPrefix entity = null;
+//			entity = new UserPrefix();
+//			entity.setPrefix_name(dynaForm.getString("newuser"));
+//
+			Company entity = new Company();
+			entity.setCreateBy(obj.getUsername());
+			entity.setCreateDate(DateTimeUtil.getSystemDate());
+			entity.setUpdateBy(obj.getUsername());
+			entity.setUpdateDate(DateTimeUtil.getSystemDate());
+			entity.setCompany_name(dynaForm.getString("newcompanyname"));
+			entity.setCompany_address(dynaForm.getString("newcompanyaddress"));
+			entity.setCompany_phone(dynaForm.getString("newcompanyphone"));
+			entity.setCompany_fax(dynaForm.getString("newcompanyfax"));
+			entity.setCompany_email(dynaForm.getString("newcompanyemail"));
+			CompanyType entityCompanyType = new CompanyType();
+			entityCompanyType.setId(1);
+			entity.setId_company_type(entityCompanyType);
+			
+//		
+			
+//			User merge = UserService.mergeItem(entity);
+			companyService.saveOrUpdateItem(entity);
+//			userPrefixService.saveOrUpdateItem(entity);
+//			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mappingForward(mapping, request, "mode", "showCompany", "login.htm", "loginForm", null);
+	}
 	public ProjectService getProjectService() {
 		return projectService;
 	}

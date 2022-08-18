@@ -94,7 +94,7 @@ html, body {
 			    }
 			   })
 		}
-		function submitFormRemove(id) {
+		function submitFormRemove(ids) {
 			 
 			  Swal.fire({
 				     title: 'Are you sure?',
@@ -106,13 +106,10 @@ html, body {
 				     confirmButtonText: 'Yes'
 				   }).then((result) => {
 				    if(result.isConfirmed){
-				    	document.loginForm.mode.value = 'delete';
-						document.loginForm.id.value = id;
+				    	document.loginForm.mode.value = 'deleteUserProject';
+						document.loginForm.ids.value = ids;
 						document.loginForm.submit();
-						$(window).on('load',function(){
-					        $('#exampleModal${item.id}').modal('show');
-					    });
-			
+								
 				    }
 				       
 				     })
@@ -120,7 +117,38 @@ html, body {
 					
 				
 		}
+		$(document).ready(
+				function() {
+					
+					$("#eduForm").validate(
+							{
+								rules : {
+									 
+									userAddToProjectSelect :{
+					                	required: true,	
+					                },
+					               
+								},
+								highlight : function(element) {
+									$(element).closest('.form-control').addClass('has-error-input');
+								},
+								unhighlight : function(element) {
+									$(element).closest('.form-control').removeClass('has-error-input');
+								},
+								errorElement : 'span',
+								errorClass : 'has-error-block',
+								errorPlacement : function(error, element) {
+								},
+								submitHandler : function(form) {
+									document.forms[0].mode.value = 'saveUserAddToProject';
+									document.forms[0].submit();
+								}
+							});
+				});
 		
+		function submitFormSave() {
+			$("#eduForm").submit();
+		}
 		
 	</script>
 	<link rel="stylesheet"
@@ -147,14 +175,18 @@ html, body {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
+								<html:hidden property="ids" />
+				
 				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-8">
-						<button class="btn btn-primary" type="button"
-							onclick="submitFormInit('showUserProject')">
-							<i class="fa fa-users" aria-hidden="true"></i>
-							&nbsp;ดูรายชื่อบัญชีทั้งหมด
-						</button>
-					</div>
+					<html:select property="userAddToProjectSelect"
+									styleClass="form-control">
+									<option value="" disabled selected>เลือกผู้ใช้</option>
+									<html:optionsCollection property="userAddToProjectList" value="id"
+										label="username" />
+								</html:select>
+								<button type="button" class="btn btn-primary"
+										onclick="submitFormSave();">บันทึก</button>
+								
 
 				</div>
 				
@@ -189,8 +221,7 @@ html, body {
 											
 											</div>
 
-											<td align="center" >
-
+											<td align="center">
 												
 												<button type="button"
 													onclick="submitFormRemove('${item.id}');"
@@ -214,9 +245,9 @@ html, body {
 															</div>
 															<div class="modal-body">
 																<label>ชื่อผู้ใช้ : </label>
-																<input type="text" class="form-control" value="${item.id }" disabled>
+																<input type="text" class="form-control" value="${item.id_user.user_firstname}" disabled>
 																<label>ชื่อจริง : </label>
-																<input type="text" class="form-control" value="${item.id }" disabled>
+																<input type="text" class="form-control" value="${item.id_user.user_lastname}" disabled>
 																
 															</div>
 															<div class="modal-footer">
