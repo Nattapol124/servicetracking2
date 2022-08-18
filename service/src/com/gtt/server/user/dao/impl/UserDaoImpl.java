@@ -12,6 +12,7 @@ import com.core.dao.impl.CoreDaoImpl;
 import com.gtt.server.user.dao.UserDao;
 import com.gtt.server.user.entity.Company;
 import com.gtt.server.user.entity.User;
+import com.gtt.server.user.entity.UserPosition;
 import com.gtt.server.user.entity.UserType;
 
 
@@ -23,11 +24,18 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 	}
 	@Override
 	public List findLogin(String username, String password) throws DataAccessException {
-		String sql = "SELECT user.id_user, user.username,user.password,user.user_firstname,user.user_lastname,user.user_email,user.user_phone,user.id_customer,user.user_nickname,user.id_company FROM user WHERE username='"+username+"' AND password='"+password+"'";
+		String sql = "SELECT user.id_user, user.username, user.password, user.user_firstname, "
+				+ "user.user_lastname, user.user_email, user.user_phone, user.id_customer, "
+				+ "user.user_nickname, user.id_company, user.id_user_position, company.company_name, "
+				+ "userposition.position_name FROM user "
+				+ "inner join company on user.id_customer = company.id_company inner "
+				+ "join userposition on user.id_user_position = userposition.id_user_position "
+				+ "WHERE username="+"'"+username+"' AND password='"+password+"';";
 		List<User> results = new ArrayList<User>();
 		Company customer_results = new Company();
 		Company Company_results = new Company();
-
+		UserPosition UserPosition_results = new UserPosition();
+		
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		if(objectList != null && objectList.size()>0 ) {
 			for(Object[] obj : objectList){
@@ -42,8 +50,17 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 			customer_results.setId(Integer.parseInt(String.valueOf(obj[7])));
 			item.setId_customer(customer_results);
 			item.setNickname(String.valueOf(obj[8]));
+			
 			Company_results.setId(Integer.parseInt(String.valueOf(obj[9])));
+			Company_results.setCompany_name(String.valueOf(obj[11]));
 			item.setId_company(Company_results);
+			
+			
+			UserPosition_results.setId(Integer.parseInt(String.valueOf(obj[10])));
+			UserPosition_results.setPosition_name(String.valueOf(obj[12]));
+			item.setId_user_position(UserPosition_results);
+			
+			
 			results.add(item);
 		}
 	}
@@ -53,7 +70,8 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 	@Override
 	public List	findUserList(String company) throws DataAccessException {
 		System.out.println(company+" :test passvalue");
-		String sql = " SELECT id_user,username,user_firstname,user_lastname,user_email,user_phone,id_company,user_nickname FROM user WHERE id_company='"+company+"'";
+		String sql = " SELECT id_user,username,user_firstname,user_lastname,user_email,user_phone,id_company,user_nickname FROM user "
+				+ "WHERE id_company='"+company+"'";
 		List<User> results = new ArrayList<User>();
 		Company Company_results = new Company();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
@@ -65,6 +83,7 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 			item.setUser_lastname(String.valueOf(obj[3]));
 			item.setUser_email(String.valueOf(obj[4]));
 			item.setUser_phone(String.valueOf(obj[5]));
+			
 			Company_results.setId(Integer.parseInt(String.valueOf(obj[6])));
 			item.setId_company(Company_results);
 			item.setNickname(String.valueOf(obj[7]));

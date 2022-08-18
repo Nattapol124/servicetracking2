@@ -1,6 +1,9 @@
 package com.gtt.server.user.service.impl;
 
 import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
 
 import com.core.dao.CoreDao;
 import com.core.service.impl.CoreServiceImpl;
@@ -15,6 +18,11 @@ implements RequestStatusService{
 		super(requestStatusDao);
 		this.requestStatusDao = requestStatusDao;
 		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public List getAll() throws DataAccessException {
+		return requestStatusDao.findAll();
 	}
 
 }

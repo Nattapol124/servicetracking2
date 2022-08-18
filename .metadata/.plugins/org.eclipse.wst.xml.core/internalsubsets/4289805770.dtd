@@ -1,1 +1,0 @@
- <!ELEMENT name (name*) ><!ATTLIST nameConstant id ID #REQUIRED> 

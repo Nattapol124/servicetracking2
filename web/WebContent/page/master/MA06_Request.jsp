@@ -200,6 +200,27 @@ html, body {
 
 <body>
 	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#eduForm").validate({
+			rules: {
+				id_request_status: "required",
+
+			},
+			highlight: function(element) {
+	            $(element).closest('.form-control').addClass('has-error-input');
+	        },
+	        unhighlight: function(element) {
+	            $(element).closest('.form-control').removeClass('has-error-input');
+	        },
+	        errorElement: 'span',
+	        errorClass: 'has-error-block',
+	        errorPlacement: function(error, element) {},
+	      	submitHandler: function(form) {
+	      		document.forms[0].mode.value = 'editRequest';
+		   	 	document.forms[0].submit();
+			}
+		});
+	});
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -221,17 +242,24 @@ html, body {
 				     cancelButtonColor: '#d33',
 				     confirmButtonText: 'Yes'
 				   }).then((result) => {
-				    if(result.isConfirmed){
-				    	document.loginForm.mode.value = 'delete';
-						document.loginForm.id.value = id;
-						document.loginForm.submit();
+				    	if(result.isConfirmed){
+				    		document.loginForm.mode.value = 'delete';
+							document.loginForm.id.value = id;
+							document.loginForm.submit();
 			
-				    }
+				    	}
 				       
-				     })
-			
-							
-				
+				     })	
+		}
+		
+		 function togglePopup() {
+			 document.getElementById("popup-1")
+			 .classList.toggle("active");
+		}
+		 
+		function submitFormSave(id) {
+			document.loginForm.id.value = id;
+			$("#eduForm").submit();
 		}
 		
 	</script>
@@ -260,15 +288,6 @@ html, body {
 					</div>
 
 				</div>
-				<%-- <div class="form-group">
-					        		<label class="control-label col-sm-3">ตัวชี้วัด :</label>
-									<div class="col-sm-4">
-										<html:select property="projectindi" styleClass="form-control">
-											<html:optionsCollection property="comboIndicator" value="id" label="nameShort"/>
-										</html:select>
-									</div>	
-				</div>  
-	    				 --%>		
 				<logic:present name="loginForm" property="resultRequestList">
 					<logic:notEmpty name="loginForm" property="resultRequestList">
 						<table cellspacing="0" width="100%"
@@ -279,22 +298,35 @@ html, body {
 										<th class="text-center">ลำดับ</th>
 										<th class="text-center">ชื่อโครงการ</th>
 										<th class="text-center">หัวข้อ</th>
-										<th class="text-center">คำอธืบาย</th>
+										<th class="text-center">คำอธิบาย</th>
+										<th class="text-center">สถานะ</th>
 									</tr>
 								</thead>
 								<tbody>
-									<logic:iterate id="item" name="loginForm" property="resultRequestList"
-										indexId="index">
+									<logic:iterate id="item" name="loginForm"
+										property="resultRequestList" indexId="index">
 										<tr class="att">
-											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 ">${item.id_project.project_name}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.request_title}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.request_remark}</td>
-										
+											<td align="center" class="fw-normal mb-1 "
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
+											<td align="center" class="fw-normal mb-1 "
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal${item.id}">${item.id_project.project_name}</td>
+											<td align="center" class="fw-normal mb-1 "
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal${item.id}">${item.request_title}</td>
+											<td align="center" class="fw-normal mb-1 "
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal${item.id}">${item.request_remark}</td>
+											<td align="center" class="fw-normal mb-1 "
+												data-bs-toggle="modal"
+												data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name}</td>
+
 
 											<td align="center">
 
-												<button type="button" onclick="togglePopup('${item}');"
+												<button type="button" data-bs-toggle="modal"
+													data-bs-target="#exampleModal${item.id}"
 													class="btn btn-primary btn-xs">
 													<i class="fa fa-edit"></i>
 												</button>
@@ -304,48 +336,52 @@ html, body {
 													<i class="fa fa-trash-o"></i>
 												</button>
 											</td>
-										<!-- 	<td>
-											1
-											<div class="popup" id="popup-1">
-													<div class="content">
-														<div class="close-btn" onclick="togglePopup()">×</div> -->
 
-													<%-- 	<h1>Sign in</h1>
-														<span align="left">ชื่อผู้ใช้</span>
-														<div class="input-field" >
-															<input placeholder='${item.username}'
-																class="validate">
+											<div class="modal fade" id="exampleModal${item.id}"
+												tabindex="-1" role="dialog"
+												aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+													<div class="modal-content">
+														<div class="modal-header">
+															<h5 class="modal-title" id="exampleModalLabel">แก้ไขสถานะ</h5>
 														</div>
-														<span align="left">ชื่อผู้ใช้</span>
-													
-														<div class="input-field">
-															<input placeholder="${item.user_firstname}" class="validate">
+														<div class="modal-body">
+															<label>ชื่อโครงการ : </label> 
+															<input type="text" class="form-control" value="${item.id_project.project_name}" disabled>
+															<label>หัวข้อ : </label> 
+															<input type="text" class="form-control" value="${item.request_title}" disabled> 
+															<label>คำอธิบาย : </label> 
+															<input type="text" class="form-control" value="${item.request_remark}" disabled> 
+															<label>สถานะ : </label> 
+<%-- 															<input type="text" class="form-control" value="${item.id_request_status.status_name}" disabled> --%>
+															<html:select property="id_request_status" styleClass="form-control">
+																<html:optionsCollection property="comboRequestStatus" value="id" label="status_name"/>
+															</html:select>
+															
+<!-- 															<div class="form-group"> -->
+<!-- 																<label class="control-label col-sm-3">หัวข้อ :</label> -->
+<!-- 																<div class="col-sm-3"> -->
+<!-- 																	<fieldset disabled> -->
+<%-- 																		<html:text property="projectName" styleId="projectName" styleClass="form-control"></html:text> --%>
+<!-- 																	</fieldset> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+															
 														</div>
-														<span align="left">นามสกุล</span>
-														<div class="input-field">
-															<input placeholder="lastname" class="validate">
-														</div>
-														<span align="left">email</span>
-														<div class="input-field">
-															<input placeholder="email" class="validate">
-														</div>
-														<span align="left">เบอร์</span>
-														<div class="input-field">
-															<input placeholder="phone" class="validate">
-														</div>
-														<span align="left">ชื่อเล่น</span>
-														<div class="input-field">
-															<input placeholder="nickname" class="validate">
-														</div>
-														<span align="left">บริษัท</span>
-														<div class="input-field">
-															<input placeholder="company" class="validate">
-														</div>
-<!-- 														<button class="second-button">Sign in</button>
- -->
+						
 
-													</div> --%>
+														<div class="modal-footer">
+															<button class="btn btn-primary" type="button" onclick="submitFormSave('${item.id}');"><i class="fa fa-save" aria-hidden="true"></i> &nbsp;บันทึก</button>
+															<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ออก</button>
+														</div>
+
+													</div>
+
 												</div>
+
+											</div>
+
+											</div>
 											</td>
 										</tr>
 									</logic:iterate>
@@ -356,57 +392,6 @@ html, body {
 				</logic:present>
 			</html:form>
 		</div>
-		<script>
- function togglePopup() {
- document.getElementById("popup-1")
-  .classList.toggle("active");
-}
-</script>
-		<!-- <table class="table align-middle mb-0 ">
-  <thead class="bg-light">
-    <tr>
-       <th  class="text-center">ลำดับ</th>
-       <th class="text-center">ชื่อผู้ใช้</th>								          
-       <th class="text-center">ชื่อจริง</th>
-       <th class="text-center">นามสกุล</th>
-		<th class="text-center">เมล</th>
-	   <th class="text-center">เบอร์</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <div class="d-flex align-items-center">
-          <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-              />
-          <div class="ms-3">
-            <p class="fw-bold mb-1">John Doe</p>
-            <p class="text-muted mb-0">john.doe@gmail.com</p>
-          </div>
-        </div>
-      </td>
-      <td>
-        <p class="fw-normal mb-1">Software engineer</p>
-        <p class="text-muted mb-0">IT department</p>
-      </td>
-      <td>
-        <span class="badge badge-success rounded-pill d-inline">Active</span>
-      </td>
-      <td>Senior</td>
-      <td>
-        <button type="button" class="btn btn-link btn-sm btn-rounded">
-          Edit
-        </button>
-      </td>
-    </tr>
-    
-  </tbody>
-</table>
-   -->
 </body>
 
 
@@ -416,4 +401,3 @@ html, body {
 <script src="js/main.js"></script>
 
 </html>
-	

@@ -31,6 +31,16 @@
 	background: linear-gradient(to right, #00afda, #1b5dab);
 }
 </style>
+
+<script type="text/javascript">
+	function submitFormEdit(id, mode) {
+		document.loginForm.mode.value = mode;
+		document.loginForm.id.value = id;
+		document.loginForm.submit();
+	}
+</script>
+
+
 <style type="text/css">
 <script src="https://example.com/fontawesome/v6.1.1/js/all.js" data-auto-replace-svg="nest"></script>
 
@@ -40,7 +50,6 @@
   <div class="container">
     <!-- Navbar brand -->
     <!-- Search form -->
-  
     <!-- Toggle button -->
     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
       data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -73,7 +82,7 @@
             />
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="login.htm?mode=initProfile">My profile</a></li>
+            <li><a class="dropdown-item" href="login.htm?mode=initProfile" onclick="submitFormEdit('${SSUser.id}', 'initProfile')">My profile</a></li>
             <li><a class="dropdown-item" href="login.htm?mode=initChange">Change Password</a></li>
             <li><a class="dropdown-item" href="login.htm?mode=index">Logout</a></li>
           </ul>

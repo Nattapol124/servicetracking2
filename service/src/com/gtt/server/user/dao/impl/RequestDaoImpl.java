@@ -23,27 +23,39 @@ implements RequestDao{
 	@Override
 	public List findRequestList(String id)
 			throws DataAccessException{
-		String sql = "SELECT DISTINCT request.id_request,project.project_name,request.request_title,request.request_remark FROM request INNER JOIN project on request.id_project=project.id_project INNER JOIN user on project.id_customer=user.id_customer WHERE user.id_company='1' AND project.id_project='1'";
+		String sql = "SELECT DISTINCT request.id_request, project.project_name, request.request_title, "
+				+ "request.request_remark , requeststatus.status_name, requeststatus.id_request_status "
+				+ "FROM request "
+				+ "INNER JOIN project on request.id_project = project.id_project "
+				+ "INNER JOIN user on project.id_customer = user.id_customer "
+				+ "INNER JOIN requeststatus on requeststatus.id_request_status = request.id_request_status "
+				+ "WHERE user.id_company='"+ id + "'";
 		List<Request> results = new ArrayList<Request>();
-		Project projectresult = new Project();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		if(objectList != null && objectList.size()>0 ) {
 			for(Object[] obj : objectList){
-			Request item = new Request(Integer.parseInt(String.valueOf(obj[0])));
-			projectresult.setProject_name(String.valueOf(obj[1]));
-			item.setId_project(projectresult);
-			item.setRequest_title(String.valueOf(obj[2]));
-			item.setRequest_remark(String.valueOf(obj[3]));
-			results.add(item);
-			System.out.println(results);
+				Project projectresult = new Project();
+				RequestStatus requestStatusResult = new RequestStatus();
+				Request item = new Request(Integer.parseInt(String.valueOf(obj[0])));
+				projectresult.setProject_name(String.valueOf(obj[1]));
+				item.setId_project(projectresult);
+				item.setRequest_title(String.valueOf(obj[2]));
+				item.setRequest_remark(String.valueOf(obj[3]));
+				
+				requestStatusResult.setId(Integer.parseInt(String.valueOf(obj[5])));
+				requestStatusResult.setStatus_name(String.valueOf(obj[4]));
+				item.setId_request_status(requestStatusResult);
+				
+				results.add(item);
+				System.out.println(results);
+			}
 		}
-	}
 		return results;
-		
+
 	}
 	@Override
 	public List findReqByCustomer(String customerId) throws DataAccessException {	
-		
+
 		String sql = "select request.id_request, user.id_user, user.user_nickname, request.id_user_process"
 				+ ", requeststatus.id_request_status, requeststatus.status_name, requesttype.id_request_type"
 				+ ", requesttype.type_name, project.id_project, project.project_name, request.request_title"
@@ -53,11 +65,11 @@ implements RequestDao{
 				+ "inner join requesttype on request.id_request_type = requesttype.id_request_type "
 				+ "inner join project on request.id_project = project.id_project "
 				+ "where user.id_customer ="+customerId;
-		
+
 		List<Request> results =new ArrayList<Request>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
-		
-		
+
+
 		if(objectList != null && objectList.size() > 0) {
 			for (Object[] obj : objectList) {
 				User user = new User();
@@ -86,12 +98,13 @@ implements RequestDao{
 				item.setRequest_date((Date) obj[12]);
 				item.setRequest_file(String.valueOf(obj[13]));
 
-				
+
 				results.add(item);
 			}
-			
-			
+
+
 		}
 		return results;
 	}
+	
 }

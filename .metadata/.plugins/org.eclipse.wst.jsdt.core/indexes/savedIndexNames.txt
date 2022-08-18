@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\pongs\Desktop\GTT Project\servicetracking2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2419321094.index
-2765978866.index
-3334325020.index
-555373146.index
-3478637317.index
-1243057733.index
