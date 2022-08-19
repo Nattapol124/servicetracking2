@@ -182,7 +182,7 @@ html, body {
 									styleClass="form-control">
 									<option value="" disabled selected>เลือกผู้ใช้</option>
 									<html:optionsCollection property="userAddToProjectList" value="id"
-										label="username" />
+										label="fullName" />
 								</html:select>
 								<button type="button" class="btn btn-primary"
 										onclick="submitFormSave();">บันทึก</button>

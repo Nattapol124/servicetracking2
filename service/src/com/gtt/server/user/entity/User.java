@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.core.entity.CoreEntity;
 
@@ -50,7 +51,18 @@ public class User extends CoreEntity {
 	@JoinColumn(name = "id_customer")
 	private Company id_customer;
 	
+	@Transient
+	private String fullName;
 	
+	@Transient
+	public String getFullName() {
+		return user_firstname+" "+user_lastname;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
 	public User() {
 		
 	}

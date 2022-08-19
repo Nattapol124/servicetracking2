@@ -557,11 +557,6 @@ public class LoginAction extends CoreAction {
 			List<UserProject> userProjectList = userProjectService.getUserProject(dynaForm.getString("id"));
 			List<User> userAddToProjectList = userService.getaddUserList(dynaForm.getString("id"),company);
 			UserProject userProject = userProjectList.iterator().next();
-//			dynaForm.set("username", user.getUsername());
-//			dynaForm.set("user_firstName", user.getUser_firstname());
-//			dynaForm.set("user_lastName", user.getUser_lastname());
-//			dynaForm.set("user_email", user.getUser_email());
-//			dynaForm.set("user_phone", user.getUser_phone());
 			dynaForm.set("userAddToProjectList", userAddToProjectList);
 			request.setAttribute("userAddToProjectList", userAddToProjectList);
 
