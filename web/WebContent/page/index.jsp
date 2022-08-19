@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <%@page contentType="text/html; charset=utf-8"%>
 <%@taglib uri="/tld/struts-html.tld" prefix="html"%>
 <%@taglib uri="/tld/struts-logic.tld" prefix="logic"%>
@@ -165,9 +165,13 @@
 		<div class="logo" >
 			<img src="https://www.gtt2004.com/img/GTT_WHITE.png" alt="" width="200" height="220">    
 <<<<<<< HEAD
+<<<<<<< HEAD
 			
 =======
 >>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
+=======
+			Service Tracking
+>>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 		</div>
 		<div class="row" style="margin-top:10px">
 			<div id="main-login">

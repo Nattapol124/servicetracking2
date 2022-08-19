@@ -89,17 +89,6 @@ public class LoginAction extends CoreAction {
 			List<User> users = userService.getLogin(dynaForm.getString("un"), dynaForm.getString("pw"));
 			if (users != null && users.size() > 0) {
 				User user = users.iterator().next();
-//				dynaForm.set("un",user.getUsername());
-//				dynaForm.set("pw", user.getPassword());
-//				dynaForm.set("firstname", user.getUser_firstname());
-//				dynaForm.set("lastname", user.getUser_lastname());
-//				dynaForm.set("email", user.getUser_email());
-//				dynaForm.set("phone", user.getUser_phone());
-//				String id_comp = String.valueOf(user.getId_company().getId());
-//				String id_comp2 = Integer.toString(user.getId_company().getId());
-//				String id_comp3 = String.format("%d",user.getId_company().getId());
-//				System.out.println("id_comp : "+ id_comp + " , id_comp2 : " + id_comp2 + " id_comp3 : " + id_comp3);
-//				dynaForm.set("company", "gggggg");
 
 				setObjectSession(request, SESSION_USER, user);
 			} else {
@@ -110,6 +99,7 @@ public class LoginAction extends CoreAction {
 		}
 		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
 	}
+<<<<<<< HEAD
 
 	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -118,6 +108,13 @@ public class LoginAction extends CoreAction {
 		System.out.println("getobject: " + getObjectSession(request, SESSION_USER));
 		String company = String.valueOf(obj.getId_company().getId());
 		try {
+=======
+	
+	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		 User obj = (User) getObjectSession(request, SESSION_USER);
+		 String company = String.valueOf(obj.getId_company().getId());
+		 try {
+>>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			List<User> userList = userService.getUserList(company);
 			User user = userList.iterator().next();
@@ -131,7 +128,11 @@ public class LoginAction extends CoreAction {
 			dynaForm.set("resultList", userList);
 			request.setAttribute("resultList", userList);
 
+<<<<<<< HEAD
 			System.out.println(String.valueOf(userList));
+=======
+	
+>>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 
 		} catch (Exception e) {
 			e.printStackTrace();

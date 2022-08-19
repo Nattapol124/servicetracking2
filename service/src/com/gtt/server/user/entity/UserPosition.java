@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import com.core.entity.CoreEntity;
 
 @Entity
-@Table(name = "UserPosition")
+@Table(name = "userposition")
 public class UserPosition extends CoreEntity {
 	private static final long serialVersionUID = 1L;
 

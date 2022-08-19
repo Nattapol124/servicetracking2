@@ -24,6 +24,7 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 	}
 	@Override
 	public List findLogin(String username, String password) throws DataAccessException {
+<<<<<<< HEAD
 		String sql = "SELECT user.id_user, user.username, user.password, user.user_firstname, "
 				+ "user.user_lastname, user.user_email, user.user_phone, user.id_customer, "
 				+ "user.user_nickname, user.id_company, user.id_user_position, company.company_name, "
@@ -31,6 +32,10 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 				+ "inner join company on user.id_customer = company.id_company inner "
 				+ "join userposition on user.id_user_position = userposition.id_user_position "
 				+ "WHERE username="+"'"+username+"' AND password='"+password+"';";
+=======
+
+		String sql = "SELECT user.id_user, user.username,user.password,user.user_firstname,user.user_lastname,user.user_email,user.user_phone,user.id_customer,user.user_nickname,user.id_company,user.id_user_type FROM user WHERE username='"+username+"' AND password='"+password+"'";
+>>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 		List<User> results = new ArrayList<User>();
 		Company customer_results = new Company();
 		Company Company_results = new Company();
@@ -47,6 +52,7 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 			item.setUser_lastname(String.valueOf(obj[4]));
 			item.setUser_email(String.valueOf(obj[5]));
 			item.setUser_phone(String.valueOf(obj[6]));
+
 			customer_results.setId(Integer.parseInt(String.valueOf(obj[7])));
 			item.setId_customer(customer_results);
 			item.setNickname(String.valueOf(obj[8]));

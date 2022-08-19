@@ -8,6 +8,7 @@
 	<meta name="author" content="">
 	<meta name="keyword" content="">
 	
+
 	<title>รายงานปัญหา</title>
 	<!-- Font Awesome -->
 	<link
@@ -61,8 +62,14 @@
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.nicescroll.js" type="text/javascript"></script>
 	<!-- custom select -->
 	<script src="${pageContext.request.contextPath}/ui/js/jquery.customSelect.min.js"></script>
+
 	<!-- JavaScript Bundle with Popper -->
+<<<<<<< HEAD
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+=======
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+>>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 	<!--custome script for all page-->
 	<script src="${pageContext.request.contextPath}/ui/js/scripts.js"></script>
 	

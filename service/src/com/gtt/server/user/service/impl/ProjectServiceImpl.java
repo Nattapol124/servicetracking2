@@ -29,8 +29,8 @@ implements ProjectService{
 		return projectDao.findindicator(id_company);
 	}
 	@Override
-	public List getProject(String customerId, String userId) throws DataAccessException {
-		return projectDao.getProject(customerId, userId);
+	public List getProject(String userId) throws DataAccessException {
+		return projectDao.getProject(userId);
 	}
 
 	

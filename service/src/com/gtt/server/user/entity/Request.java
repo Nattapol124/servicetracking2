@@ -59,9 +59,6 @@ public class Request extends CoreEntity{
 	public Request( ) {
 		
 	}
-	public Request(int id) {
-		this.id=id;
-	}
 	public int getId() {
 		return id;
 	}

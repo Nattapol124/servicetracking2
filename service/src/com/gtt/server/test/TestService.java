@@ -89,15 +89,15 @@ public class TestService extends TestCase {
 
  
  public void test() throws Exception {
-  System.out.print(companyService.getAllItems().size());
-  System.out.print(projectService.getAllItems().size());
-  System.out.print(requestService.getAllItems().size());
-  System.out.print(requestTypeService.getAllItems().size());
-  System.out.print(requestStatusService.getAllItems().size());
-  System.out.print(userService.getAllItems().size());
-  System.out.print(userPrefixService.getAllItems().size());
-  System.out.print(userProjectService.getAllItems().size());
-  System.out.print(userTypeService.getAllItems().size());
-  System.out.print(userPositionService.getAllItems().size());
+//  System.out.print(companyService.getAllItems().size());
+//  System.out.print(projectService.getAllItems().size());
+//  System.out.print(requestService.getAllItems().size());
+//  System.out.print(requestTypeService.getAllItems().size());
+//  System.out.print(requestStatusService.getAllItems().size());
+//  System.out.print(userService.getAllItems().size());
+//  System.out.print(userPrefixService.getAllItems().size());
+//  System.out.print(userProjectService.getAllItems().size());
+//  System.out.print(userTypeService.getAllItems().size());
+//  System.out.print(userPositionService.getAllItems().size());
  }
 }
