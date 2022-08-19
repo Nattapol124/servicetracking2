@@ -71,7 +71,7 @@ public class IndexAction extends CoreAction {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			User user = (User) getObjectSession(request, SESSION_USER);
-			List<Project> projectList = projectService.getProject(String.valueOf(user.getId()));
+			List<Project> projectList = projectService.getProjectById(String.valueOf(user.getId()));
 			dynaForm.set("projectList", projectList);
 			request.setAttribute("projectList", projectList);
 //			dynaForm.set("projectList", projectService.getAllItems());
@@ -90,7 +90,7 @@ public class IndexAction extends CoreAction {
 			dynaForm.set("resultList", requestList);
 			request.setAttribute("resultList", requestList);
 			
-			List<Project> projectList = projectService.getProject(String.valueOf(user.getId()));
+			List<Project> projectList = projectService.getProjectById(String.valueOf(user.getId()));
 			dynaForm.set("projectList", projectList);
 			request.setAttribute("projectList", projectList);
 		} catch (Exception e) {
@@ -105,7 +105,7 @@ public class IndexAction extends CoreAction {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			User user = (User) getObjectSession(request, SESSION_USER);
 			
-			List<Project> projectList = projectService.getProject(String.valueOf(user.getId()));
+			List<Project> projectList = projectService.getProjectById(String.valueOf(user.getId()));
 			dynaForm.set("projectList", projectList);
 			request.setAttribute("projectList", projectList);
 			

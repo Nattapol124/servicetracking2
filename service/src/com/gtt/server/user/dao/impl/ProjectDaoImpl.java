@@ -62,7 +62,7 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 		}		return results;
 	}
 	@Override
-	public List<Project> getProject(String userId) throws DataAccessException{
+	public List<Project> getProjectById(String userId) throws DataAccessException{
 		String sql = "select project.project_name, project.id_customer,project.id_project from project "
 				+ "inner join userproject on project.id_project = userproject.id_project "
 				+ "where userproject.id_user =" + userId;
