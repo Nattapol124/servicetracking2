@@ -103,4 +103,27 @@ public class UserDaoImpl extends CoreDaoImpl<User, Serializable>
 		return results;
 }
 	
+<<<<<<< HEAD
+=======
+	@Override
+	public List	findAddUserList(String company,String id_company) throws DataAccessException {
+		System.out.println(company+" :test passvalue");
+		String sql = "SELECT  user.id_user,user.username,user.user_firstname,user.user_lastname from user left JOIN userproject ON user.id_user=userproject.id_user AND userproject.id_project='"+company+"' WHERE userproject.id_user IS null and user.id_customer='99' AND user.id_company='"+id_company+"' ";
+		List<User> results = new ArrayList<User>();
+
+		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
+		if(objectList != null && objectList.size()>0 ) {
+			for(Object[] obj : objectList){
+			User item = new User(Integer.parseInt(String.valueOf(obj[0])));
+			item.setUsername(String.valueOf(obj[1]));
+			item.setUser_firstname(String.valueOf(obj[2]));
+			item.setUser_lastname(String.valueOf(obj[3]));
+			
+
+			results.add(item);
+		}
+	}
+		return results;
+}
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 }

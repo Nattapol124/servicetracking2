@@ -94,7 +94,11 @@ html, body {
 			    }
 			   })
 		}
+<<<<<<< HEAD
 		function submitFormRemove(id) {
+=======
+		function submitFormRemove(ids) {
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			 
 			  Swal.fire({
 				     title: 'Are you sure?',
@@ -106,6 +110,7 @@ html, body {
 				     confirmButtonText: 'Yes'
 				   }).then((result) => {
 				    if(result.isConfirmed){
+<<<<<<< HEAD
 				    	document.loginForm.mode.value = 'delete';
 						document.loginForm.id.value = id;
 						document.loginForm.submit();
@@ -113,6 +118,12 @@ html, body {
 					        $('#exampleModal${item.id}').modal('show');
 					    });
 			
+=======
+				    	document.loginForm.mode.value = 'deleteUserProject';
+						document.loginForm.ids.value = ids;
+						document.loginForm.submit();
+								
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 				    }
 				       
 				     })
@@ -120,7 +131,42 @@ html, body {
 					
 				
 		}
+<<<<<<< HEAD
 		
+=======
+		$(document).ready(
+				function() {
+					
+					$("#eduForm").validate(
+							{
+								rules : {
+									 
+									userAddToProjectSelect :{
+					                	required: true,	
+					                },
+					               
+								},
+								highlight : function(element) {
+									$(element).closest('.form-control').addClass('has-error-input');
+								},
+								unhighlight : function(element) {
+									$(element).closest('.form-control').removeClass('has-error-input');
+								},
+								errorElement : 'span',
+								errorClass : 'has-error-block',
+								errorPlacement : function(error, element) {
+								},
+								submitHandler : function(form) {
+									document.forms[0].mode.value = 'saveUserAddToProject';
+									document.forms[0].submit();
+								}
+							});
+				});
+		
+		function submitFormSave() {
+			$("#eduForm").submit();
+		}
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 		
 	</script>
 	<link rel="stylesheet"
@@ -147,6 +193,7 @@ html, body {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
+<<<<<<< HEAD
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-8">
 						<button class="btn btn-primary" type="button"
@@ -155,6 +202,20 @@ html, body {
 							&nbsp;ดูรายชื่อบัญชีทั้งหมด
 						</button>
 					</div>
+=======
+								<html:hidden property="ids" />
+				
+				<div class="form-group">
+					<html:select property="userAddToProjectSelect"
+									styleClass="form-control">
+									<option value="" disabled selected>เลือกผู้ใช้</option>
+									<html:optionsCollection property="userAddToProjectList" value="id"
+										label="fullName" />
+								</html:select>
+								<button type="button" class="btn btn-primary"
+										onclick="submitFormSave();">บันทึก</button>
+								
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 
 				</div>
 				
@@ -171,6 +232,10 @@ html, body {
 										<th class="text-center">ลำดับ</th>
 										<th class="text-center">ชื่อผู้ใช้</th>
 										<th class="text-center">ชื่อจริง</th>
+<<<<<<< HEAD
+=======
+										<th class="text-center">นามสกุล</th>
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 									
 										<th class="text-center"></th>
 										
@@ -182,12 +247,22 @@ html, body {
 										<tr class="att" >
 										
 											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
+<<<<<<< HEAD
 											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id}</td>
 											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user}</td>
 											</div>
 
 											<td align="center" >
 
+=======
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user.username}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user.user_firstname}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.id_user.user_lastname}</td>
+											
+											</div>
+
+											<td align="center">
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 												
 												<button type="button"
 													onclick="submitFormRemove('${item.id}');"
@@ -211,9 +286,15 @@ html, body {
 															</div>
 															<div class="modal-body">
 																<label>ชื่อผู้ใช้ : </label>
+<<<<<<< HEAD
 																<input type="text" class="form-control" value="${item.id }" disabled>
 																<label>ชื่อจริง : </label>
 																<input type="text" class="form-control" value="${item.id }" disabled>
+=======
+																<input type="text" class="form-control" value="${item.id_user.user_firstname}" disabled>
+																<label>ชื่อจริง : </label>
+																<input type="text" class="form-control" value="${item.id_user.user_lastname}" disabled>
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 																
 															</div>
 															<div class="modal-footer">

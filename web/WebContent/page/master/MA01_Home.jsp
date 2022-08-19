@@ -10,6 +10,12 @@
 <%@ include file="/page/inc_header_script.jsp"%>
 
 <style type="text/css">
+<<<<<<< HEAD
+=======
+    
+
+	
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
 	;
@@ -143,20 +149,32 @@ html, body {
 	background: #f5f5f9;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 .att:hover {
 	background-color: #f5f5f9;
 }
 
 .inthebox {
+<<<<<<< HEAD
 	/* 	margin-left: 10%; */
 	/* 	margin-right: 10%; */
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
+=======
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 	background: #e8ffff;
 	top: 20%;
 	border-radius: 15px;
 }
+<<<<<<< HEAD
 
 div.groupTitle {
 /* 	margin-top: 1%; */
@@ -191,6 +209,10 @@ div.c {
 	height: 50px;
 	border: 3px solid #73AD21;
 }
+=======
+</style>
+<style type="text/css">
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 </style>
 
 <body>
@@ -199,8 +221,12 @@ div.c {
 			  $('#dtBasicExample').DataTable();
 			  $('.dataTables_length').addClass('bs-select');
 			});
+<<<<<<< HEAD
 	
 
+=======
+		
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -249,7 +275,10 @@ div.c {
 	
 		
 	</script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 	<link rel="stylesheet"
 		href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 	<link rel="stylesheet"
@@ -259,7 +288,11 @@ div.c {
 	<!-- Plugin file -->
 	<link rel="stylesheet" href="./css/addons/datatables.min.css">
 	<link rel="stylesheet" href="css/style.css">
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 	<%@ include file="/page/inc_menu.jsp"%>
 
 	<div class="topbar">
@@ -268,6 +301,10 @@ div.c {
 
 		<!-- Navbar -->
 
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 
 		<div class="inthebox">
 
@@ -275,6 +312,7 @@ div.c {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
+<<<<<<< HEAD
 				<div class="form-group"></div>
 				<logic:present name="loginForm" property="resultList">
 					<logic:notEmpty name="loginForm" property="resultList">
@@ -386,13 +424,132 @@ div.c {
 
 
 							</tbody>
+=======
+				<div class="form-group">
+					<div class="col-sm-offset-3 col-sm-8">
+						<button class="btn btn-primary" type="button"
+							onclick="submitFormInit('showtable')">
+							<i class="fa fa-users" aria-hidden="true"></i>
+							&nbsp;ดูรายชื่อบัญชีทั้งหมด
+						</button>
+					</div>
+
+				</div>
+				
+				
+
+				<div class="col-sm-offset-3 col-sm-8 margin-right:50%;">
+					<button class="btn btn-primary" type="button"
+						onclick="submitFormInit('initAddUser')">
+						<i class="fa fa-user-plus" aria-hidden="true"></i>
+						&nbsp;เพิ่มผู้ใช้
+					</button>
+				</div>
+				<logic:present name="loginForm" property="resultList">
+					<logic:notEmpty name="loginForm" property="resultList">
+							<table id="dtBasicExample" class="table" cellspacing="0" width="100%">
+   
+				
+							
+								<thead>
+									<tr>
+										<th class="text-center">ลำดับ</th>
+										<th class="text-center">ชื่อผู้ใช้</th>
+										<th class="text-center">ชื่อจริง</th>
+										<th class="text-center">นามสกุล</th>
+										<th class="text-center">เมล</th>
+										<th class="text-center">เบอร์</th>
+										<th class="text-center"></th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<logic:iterate id="item" name="loginForm" property="resultList"
+										indexId="index">
+										<tr class="att" >
+										
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.username}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_firstname}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_lastname}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_email}</td>
+											<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal" data-bs-target="#exampleModal${item.id}">${item.user_phone}</td>
+											</div>
+
+											<td align="center" >
+
+												<button type="button" onclick="submitFormEdit('${item.id}', 'resetPassword')" 
+													class="btn btn-primary btn-xs">
+													<i class="fa fa-edit">รีเซ็ทรหัส</i>
+												</button>
+												<button type="button"
+													onclick="submitFormRemove('${item.id}');"
+													class="btn btn-danger btn-xs">
+													<i class="fa fa-trash-o">ลบบัญชี</i>
+												</button>
+											</td>
+										
+										
+									
+													
+										</tr>
+										
+										<div class="modal fade" id="exampleModal${item.id}" tabindex="-1"
+													role="dialog" aria-labelledby="exampleModalLabel"
+													aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">ข้อมูลบัญชีผู้ใช้</h5>
+															</div>
+															<div class="modal-body">
+																<label>ชื่อผู้ใช้ : </label>
+																<input type="text" class="form-control" value="${item.username }" disabled>
+																<label>ชื่อจริง : </label>
+																<input type="text" class="form-control" value="${item.user_firstname }" disabled>
+																<label>นามสกุล: </label>
+																<input type="text" class="form-control" value="${item.user_lastname }" disabled>
+																<label>อีเมล : </label>
+																<input type="text" class="form-control" value="${item.user_email }" disabled>
+																<label>มือถือ : </label>
+																<input type="text" class="form-control" value="${item.user_phone }" disabled>
+																<label>บริษัท : </label>
+																<input type="text" class="form-control" value="${item.id_customer.company_name }" disabled>
+																<label>ตำแหน่ง : </label>
+																<input type="text" class="form-control" value="${item.id_user_position.position_name }" disabled>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-primary"
+																	data-bs-dismiss="modal">ออก</button>
+															</div>
+														</div>
+													</div>
+												</div>
+	
+									</logic:iterate>
+
+											
+											
+								</tbody>
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 
 						</table>
 					</logic:notEmpty>
 				</logic:present>
 			</html:form>
 		</div>
+<<<<<<< HEAD
 	</div>
+=======
+	
+		
+		
+		
+									
+											
+
+		
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 </body>
 
 <script>

@@ -12,5 +12,9 @@ public interface RequestService extends CoreService<Request, Serializable>
 {
 	public List getRequestList(String id)throws DataAccessException;
 	public List getReqByCustomer(String customerId) throws DataAccessException;
+<<<<<<< HEAD
 	public List getReqById(String id) throws DataAccessException;
+=======
+
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 }

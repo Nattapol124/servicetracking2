@@ -33,7 +33,10 @@
 			<forward name="Request" path="/page/feature/request.jsp" />
 			<forward name="AddRequest" path="/page/feature/addRequest.jsp" />
 			<forward name="UserDetail" path="/page/feature/user.jsp" />
+<<<<<<< HEAD
 			<forward name="EditRequest" path="/page/feature/editRequest.jsp" />
+=======
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			
 			<forward name="json_tag" path="/page/json_tag.jsp" />
 			<forward name="redirect" path="/page/redirect.jsp" />

@@ -107,6 +107,7 @@ implements RequestDao{
 		return results;
 	}
 	
+<<<<<<< HEAD
 	@Override
 	public List findRequestById(String id) throws DataAccessException{
 		String sql = "SELECT project.project_name,request_title,request_remark,request_file FROM request "
@@ -129,4 +130,6 @@ implements RequestDao{
 		return results;
 	}
 	
+=======
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 }

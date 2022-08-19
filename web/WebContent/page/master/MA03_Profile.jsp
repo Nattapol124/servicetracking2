@@ -244,7 +244,11 @@ h1 {
 								styleClass="form-control"></html:text>
 						</div>
 					</div>
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 					<div class="form-group">
 						<label class="control-label col-sm-3">ชื่อบริษัท :</label>
 						<div class="col-sm-3">
@@ -254,7 +258,11 @@ h1 {
 							</fieldset>
 						</div>
 					</div>
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 					<div class="form-group">
 						<label class="control-label col-sm-3">ตำแหน่ง :</label>
 						<div class="col-sm-3">
@@ -264,7 +272,11 @@ h1 {
 							</fieldset>
 						</div>
 					</div>
+<<<<<<< HEAD
 
+=======
+					
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-8">
 							<button class="btn btn-primary" type="button"

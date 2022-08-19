@@ -22,7 +22,11 @@ public class CompanyDaoImpl extends CoreDaoImpl<Company, Serializable>implements
 
 	@Override
 	public List findCustomerList(String id_company) throws DataAccessException {
+<<<<<<< HEAD
 		String sql = "SELECT DISTINCT company.id_company,company_name FROM company INNER JOIN user on company.id_company=user.id_customer WHERE company.id_company!='0' AND user.id_company='1'";
+=======
+		String sql = "SELECT DISTINCT company.id_company,company_name,company_address,company_phone,company_fax,company_email FROM company INNER JOIN user on company.id_company=user.id_customer WHERE company.id_company!='99' AND user.id_company='"+id_company+"' ";
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 		System.out.println("hello customer");
 		List<Company> results = new ArrayList<Company>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
@@ -31,7 +35,14 @@ public class CompanyDaoImpl extends CoreDaoImpl<Company, Serializable>implements
 			Company item = new Company();
 			item.setCompany_name(String.valueOf(obj[1]));
 			item.setId(Integer.parseInt(String.valueOf(obj[0])));
+<<<<<<< HEAD
 			
+=======
+			item.setCompany_address(String.valueOf(obj[2]));
+			item.setCompany_phone(String.valueOf(obj[3]));
+			item.setCompany_fax(String.valueOf(obj[4]));
+			item.setCompany_email(String.valueOf(obj[5]));
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			results.add(item);
 			System.out.println(results);
 			}		

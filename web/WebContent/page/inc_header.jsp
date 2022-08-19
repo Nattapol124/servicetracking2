@@ -76,7 +76,11 @@
             <img
               src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg"
               class="rounded-circle"
+<<<<<<< HEAD
               height="40"
+=======
+              height="30"
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
               alt=""
               loading="lazy"
             />

@@ -55,30 +55,58 @@
 			<form-property name="NewResetPassword" type="java.lang.String" />			
 			<form-property name="id_request_status" type="java.lang.String" />
 			<form-property name="id_request" type="java.lang.String" />
+<<<<<<< HEAD
+=======
+						<form-property name="ids" type="java.lang.String" />
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			
 			<form-property name="projectName" type="java.lang.String" />
 			<form-property name="requestTitle" type="java.lang.String" />
 			<form-property name="requestRemark" type="java.lang.String" />
 			<form-property name="statusName" type="java.lang.String" />
+<<<<<<< HEAD
+=======
+
+
+			<form-property name="newcompanyname" type="java.lang.String" />
+			<form-property name="newcompanyaddress" type="java.lang.String" />
+			<form-property name="newcompanyphone" type="java.lang.String" />
+			<form-property name="newcompanyfax" type="java.lang.String" />
+			<form-property name="newcompanyemail" type="java.lang.String" />
+			
+			
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			
 			<form-property name="projectList" type="java.util.List" />
 			<form-property name="projectAddList" type="java.util.List" />
 			<form-property name="id_user" type="java.util.List" />
 			
 			<form-property name="id_customerSelected" type="java.lang.String" />
+<<<<<<< HEAD
 			
+=======
+			<form-property name="userAddToProjectSelect" type="java.lang.String" />
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			
 			<form-property name="id_project" type="java.lang.String" />
 			<form-property name="request_title" type="java.lang.String" />
 			<form-property name="request_file" type="java.lang.String" />
 			<form-property name="request_remark" type="java.lang.String" />
 			
+<<<<<<< HEAD
 			
+=======
+			<form-property name="userAddToProjectList" type="java.util.ArrayList" />			
+
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			<form-property name="customerAddList" type="java.util.ArrayList" />			
 			<form-property name="resultUserProjectList" type="java.util.ArrayList" />			
 			<form-property name="resultProjectList" type="java.util.ArrayList" />
 			<form-property name="resultRequestList" type="java.util.ArrayList" />
+<<<<<<< HEAD
 			<form-property name="comboIndicator" type="java.util.ArrayList" />
+=======
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			<form-property name="comboRequestStatus" type="java.util.List" />
 			
 			
@@ -106,6 +134,10 @@
 			<forward name="MA06" path="/page/master/MA06_Request.jsp" />
 			<forward name="MA07" path="/page/master/MA07_NewPassword.jsp" />
 			<forward name="MA08" path="/page/master/MA08_AddUserProject.jsp" />
+<<<<<<< HEAD
+=======
+			<forward name="MA09" path="/page/master/MA09_Company.jsp" />
+>>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			
 			
 
