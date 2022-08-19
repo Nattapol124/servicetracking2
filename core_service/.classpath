@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core_common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/core_struts"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-compress-1.5.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-digester-1.8.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-fileupload-1.2.1.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-net-3.3.jar"/>
+	<classpathentry kind="lib" path="/core_libs/commons/commons-validator-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/asm-attrs.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/asm.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/ehcache-core-2.4.3.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/jarchivelib-0.3.0.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/javax-inject.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/jstl-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/jta.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/junit-4.8.1.jar" sourcepath="C:/Users/ONGz/.m2/repository/junit/junit/4.8.1/junit-4.8.1-sources.jar"/>
+	<classpathentry kind="lib" path="/core_libs/utils/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/core_libs/hibernate/3/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="/core_libs/hibernate/3/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="/core_libs/hibernate/3/hibernate3.jar" sourcepath="/Users/ong/.m2/repository/org/hibernate/hibernate/3.2.1.ga/hibernate-3.2.1.ga-sources.jar"/>
+	<classpathentry kind="lib" path="/core_libs/db/mysql/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="/core_libs/db/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="/core_libs/network/java-ipv6-0.15.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-aop-3.2.11.RELEASE.jar" sourcepath="C:/Users/ONGz/.m2/repository/org/springframework/spring-aop/3.2.11.RELEASE/spring-aop-3.2.11.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-aspects-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-beans-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-context-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-context-support-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-core-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-expression-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-jdbc-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-orm-3.2.11.RELEASE.jar" sourcepath="C:/Users/ONGz/.m2/repository/org/springframework/spring-orm/3.2.11.RELEASE/spring-orm-3.2.11.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="/core_libs/spring/3.2.11/spring-tx-3.2.11.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.utility"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -107,4 +107,26 @@ implements RequestDao{
 		return results;
 	}
 	
+	@Override
+	public List findRequestById(String id) throws DataAccessException{
+		String sql = "SELECT project.project_name,request_title,request_remark,request_file FROM request "
+				+ "INNER JOIN project ON request.id_request = project.id_project "
+				+ "WHERE request.id_request="+id;
+		List<Request> results = new ArrayList<Request>();
+		Project project = new Project();
+		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
+		if(objectList != null && objectList.size()>0 ) {
+			for(Object[] obj : objectList){
+				Request item = new Request();
+				project.setProject_name(String.valueOf(obj[0]));
+				item.setId_project(project);
+				item.setRequest_title(String.valueOf(obj[1]));
+				item.setRequest_remark(String.valueOf(obj[2]));
+				item.setRequest_file(String.valueOf(obj[3]));
+
+			}
+		}
+		return results;
+	}
+	
 }
