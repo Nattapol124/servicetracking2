@@ -10,9 +10,6 @@
 <%@ include file="/page/inc_header_script.jsp"%>
 
 <style type="text/css">
-    
-
-	
 .popup .content {
 	position: absolute;
 	top: 50%;
@@ -28,7 +25,6 @@
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	z-index: 1;
 	backdrop-filter: blur(5px);
-
 }
 
 .popup .close-btn {
@@ -143,8 +139,6 @@ html, body {
 	background: #f5f5f9;
 }
 
-
-
 .att:hover {
 	background-color: #f5f5f9;
 }
@@ -157,8 +151,6 @@ html, body {
 	top: 20%;
 	border-radius: 15px;
 }
-
-
 </style>
 <style type="text/css">
 </style>
@@ -241,35 +233,35 @@ html, body {
 	<!-- Plugin file -->
 	<link rel="stylesheet" href="./css/addons/datatables.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	
+
 	<%@ include file="/page/inc_menu.jsp"%>
 
 	<div class="topbar">
 		<!-- Navbar -->
 		<%@ include file="/page/inc_header.jsp"%>
 		<div class="interbox">
-	<!-- The text field -->
-<input type="text" property="NewResetPassword" id="myInput" disabled>
+			<!-- The text field -->
+			<input type="text" property="NewResetPassword" id="myInput" disabled>
 
-<!-- The button used to copy the text -->
-<button onclick="myFunction()">Copy text</button>
+			<!-- The button used to copy the text -->
+			<button onclick="myFunction()">Copy text</button>
 		</div>
 	</div>
-		
-		
-		
-									
-											
-		<script>
+
+
+
+
+
+	<script>
  function togglePopup(id) {
  document.getElementById("popup-"+id)
   .classList.toggle("active");
 }
 </script>
-		
+
 </body>
 
-	
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

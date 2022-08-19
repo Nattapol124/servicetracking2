@@ -29,9 +29,14 @@ implements ProjectService{
 		return projectDao.findindicator(id_company);
 	}
 	@Override
-	public List getProject(String userId) throws DataAccessException {
-		return projectDao.getProject(userId);
+	public List getProjectById(String userId) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return projectDao.getProjectById(userId);
 	}
+	@Override
+	 public List getProject(String customerId, String userId) throws DataAccessException {
+	  return projectDao.getProject(customerId, userId);
+	 }
 
 	
 

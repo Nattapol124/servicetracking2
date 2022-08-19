@@ -30,13 +30,6 @@ implements RequestService{
 	public List getReqById(String id) throws DataAccessException {
 		return requestDao.findRequestById(id);
 	}
-	
-<<<<<<< HEAD
-	@Override
-	public List getReqById(String id) throws DataAccessException {
-		return requestDao.findRequestById(id);
-	}
-	
-=======
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
+
+
 }

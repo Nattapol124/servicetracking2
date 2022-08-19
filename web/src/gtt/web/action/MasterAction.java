@@ -37,47 +37,4 @@ public class MasterAction extends CoreAction {
 	private UserService userService;
 	
 
-//	public ActionForward init(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		try {
-//			DynaActionForm dynaForm = (DynaActionForm) form;
-//			
-//			dynaForm.set("resultList", null);
-//
-////			Constant constant = constantService.getItem(1);
-////			setObjectSession(request, SESSION_PATH, constant.getUploadPath());
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return mapping.findForward("MA01");
-//	}
-//	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		System.out.println("asdasdas");
-//		try {
-//			DynaActionForm dynaForm = (DynaActionForm) form;
-//			List<User> userList = userService.getAll();
-//			request.setAttribute("SUserList", userList);
-//			User user = userList.iterator().next();
-//				
-//			dynaForm.set("username", user.getUsername());
-//			dynaForm.set("password", user.getPassword());
-//			dynaForm.set("resultList", userList);
-//			
-//	
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return mapping.findForward("MA01");
-//	}
-//	
-
-	
-
-	
-
-
-
 }

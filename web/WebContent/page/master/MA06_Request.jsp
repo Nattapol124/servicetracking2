@@ -143,42 +143,26 @@ html, body {
 	background: #f5f5f9;
 }
 
-<<<<<<< HEAD
 /* .table { */
 /* 	margin-top: 4%; */
 /* 	border-collapse: separate; */
 /* 	border-radius: 20px; */
 /* } */
-=======
-.table {
-	margin-top: 4%;
-	border-collapse: separate;
-	border-radius: 20px;
-}
-
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 .att:hover {
 	background-color: #f5f5f9;
 }
 
 .inthebox {
-<<<<<<< HEAD
 	/* 	margin-left: 10%; */
 	/* 	margin-right: 10%; */
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
-=======
-	margin-left: 10%;
-	margin-right: 10%;
-	width: 80%;
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 	background: #e8ffff;
 	top: 20%;
 	border-radius: 15px;
 }
 
-<<<<<<< HEAD
 div.groupTitle {
 	/* 	margin-top: 1%; */
 	/* 	margin-left: 1%; */
@@ -188,8 +172,6 @@ div.groupTitle {
 	background: #36D0FE;
 }
 
-=======
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link, .navbar-scroll .navbar-toggler-icon,
 	.navbar-scroll .navbar-brand {
@@ -222,7 +204,6 @@ div.groupTitle {
 	font-size: unset;
 	height: 3.5rem;
 }
-<<<<<<< HEAD
 
 div.b {
 	/* 	margin-top: 1%; */
@@ -234,19 +215,17 @@ div.b {
 	height: 50px;
 	/* 	border: 3px solid #73AD21; */
 }
+
 div.c {
-/* 	margin-top: 1%; */
+	/* 	margin-top: 1%; */
 	margin-left: 1%;
 	margin-right: 1%;
 	position: absolute;
 	right: 0px;
-	
 	width: auto;
 	height: 50px;
 	border: 3px solid #73AD21;
 }
-=======
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 </style>
 <style type="text/css">
 </style>
@@ -254,11 +233,8 @@ div.c {
 <body>
 	<script type="text/javascript">
 	$(document).ready(function() {
-<<<<<<< HEAD
+
 		$("#eduForm").validate({
-=======
-		$("#requestStatusFormID").validate({
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			rules: {
 				id_request_status: "required",
 
@@ -314,14 +290,11 @@ div.c {
 			 .classList.toggle("active");
 		}
 		 
-<<<<<<< HEAD
+
 		function submitFormSave(id) {
 			document.loginForm.id.value = id;
 			$("#eduForm").submit();
-=======
-		 function submitFormEditStatus() {
-			$("#requestStatusFormID").submit();
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
+
 		}
 		
 	</script>
@@ -340,7 +313,6 @@ div.c {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
-<<<<<<< HEAD
 				<div class="form-group"></div>
 				<logic:present name="loginForm" property="resultRequestList">
 					<logic:notEmpty name="loginForm" property="resultRequestList">
@@ -350,234 +322,124 @@ div.c {
 								<font size='5'><strong style="color: white;">รายการปัญหาที่แจ้ง</strong></font>
 							</div>
 							<div class="c">
-								<button class="btn btn-primary me-md-2"
-									onclick="#">
+								<button class="btn btn-primary me-md-2" onclick="#">
 									<i class="fa fa-user-plus" aria-hidden="true"></i>
 									&nbsp;เพิ่มปัญหา
 								</button>
 							</div>
 						</div>
-		
-		<table class="table table-sm table-bordered">
-			<thead>
-				<tr>
-					<th class="text-center"><font size='3'><strong>ลำดับ</strong></font></th>
-					<th class="text-center"><font size='3'><strong>ชื่อโครงการ</strong></font></th>
-					<th class="text-center"><font size='3'><strong>หัวข้อ</strong></font></th>
 
-					<th class="text-center"><font size='3'><strong>คำอธิบาย</strong></font></th>
-					<th class="text-center"><font size='3'><strong>สถานะ</strong></font></th>
-				</tr>
-			</thead>
-			<tbody>
-				<logic:iterate id="item" name="loginForm"
-					property="resultRequestList" indexId="index">
-					<tr class="att">
+						<table class="table table-sm table-bordered">
+							<thead>
+								<tr>
+									<th class="text-center"><font size='3'><strong>ลำดับ</strong></font></th>
+									<th class="text-center"><font size='3'><strong>ชื่อโครงการ</strong></font></th>
+									<th class="text-center"><font size='3'><strong>หัวข้อ</strong></font></th>
 
-						<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal"
-							data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
-						<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal"
-							data-bs-target="#exampleModal${item.id}">${item.id_project.project_name}</td>
-						<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal"
-							data-bs-target="#exampleModal${item.id}">${item.request_title}</td>
-						<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal"
-							data-bs-target="#exampleModal${item.id}">${item.request_remark}</td>
-						<td align="center" class="fw-normal mb-1 " data-bs-toggle="modal"
-							data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name}</td>
+									<th class="text-center"><font size='3'><strong>คำอธิบาย</strong></font></th>
+									<th class="text-center"><font size='3'><strong>สถานะ</strong></font></th>
+								</tr>
+							</thead>
+							<tbody>
+								<logic:iterate id="item" name="loginForm"
+									property="resultRequestList" indexId="index">
+									<tr class="att">
 
-
-						<td align="center">
-
-							<button type="button" data-bs-toggle="modal"
-								data-bs-target="#exampleModal${item.id}"
-								class="btn btn-primary btn-xs">
-								<i class="fa fa-edit"></i>
-							</button>
-							<button type="button" onclick="submitFormRemove('${item.id}');"
-								class="btn btn-danger btn-xs">
-								<i class="fa fa-trash-o"></i>
-							</button>
-						</td>
-
-						<div class="modal fade" id="exampleModal${item.id}" tabindex="-1"
-							role="dialog" aria-labelledby="exampleModalLabel"
-							aria-hidden="true">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">แก้ไขสถานะ</h5>
-									</div>
-									<div class="modal-body">
-										<label>ชื่อโครงการ : </label> <input type="text"
-											class="form-control" value="${item.id_project.project_name}"
-											disabled> <label>หัวข้อ : </label> <input type="text"
-											class="form-control" value="${item.request_title}" disabled>
-										<label>คำอธิบาย : </label> <input type="text"
-											class="form-control" value="${item.request_remark}" disabled>
-										<label>สถานะ : </label>
-										<%-- 															<input type="text" class="form-control" value="${item.id_request_status.status_name}" disabled> --%>
-										<html:select property="id_request_status"
-											styleClass="form-control">
-											<html:optionsCollection property="comboRequestStatus"
-												value="id" label="status_name" />
-										</html:select>
-
-										<!-- 															<div class="form-group"> -->
-										<!-- 																<label class="control-label col-sm-3">หัวข้อ :</label> -->
-										<!-- 																<div class="col-sm-3"> -->
-										<!-- 																	<fieldset disabled> -->
-										<%-- 																		<html:text property="projectName" styleId="projectName" styleClass="form-control"></html:text> --%>
-										<!-- 																	</fieldset> -->
-										<!-- 																</div> -->
-										<!-- 															</div> -->
-
-									</div>
+										<td align="center" class="fw-normal mb-1 "
+											data-bs-toggle="modal"
+											data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
+										<td align="center" class="fw-normal mb-1 "
+											data-bs-toggle="modal"
+											data-bs-target="#exampleModal${item.id}">${item.id_project.project_name}</td>
+										<td align="center" class="fw-normal mb-1 "
+											data-bs-toggle="modal"
+											data-bs-target="#exampleModal${item.id}">${item.request_title}</td>
+										<td align="center" class="fw-normal mb-1 "
+											data-bs-toggle="modal"
+											data-bs-target="#exampleModal${item.id}">${item.request_remark}</td>
+										<td align="center" class="fw-normal mb-1 "
+											data-bs-toggle="modal"
+											data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name}</td>
 
 
-									<div class="modal-footer">
-										<button class="btn btn-primary" type="button"
-											onclick="submitFormSave('${item.id}');">
-											<i class="fa fa-save" aria-hidden="true"></i> &nbsp;บันทึก
-										</button>
-										<button type="button" class="btn btn-primary"
-											data-bs-dismiss="modal">ออก</button>
-									</div>
+										<td align="center">
 
-								</div>
+											<button type="button" data-bs-toggle="modal"
+												data-bs-target="#exampleModal${item.id}"
+												class="btn btn-primary btn-xs">
+												<i class="fa fa-edit"></i>
+											</button>
+											<button type="button"
+												onclick="submitFormRemove('${item.id}');"
+												class="btn btn-danger btn-xs">
+												<i class="fa fa-trash-o"></i>
+											</button>
+										</td>
 
-							</div>
+										<div class="modal fade" id="exampleModal${item.id}"
+											tabindex="-1" role="dialog"
+											aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">แก้ไขสถานะ</h5>
+													</div>
+													<div class="modal-body">
+														<label>ชื่อโครงการ : </label> <input type="text"
+															class="form-control"
+															value="${item.id_project.project_name}" disabled>
+														<label>หัวข้อ : </label> <input type="text"
+															class="form-control" value="${item.request_title}"
+															disabled> <label>คำอธิบาย : </label> <input
+															type="text" class="form-control"
+															value="${item.request_remark}" disabled> <label>สถานะ
+															: </label>
+														<%-- 															<input type="text" class="form-control" value="${item.id_request_status.status_name}" disabled> --%>
+														<html:select property="id_request_status"
+															styleClass="form-control">
+															<html:optionsCollection property="comboRequestStatus"
+																value="id" label="status_name" />
+														</html:select>
 
-						</div>
+														<!-- 															<div class="form-group"> -->
+														<!-- 																<label class="control-label col-sm-3">หัวข้อ :</label> -->
+														<!-- 																<div class="col-sm-3"> -->
+														<!-- 																	<fieldset disabled> -->
+														<%-- 																		<html:text property="projectName" styleId="projectName" styleClass="form-control"></html:text> --%>
+														<!-- 																	</fieldset> -->
+														<!-- 																</div> -->
+														<!-- 															</div> -->
 
-						</div>
-						</td>
-					</tr>
-				</logic:iterate>
-
-			</tbody>
-		</table>
-		</logic:notEmpty>
-		</logic:present>
-		</html:form>
-	</div>
-=======
-				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-8">
-						<button class="btn btn-primary" type="button"
-							onclick="submitFormInit('showRequest')">
-							<i class="fa fa-users" aria-hidden="true"></i>
-							&nbsp;ดูรายชื่อบัญชีทั้งหมด
-						</button>
-					</div>
-
-				</div>
-				<logic:present name="loginForm" property="resultRequestList">
-					<logic:notEmpty name="loginForm" property="resultRequestList">
-						<table cellspacing="0" width="100%"
-							class="table align-middle mb-0 ">
-							<a>
-								<thead>
-									<tr>
-										<th class="text-center">ลำดับ</th>
-										<th class="text-center">ชื่อโครงการ</th>
-										<th class="text-center">หัวข้อ</th>
-
-										<th class="text-center">คำอธิบาย</th>
-										<th class="text-center">สถานะ</th>
-									</tr>
-								</thead>
-								<tbody>
-									<logic:iterate id="item" name="loginForm"
-										property="resultRequestList" indexId="index">
-										<tr class="att">
-
-											<td align="center" class="fw-normal mb-1 "
-												data-bs-toggle="modal"
-												data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 "
-												data-bs-toggle="modal"
-												data-bs-target="#exampleModal${item.id}">${item.id_project.project_name}</td>
-											<td align="center" class="fw-normal mb-1 "
-												data-bs-toggle="modal"
-												data-bs-target="#exampleModal${item.id}">${item.request_title}</td>
-											<td align="center" class="fw-normal mb-1 "
-												data-bs-toggle="modal"
-												data-bs-target="#exampleModal${item.id}">${item.request_remark}</td>
-											<td align="center" class="fw-normal mb-1 "
-												data-bs-toggle="modal"
-												data-bs-target="#exampleModal${item.id}">${item.id_request_status.status_name}</td>
+													</div>
 
 
-											<td align="center">
-
-												<button type="button" data-bs-toggle="modal"
-													data-bs-target="#exampleModal${item.id}"
-													class="btn btn-primary btn-xs">
-													<i class="fa fa-edit"></i>
-												</button>
-												<button type="button"
-													onclick="submitFormRemove('${item.id}');"
-													class="btn btn-danger btn-xs">
-													<i class="fa fa-trash-o"></i>
-												</button>
-											</td>
-
-											<div class="modal fade" id="exampleModal${item.id}"
-												tabindex="-1" role="dialog"
-												aria-labelledby="exampleModalLabel" aria-hidden="true">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="exampleModalLabel">แก้ไขสถานะ</h5>
-														</div>
-														<div class="modal-body">
-															<label>ชื่อโครงการ : </label> 
-															<input type="text" class="form-control" value="${item.id_project.project_name}" disabled>
-															<label>หัวข้อ : </label> 
-															<input type="text" class="form-control" value="${item.request_title}" disabled> 
-															<label>คำอธิบาย : </label> 
-															<input type="text" class="form-control" value="${item.request_remark}" disabled> 
-															<label>สถานะ : </label> 
-<%-- 															<input type="text" class="form-control" value="${item.id_request_status.status_name}" disabled> --%>
-															<html:select property="id_request_status" styleClass="form-control">
-																<html:optionsCollection property="comboRequestStatus" value="id" label="status_name"/>
-															</html:select>
-															
-<!-- 															<div class="form-group"> -->
-<!-- 																<label class="control-label col-sm-3">หัวข้อ :</label> -->
-<!-- 																<div class="col-sm-3"> -->
-<!-- 																	<fieldset disabled> -->
-<%-- 																		<html:text property="projectName" styleId="projectName" styleClass="form-control"></html:text> --%>
-<!-- 																	</fieldset> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-															
-														</div>
-						
-
-														<div class="modal-footer">
-															<button class="btn btn-primary" type="button" onclick="submitFormEditStatus()"><i class="fa fa-save" aria-hidden="true"></i> &nbsp;บันทึก</button>
-															<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ออก</button>
-														</div>
-
+													<div class="modal-footer">
+														<button class="btn btn-primary" type="button"
+															onclick="submitFormSave('${item.id}');">
+															<i class="fa fa-save" aria-hidden="true"></i>
+															&nbsp;บันทึก
+														</button>
+														<button type="button" class="btn btn-primary"
+															data-bs-dismiss="modal">ออก</button>
 													</div>
 
 												</div>
 
 											</div>
 
-											</div>
-											</td>
-										</tr>
-									</logic:iterate>
+										</div>
 
-								</tbody>
+										</div>
+										</td>
+									</tr>
+								</logic:iterate>
+
+							</tbody>
 						</table>
 					</logic:notEmpty>
 				</logic:present>
 			</html:form>
 		</div>
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 </body>
 
 

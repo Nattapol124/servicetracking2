@@ -97,30 +97,44 @@ h1 {
 
 <body>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#eduForm").validate({
-				rules: {
-					newfirstname: "required",
-					newlastname: "required",
-					newnickname: "required",
-					newemail: "required",
-					newphone: "required",
-				},
-				highlight: function(element) {
-		            $(element).closest('.form-control').addClass('has-error-input');
-		        },
-		        unhighlight: function(element) {
-		            $(element).closest('.form-control').removeClass('has-error-input');
-		        },
-		        errorElement: 'span',
-		        errorClass: 'has-error-block',
-		        errorPlacement: function(error, element) {},
-		      	submitHandler: function(form) {
-		      		document.forms[0].mode.value = 'saveProfile';
-			   	 	document.forms[0].submit();
-				}
-			});
-		});
+		$(document)
+				.ready(
+						function() {
+							$("#eduForm")
+									.validate(
+											{
+												rules : {
+													newfirstname : "required",
+													newlastname : "required",
+													newnickname : "required",
+													newemail : "required",
+													newphone : "required",
+												},
+												highlight : function(element) {
+													$(element)
+															.closest(
+																	'.form-control')
+															.addClass(
+																	'has-error-input');
+												},
+												unhighlight : function(element) {
+													$(element)
+															.closest(
+																	'.form-control')
+															.removeClass(
+																	'has-error-input');
+												},
+												errorElement : 'span',
+												errorClass : 'has-error-block',
+												errorPlacement : function(
+														error, element) {
+												},
+												submitHandler : function(form) {
+													document.forms[0].mode.value = 'saveProfile';
+													document.forms[0].submit();
+												}
+											});
+						});
 
 		function submitFormSave() {
 			$("#eduForm").submit();
@@ -244,11 +258,7 @@ h1 {
 								styleClass="form-control"></html:text>
 						</div>
 					</div>
-<<<<<<< HEAD
 
-=======
-					
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 					<div class="form-group">
 						<label class="control-label col-sm-3">ชื่อบริษัท :</label>
 						<div class="col-sm-3">
@@ -258,11 +268,7 @@ h1 {
 							</fieldset>
 						</div>
 					</div>
-<<<<<<< HEAD
 
-=======
-					
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 					<div class="form-group">
 						<label class="control-label col-sm-3">ตำแหน่ง :</label>
 						<div class="col-sm-3">
@@ -272,11 +278,7 @@ h1 {
 							</fieldset>
 						</div>
 					</div>
-<<<<<<< HEAD
 
-=======
-					
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-8">
 							<button class="btn btn-primary" type="button"

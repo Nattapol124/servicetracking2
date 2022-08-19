@@ -10,12 +10,8 @@
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     	 
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-
-<<<<<<< HEAD
 		<property name="url" value="jdbc:mysql://localhost:3306/servicetrackingdb?useUnicode=true&amp;characterEncoding=UTF-8"/>
-=======
-		<property name="url" value="jdbc:mysql://localhost:3306/serviceTrackingDB?useUnicode=true&amp;characterEncoding=UTF-8"/>
->>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
+
 		
 		<property name="username" value="root"/>
 		<property name="password" value=""/> <!-- root -->

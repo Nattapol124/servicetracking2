@@ -170,24 +170,24 @@ html, body {
 
 <body>
 	<script type="text/javascript">
-	function add() {
-		Swal.fire({
-			  title: 'Are you sure?',
-			  text: "You want to add!",
-			  icon: 'warning',
-			  showCancelButton: true,
-			  confirmButtonColor: '#3085d6',
-			  cancelButtonColor: '#d33',
-			  confirmButtonText: 'Yes'
-			}).then((result) => {
-				if(result.isConfirmed){
-					document.forms[0].mode.value = "addRequest";
-					document.forms[0].submit();
-				}
+// 	function add() {
+// 		Swal.fire({
+// 			  title: 'Are you sure?',
+// 			  text: "You want to add!",
+// 			  icon: 'warning',
+// 			  showCancelButton: true,
+// 			  confirmButtonColor: '#3085d6',
+// 			  cancelButtonColor: '#d33',
+// 			  confirmButtonText: 'Yes'
+// 			}).then((result) => {
+// 				if(result.isConfirmed){
+// 					document.forms[0].mode.value = "addRequest";
+// 					document.forms[0].submit();
+// 				}
 			    
-			  })
-// 			document.forms[0].mode.value = "addRequest";
-// 			document.forms[0].submit();
+// 			  })
+			document.forms[0].mode.value = "addRequest";
+			document.forms[0].submit();
 	}
 
 	function submitEnter() {

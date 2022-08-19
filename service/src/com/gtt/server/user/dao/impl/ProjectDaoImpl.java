@@ -13,19 +13,18 @@ import com.gtt.server.user.dao.ProjectDao;
 import com.gtt.server.user.entity.Company;
 import com.gtt.server.user.entity.Project;
 
-public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements ProjectDao{
+public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable> implements ProjectDao {
 	public ProjectDaoImpl(Class<Project> entityClass) {
 		super(entityClass);
 	}
-	
+
 	@Override
 	public List findProjectList(String company) throws DataAccessException {
 		String sql = "SELECT project.id_project, project.project_name, customer.company_name , company.company_name  FROM user "
 				+ "inner join project on user.id_customer = project.id_customer "
 				+ "inner join company on user.id_company = company.id_company "
-				+ "inner join company customer on user.id_customer = customer.id_company "
-				+ "WHERE user.id_company='"+company+"' "
-						+ "GROUP BY project.id_project";
+				+ "inner join company customer on user.id_customer = customer.id_company " + "WHERE user.id_company='"
+				+ company + "' " + "GROUP BY project.id_project";
 		List<Project> results = new ArrayList<Project>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
 		System.out.println("objectList project = " + objectList);
@@ -50,7 +49,8 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 
 	@Override
 	public List findindicator(String id_company) throws DataAccessException {
-		String sql = "SELECT DISTINCT project.id_project,project.project_name FROM project INNER JOIN user ON project.id_customer=user.id_customer WHERE user.id_company='"+id_company+"'";
+		String sql = "SELECT DISTINCT project.id_project,project.project_name FROM project INNER JOIN user ON project.id_customer=user.id_customer WHERE user.id_company='"
+				+ id_company + "'";
 		List<Project> results = new ArrayList<Project>();
 		Company Company_results = new Company();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
@@ -60,21 +60,23 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 				Project item = new Project();
 				item.setId(Integer.parseInt(String.valueOf(obj[0])));
 				item.setProject_name(String.valueOf(obj[1]));
-				System.out.println(item.getProject_name()+"projectname");
+				System.out.println(item.getProject_name() + "projectname");
 				results.add(item);
 			}
-		}		return results;
+		}
+		return results;
 	}
+
 	@Override
-	public List<Project> getProjectById(String userId) throws DataAccessException{
+	public List<Project> getProjectById(String userId) throws DataAccessException {
 		String sql = "select project.project_name, project.id_customer,project.id_project from project "
 				+ "inner join userproject on project.id_project = userproject.id_project "
 				+ "where userproject.id_user =" + userId;
-		
+
 		List<Project> results = new ArrayList<Project>();
 		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
-		if(objectList != null && objectList.size()>0) {
-			for(Object[] obj : objectList) {
+		if (objectList != null && objectList.size() > 0) {
+			for (Object[] obj : objectList) {
 				Project project = new Project();
 				project.setProject_name(String.valueOf(obj[0]));
 				project.setId(Integer.parseInt(String.valueOf(obj[2])));
@@ -84,10 +86,31 @@ public class ProjectDaoImpl extends CoreDaoImpl<Project, Serializable>implements
 				results.add(project);
 			}
 		}
-		
+
 		return results;
-		
+
+	}
+
+	@Override
+	public List<Project> getProject(String customerId, String userId) throws DataAccessException {
+		String sql = "select project.project_name, project.id_customer from user "
+				+ "inner join project on user.id_customer = project.id_customer " + "where user.id_customer = "
+				+ customerId + " and user.id_user =" + userId;
+
+		List<Project> results = new ArrayList<Project>();
+		List<Object[]> objectList = getSession().createSQLQuery(sql).list();
+		if (objectList != null && objectList.size() > 0) {
+			for (Object[] obj : objectList) {
+				Project project = new Project();
+				project.setProject_name(String.valueOf(obj[0]));
+				Company customer = new Company();
+				customer.setId(Integer.parseInt(String.valueOf(obj[1])));
+				project.setId_customer(customer);
+				results.add(project);
+			}
+		}
+
+		return results;
+
 	}
 }
-
-

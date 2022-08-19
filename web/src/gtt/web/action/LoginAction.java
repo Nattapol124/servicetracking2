@@ -13,10 +13,7 @@ import org.apache.struts.action.DynaActionForm;
 import org.hibernate.type.BigIntegerType;
 
 import com.gtt.server.user.entity.Company;
-<<<<<<< HEAD
-=======
 import com.gtt.server.user.entity.CompanyType;
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 import com.gtt.server.user.entity.Project;
 import com.gtt.server.user.entity.Request;
 import com.gtt.server.user.entity.RequestStatus;
@@ -55,7 +52,7 @@ public class LoginAction extends CoreAction {
 			User obj = (User) getObjectSession(request, SESSION_USER);
 			String company = String.valueOf(obj.getId_company().getId());
 			dynaForm.set("resultList", null);
-			dynaForm.set("resultProjectList",null);
+			dynaForm.set("resultProjectList", null);
 			dynaForm.set("resultUserProjectList", null);
 			dynaForm.set("resultRequestList", null);
 //			dynaForm.set("comboRequestStatus", requestStatusService.getAll());
@@ -97,42 +94,33 @@ public class LoginAction extends CoreAction {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
+		User obj = (User) getObjectSession(request, SESSION_USER);
+		String func = null;
+		String htm = null;
+		String formString = null;
+		if (obj.getId_user_type().getId() == 1) {
+			func = "showtable";
+			htm = "login.htm";
+			formString = "loginForm";
+		}
+		if (obj.getId_user_type().getId() == 2) {
+			func = "getRequest";
+			htm = "index.htm";
+			formString = "eduForm";
+		}
+		return mappingForward(mapping, request, "mode", func, htm, formString, null);
 	}
-<<<<<<< HEAD
 
 	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		User obj = (User) getObjectSession(request, SESSION_USER);
-		System.out.println(obj.getId_company().getId() + ":sesssion");
-		System.out.println("getobject: " + getObjectSession(request, SESSION_USER));
 		String company = String.valueOf(obj.getId_company().getId());
 		try {
-=======
-	
-	public ActionForward showtable(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		 User obj = (User) getObjectSession(request, SESSION_USER);
-		 String company = String.valueOf(obj.getId_company().getId());
-		 try {
->>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			List<User> userList = userService.getUserList(company);
 			User user = userList.iterator().next();
-//				
-//			dynaForm.set("username", user.getUsername());
-//			dynaForm.set("user_firstName", user.getUser_firstname());
-//			dynaForm.set("user_lastName", user.getUser_lastname());
-//			dynaForm.set("user_email", user.getUser_email());
-//			dynaForm.set("user_phone", user.getUser_phone());
-
 			dynaForm.set("resultList", userList);
 			request.setAttribute("resultList", userList);
-
-<<<<<<< HEAD
-			System.out.println(String.valueOf(userList));
-=======
-	
->>>>>>> b9570f1971edf8f5f67f1820f23c153b6ca86b16
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -190,30 +178,31 @@ public class LoginAction extends CoreAction {
 		return mappingForward(mapping, request, "mode", "showtable", "login.htm", "loginForm", null);
 	}
 
-	public ActionForward resetPassword(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward resetPassword(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			  String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		      String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-		      String specialCharacters = "!@#$";
-		      String numbers = "1234567890";
-		      String combinedChars = capitalCaseLetters + lowerCaseLetters + specialCharacters + numbers;
-		      Random random = new Random();
-		      char[] password = new char[8];
+			String capitalCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+			String specialCharacters = "!@#$";
+			String numbers = "1234567890";
+			String combinedChars = capitalCaseLetters + lowerCaseLetters + specialCharacters + numbers;
+			Random random = new Random();
+			char[] password = new char[8];
 
-		      password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
-		      password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
-		      password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
-		      password[3] = numbers.charAt(random.nextInt(numbers.length()));
-		   
-		      for(int i = 4; i< 8 ; i++) {
-		         password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
-		      }
-		     System.out.println("resetPassword"+password);
-			 User obj = (User) getObjectSession(request, SESSION_USER);
-			 String id = String.valueOf(obj.getId());
-			 String username = String.valueOf(obj.getUsername());
-			 String s = String.valueOf(password);
+			password[0] = lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
+			password[1] = capitalCaseLetters.charAt(random.nextInt(capitalCaseLetters.length()));
+			password[2] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
+			password[3] = numbers.charAt(random.nextInt(numbers.length()));
+
+			for (int i = 4; i < 8; i++) {
+				password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
+			}
+			System.out.println("resetPassword" + password);
+			User obj = (User) getObjectSession(request, SESSION_USER);
+			String id = String.valueOf(obj.getId());
+			String username = String.valueOf(obj.getUsername());
+			String s = String.valueOf(password);
 			User entity = null;
 			if (id != null && !id.equals("")) {
 				entity = userService.getItem(Integer.parseInt(dynaForm.getString("id")));
@@ -221,8 +210,7 @@ public class LoginAction extends CoreAction {
 				entity.setUpdateDate(DateTimeUtil.getSystemDate());
 				entity.setPassword(s);
 
-			} else 
-			{
+			} else {
 //				entity = new ExamSuite();
 //				entity.setCreateBy(getUserSession(request).getUsername());
 //				entity.setCreateDate(DateTimeUtil.getSystemDate());
@@ -232,12 +220,12 @@ public class LoginAction extends CoreAction {
 //			
 			userService.saveOrUpdateItem(entity);
 
-		}
-			catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return mapping.findForward("MA01");	}
+		return mapping.findForward("MA01");
+	}
 
 	public ActionForward initAddUser(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -361,8 +349,8 @@ public class LoginAction extends CoreAction {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			List<Project> projectList = projectService.getProjectList(company);
 			List<Company> customerAddList = companyService.getCustomerList(company);
-		
-			System.out.println("projectList = "+projectList);
+
+			System.out.println("projectList = " + projectList);
 			Project project = projectList.iterator().next();
 //			System.out.println(project+"test project");	
 //			dynaForm.set("id_project", project.getId());
@@ -379,7 +367,7 @@ public class LoginAction extends CoreAction {
 
 		return mapping.findForward("MA05");
 	}
-	
+
 	public ActionForward initProfile(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		try {
@@ -397,7 +385,7 @@ public class LoginAction extends CoreAction {
 //			System.out.println("property company: "+obj.getId_customer().getCompany_name()); BUG
 //			dynaForm.set("username", obj.getUsername());
 			dynaForm.set("position", obj.getId_user_position().getPosition_name());
-			
+
 			dynaForm.set("newfirstname", obj.getUser_firstname());
 			dynaForm.set("newlastname", obj.getUser_lastname());
 			dynaForm.set("newnickname", obj.getNickname());
@@ -449,7 +437,7 @@ public class LoginAction extends CoreAction {
 
 		User obj = (User) getObjectSession(request, SESSION_USER);
 		String company = String.valueOf(obj.getId_company().getId());
-	
+
 		try {
 			List<Request> requestList = requestService.getRequestList(company);
 			List<RequestStatus> requestStatusIdList = requestStatusService.getAll();
@@ -469,66 +457,49 @@ public class LoginAction extends CoreAction {
 		return mapping.findForward("MA06");
 	}
 
-	
-	public ActionForward saveProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward saveProject(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		try {
-			
-			DynaActionForm dynaForm = (DynaActionForm) form;
 
+			DynaActionForm dynaForm = (DynaActionForm) form;
 
 			User obj = (User) getObjectSession(request, SESSION_USER);
 			System.out.println(obj.getUsername());
-			
-<<<<<<< HEAD
-=======
-			
-			
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
+
 //			UserPrefix entity = null;
 //			entity = new UserPrefix();
 //			entity.setPrefix_name(dynaForm.getString("newuser"));
 //
-<<<<<<< HEAD
-			Project entity = null;
-			entity = new Project();
-=======
+
 			Project entity = new Project();
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 			entity.setCreateBy(obj.getUsername());
 			entity.setCreateDate(DateTimeUtil.getSystemDate());
 			entity.setUpdateBy(obj.getUsername());
 			entity.setUpdateDate(DateTimeUtil.getSystemDate());
 			entity.setProject_name(dynaForm.getString("newproject"));
 			Company customer = new Company();
-		
+
 			customer.setId(Integer.parseInt(dynaForm.getString("id_customerSelected")));
 			entity.setId_customer(customer);
-<<<<<<< HEAD
 
-////			
-=======
-			
 			UserProject entityUserProject = null;
 			entityUserProject = new UserProject();
 			entityUserProject.setId_project(entity);
-			
+
 			entityUserProject.setId_user(obj);
 			entityUserProject.setCreateBy(obj.getUsername());
 			entityUserProject.setCreateDate(DateTimeUtil.getSystemDate());
 			entityUserProject.setUpdateBy(obj.getUsername());
 			entityUserProject.setUpdateDate(DateTimeUtil.getSystemDate());
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 
 //
-			
+
 //		
-			
+
 //			User merge = UserService.mergeItem(entity);
 			projectService.saveOrUpdateItem(entity);
-<<<<<<< HEAD
-=======
+
 			userProjectService.saveOrUpdateItem(entityUserProject);
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 //			userPrefixService.saveOrUpdateItem(entity);
 //			
 		} catch (Exception e) {
@@ -536,12 +507,14 @@ public class LoginAction extends CoreAction {
 		}
 		return mappingForward(mapping, request, "mode", "showProject", "login.htm", "loginForm", null);
 	}
-	public ActionForward initUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+	public ActionForward initUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 //		 User obj = (User) getObjectSession(request, SESSION_USER);
 //		 System.out.println(obj.getId_company().getId()+":sesssion");
 //		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
 //		 String company = String.valueOf(obj.getId_company().getId());
-		 try {
+		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 //			List<UserProject> userProjectList = userProjectService.getUserProject("6");
 //		
@@ -565,93 +538,65 @@ public class LoginAction extends CoreAction {
 
 		return mapping.findForward("MA08");
 	}
-	
-	public ActionForward showUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-<<<<<<< HEAD
-//		 User obj = (User) getObjectSession(request, SESSION_USER);
+
+	public ActionForward showUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		User obj = (User) getObjectSession(request, SESSION_USER);
 //		 System.out.println(obj.getId_company().getId()+":sesssion");
 //		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
-//		 String company = String.valueOf(obj.getId_company().getId());
-		 try {
+		String company = String.valueOf(obj.getId_company().getId());
+		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			List<UserProject> userProjectList = userProjectService.getUserProject("6");
-		
-			UserProject userProject = userProjectList.iterator().next();
-//				
-//			dynaForm.set("username", user.getUsername());
-//			dynaForm.set("user_firstName", user.getUser_firstname());
-//			dynaForm.set("user_lastName", user.getUser_lastname());
-//			dynaForm.set("user_email", user.getUser_email());
-//			dynaForm.set("user_phone", user.getUser_phone());
-=======
-		 User obj = (User) getObjectSession(request, SESSION_USER);
-//		 System.out.println(obj.getId_company().getId()+":sesssion");
-//		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
-		 String company = String.valueOf(obj.getId_company().getId());
-		 try {
-			DynaActionForm dynaForm = (DynaActionForm) form;
-			System.out.println(dynaForm.getString("id")+"idsome");
+			System.out.println(dynaForm.getString("id") + "idsome");
 			List<UserProject> userProjectList = userProjectService.getUserProject(dynaForm.getString("id"));
-			List<User> userAddToProjectList = userService.getaddUserList(dynaForm.getString("id"),company);
+			List<User> userAddToProjectList = userService.getaddUserList(dynaForm.getString("id"), company);
 			UserProject userProject = userProjectList.iterator().next();
 			dynaForm.set("userAddToProjectList", userAddToProjectList);
 			request.setAttribute("userAddToProjectList", userAddToProjectList);
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 
 			dynaForm.set("resultUserProjectList", userProjectList);
 			request.setAttribute("resultUserProjectList", userProjectList);
-
-<<<<<<< HEAD
-			System.out.println(String.valueOf("UserProject"+userProjectList));
-=======
-			System.out.println((String.valueOf("UserProject"+userProjectList.size())));
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
-	
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-<<<<<<< HEAD
 		return mapping.findForward("MA05");
 	}
-	
-	//แก้ไข สถานะ ของ request
-	public ActionForward editRequest (ActionMapping mapping, ActionForm form, HttpServletRequest request,
+
+	// แก้ไข สถานะ ของ request
+	public ActionForward editRequest(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		System.out.println("Hello EditRequest");
-		
+
 		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
 			System.out.println("id_request_status = " + dynaForm.getString("id_request_status"));
 			System.out.println("ID SELECT : " + dynaForm.getString("id"));
-			
+
 			Request entity = null;
 			entity = requestService.getItem(Integer.parseInt(dynaForm.getString("id")));
 			entity.setId_request_status(new RequestStatus(Integer.parseInt(dynaForm.getString("id_request_status"))));
-			
+
 			requestService.updateItem(entity);
 //			setObjectSession(request, null, entity);
-=======
-		return mapping.findForward("MA08");
-	}
-	public ActionForward saveUserAddToProject(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		try {
-			
-			DynaActionForm dynaForm = (DynaActionForm) form;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+		return mappingForward(mapping, request, "mode", "showRequest", "login.htm", "loginForm", null);
+	}
+
+	public ActionForward saveUserAddToProject(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		try {
+
+			DynaActionForm dynaForm = (DynaActionForm) form;
 
 			User obj = (User) getObjectSession(request, SESSION_USER);
 			System.out.println(obj.getUsername());
-			
-//
-//			UserProject entity = null;
-//			entity = new UserProject();
-//			entity.setCreateBy(obj.getUsername());
-//			entity.setCreateDate(DateTimeUtil.getSystemDate());
-//			entity.setUpdateBy(obj.getUsername());
-//			entity.setUpdateDate(DateTimeUtil.getSystemDate());
-//			entity.setId_user((User)getObjectSession(request, "userAddToProjectSelect"));
+
 			User entityUser = new User();
 			entityUser.setId(Integer.parseInt(dynaForm.getString("userAddToProjectSelect")));
 			Project entityProject = new Project();
@@ -659,21 +604,15 @@ public class LoginAction extends CoreAction {
 			UserProject entityUserProject = null;
 			entityUserProject = new UserProject();
 			entityUserProject.setId_project(entityProject);
-			System.out.println(entityProject+"idProject");
+			System.out.println(entityProject + "idProject");
 
 			entityUserProject.setId_user(entityUser);
-			System.out.println(entityUser+"idUser");
+			System.out.println(entityUser + "idUser");
 			entityUserProject.setCreateBy(obj.getUsername());
 			entityUserProject.setCreateDate(DateTimeUtil.getSystemDate());
 			entityUserProject.setUpdateBy(obj.getUsername());
 			entityUserProject.setUpdateDate(DateTimeUtil.getSystemDate());
 
-//
-			
-//		
-			
-//			User merge = UserService.mergeItem(entity);
-			
 			userProjectService.saveOrUpdateItem(entityUserProject);
 //			userPrefixService.saveOrUpdateItem(entity);
 //			
@@ -682,6 +621,7 @@ public class LoginAction extends CoreAction {
 		}
 		return mappingForward(mapping, request, "mode", "showUserProject", "login.htm", "loginForm", null);
 	}
+
 	public ActionForward deleteUserProject(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		try {
@@ -694,47 +634,22 @@ public class LoginAction extends CoreAction {
 		return mappingForward(mapping, request, "mode", "showUserProject", "login.htm", "loginForm", null);
 	}
 
-	//แก้ไข สถานะ ของ request
-	public ActionForward editRequest (ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward showCompany(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
-		try {
-			DynaActionForm dynaForm = (DynaActionForm) form;
-			
-			Request entity = null;
-			
-			entity.setId_request_status(new RequestStatus(Integer.parseInt(dynaForm.getString("id_request_status"))));
-			
-			requestService.saveOrUpdateItem(entity);
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return mappingForward(mapping, request, "mode", "showRequest", "login.htm", "loginForm", null);
-	}
-<<<<<<< HEAD
-
-=======
-	public ActionForward showCompany(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		 User obj = (User) getObjectSession(request, SESSION_USER);
+		User obj = (User) getObjectSession(request, SESSION_USER);
 //		 System.out.println(obj.getId_company().getId()+":sesssion");
 //		 System.out.println("getobject: "+getObjectSession(request, SESSION_USER));
-		 String company = String.valueOf(obj.getId_company().getId());
-		 try {
+		String company = String.valueOf(obj.getId_company().getId());
+		try {
 			DynaActionForm dynaForm = (DynaActionForm) form;
-			System.out.println(dynaForm.getString("id")+"idsome");
+			System.out.println(dynaForm.getString("id") + "idsome");
 			List<Company> companyList = companyService.getCustomerList(company);
 			Company companys = companyList.iterator().next();
-
-			
 
 			dynaForm.set("customerAddList", companyList);
 			request.setAttribute("customerAddList", companyList);
 
-			System.out.println((String.valueOf("UserProject"+companyList.size())));
-	
+			System.out.println((String.valueOf("UserProject" + companyList.size())));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -742,17 +657,16 @@ public class LoginAction extends CoreAction {
 
 		return mapping.findForward("MA09");
 	}
-	public ActionForward saveCompany(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		try {
-			
-			DynaActionForm dynaForm = (DynaActionForm) form;
 
+	public ActionForward saveCompany(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		try {
+
+			DynaActionForm dynaForm = (DynaActionForm) form;
 
 			User obj = (User) getObjectSession(request, SESSION_USER);
 			System.out.println(obj.getUsername());
-			
-			
-			
+
 //			UserPrefix entity = null;
 //			entity = new UserPrefix();
 //			entity.setPrefix_name(dynaForm.getString("newuser"));
@@ -770,9 +684,9 @@ public class LoginAction extends CoreAction {
 			CompanyType entityCompanyType = new CompanyType();
 			entityCompanyType.setId(1);
 			entity.setId_company_type(entityCompanyType);
-			
+
 //		
-			
+
 //			User merge = UserService.mergeItem(entity);
 			companyService.saveOrUpdateItem(entity);
 //			userPrefixService.saveOrUpdateItem(entity);
@@ -782,7 +696,7 @@ public class LoginAction extends CoreAction {
 		}
 		return mappingForward(mapping, request, "mode", "showCompany", "login.htm", "loginForm", null);
 	}
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
+
 	public ProjectService getProjectService() {
 		return projectService;
 	}
@@ -831,9 +745,7 @@ public class LoginAction extends CoreAction {
 	public void setCompanyService(CompanyService companyService) {
 		this.companyService = companyService;
 	}
-	
-	
-	
+
 	public RequestStatusService getRequestStatusService() {
 		return requestStatusService;
 	}
@@ -841,9 +753,5 @@ public class LoginAction extends CoreAction {
 	public void setRequestStatusService(RequestStatusService requestStatusService) {
 		this.requestStatusService = requestStatusService;
 	}
-	
-}	
 
-	
-
-
+}

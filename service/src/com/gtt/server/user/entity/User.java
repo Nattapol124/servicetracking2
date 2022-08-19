@@ -7,11 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-<<<<<<< HEAD
-=======
 import javax.persistence.Transient;
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
-
 import com.core.entity.CoreEntity;
 
 @Entity
@@ -54,10 +50,6 @@ public class User extends CoreEntity {
 	@Column (name = "user_email")
 	private String user_email;
 	
-	
-<<<<<<< HEAD
-	
-=======
 	@Transient
 	private String fullName;
 	
@@ -69,8 +61,6 @@ public class User extends CoreEntity {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 	public User() {
 		
 	}

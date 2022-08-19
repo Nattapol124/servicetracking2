@@ -56,26 +56,16 @@ html, body {
 	background: #f5f5f9;
 }
 
-<<<<<<< HEAD
 /* .table { */
 /* 	margin-top: 4%; */
 /* 	border-collapse: separate; */
 /* 	border-radius: 20px; */
 /* } */
-=======
-.table {
-	margin-top: 4%;
-	border-collapse: separate;
-	border-radius: 20px;
-}
-
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 .att:hover {
 	background-color: #f5f5f9;
 }
 
 .inthebox {
-<<<<<<< HEAD
 	margin-top: 1%;
 	margin-left: 1%;
 	margin-right: 1%;
@@ -115,14 +105,6 @@ div.c {
 	width: auto;
 	height: 50px;
 	border: 3px solid #73AD21;
-=======
-	margin-left: 10%;
-	margin-right: 10%;
-	width: 80%;
-	background: #e8ffff;
-	top: 20%;
-	border-radius: 15px;
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 }
 </style>
 <style type="text/css">
@@ -219,7 +201,7 @@ div.c {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
-<<<<<<< HEAD
+
 
 				<div class="groupTitle">
 					<div class="b">
@@ -238,23 +220,7 @@ div.c {
 				<!-- 					data-bs-target="#addProjectModal" class="btn btn-primary btn-xs"> -->
 				<!-- 					<i class="fa fa-plus">เพิ่มโครงการ</i> -->
 				<!-- 				</button> -->
-=======
-				<div class="form-group">
-					<div class="col-sm-offset-3 col-sm-8">
-						<button class="btn btn-primary" type="button"
-							onclick="submitFormInit('showProject')">
-							<i class="fa fa-users" aria-hidden="true"></i>
-							&nbsp;ดูรายชื่อบัญชีทั้งหมด
-						</button>
-					</div>
 
-
-				</div>
-				<button type="button" data-bs-toggle="modal"
-					data-bs-target="#addProjectModal" class="btn btn-primary btn-xs">
-					<i class="fa fa-plus">เพิ่มโครงการ</i>
-				</button>
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 				<div class="modal fade" id="addProjectModal" tabindex="-1"
 					role="dialog" aria-labelledby="addProjectModalLabel"
 					aria-hidden="true">
@@ -274,7 +240,7 @@ div.c {
 									<html:optionsCollection property="customerAddList" value="id"
 										label="company_name" />
 								</html:select>
-<<<<<<< HEAD
+
 								<logic:present name="loginForm" property="resultProjectList">
 									<logic:notEmpty name="loginForm" property="resultProjectList">
 
@@ -303,9 +269,7 @@ div.c {
 										</table>
 									</logic:notEmpty>
 								</logic:present>
-=======
-								
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
+
 								<div class="modal-footer">
 									<button type="button" class="btn btn-primary"
 										data-bs-dismiss="modal">ออก</button>
@@ -323,7 +287,7 @@ div.c {
 					<logic:notEmpty name="loginForm" property="resultProjectList">
 						<table cellspacing="0" width="100%"
 							class="table align-middle mb-0 ">
-<<<<<<< HEAD
+
 
 							<thead>
 								<tr>
@@ -369,87 +333,9 @@ div.c {
 															disabled> <label>ชื่อจริง : </label> <input
 															type="text" class="form-control"
 															value="${item.id_customer.company_name }" disabled>
-														<div class="col-xl-6 mb-4">
-															<%--     <div class="card">
-=======
-							<a>
-								<thead>
-									<tr>
-										<th class="text-center">ลำดับ</th>
-										<th class="text-center">ชื่อโครงการ</th>
-										<th class="text-center">บริษัทผู้ว่าจ้าง</th>
-										<th class="text-center"></th>
-
-									</tr>
-								</thead>
-								<tbody>
-									<logic:iterate id="item" name="loginForm"
-										property="resultProjectList" indexId="index">
-										<tr class="att">
-											<td align="center" class="fw-normal mb-1 "><%=index + 1%></td>
-											<td align="center" class="fw-normal mb-1 ">${item.project_name}</td>
-											<td align="center" class="fw-normal mb-1 ">${item.id_customer.company_name}</td>
+														<div class="col-xl-6 mb-4"></div>
 
 
-											<td align="center">
-
-												<button type="button" onclick="submitFormEdit('${item.id}','showUserProject')"
-													class="btn btn-primary btn-xs">
-													<i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
-												</button>
-
-											</td>
-											
- 
-		
-											<div class="modal fade" id="exampleModal${item.id}"
-												tabindex="-1" role="dialog"
-												aria-labelledby="exampleModalLabel" aria-hidden="true">
-												<div class="modal-dialog" role="document">
-													<div class="modal-content">
-														<div class="modal-header">
-															<h5 class="modal-title" id="exampleModalLabel"></h5>
-														</div>
-														<div class="modal-body">
-															<label>ชื่อผู้ใช้ : </label> <input type="text"
-																class="form-control" value="${item.project_name }"
-																disabled> <label>ชื่อจริง : </label> <input
-																type="text" class="form-control"
-																value="${item.id_customer.company_name }" disabled>
-																<div class="col-xl-6 mb-4">
-<%--     <div class="card">
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
-      <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex align-items-center">
-            <img
-              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-              alt=""
-              style="width: 45px; height: 45px"
-              class="rounded-circle"
-            />
-            <div class="ms-1">
-               ${item.project_name }
-            </div>
-          </div>
-        </div>
-      </div>
-     
-    </div>
-  </div> --%>
-<<<<<<< HEAD
-
-
-
-														</div>
-
-=======
-																			
-
-
-														</div>
-														
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 														<div class="modal-footer">
 															<button type="button" class="btn btn-primary"
 																data-bs-dismiss="modal">ออก</button>
@@ -457,19 +343,12 @@ div.c {
 													</div>
 												</div>
 											</div>
-<<<<<<< HEAD
 									</tr>
 
 								</logic:iterate>
 
 							</tbody>
-=======
-										</tr>
 
-									</logic:iterate>
-
-								</tbody>
->>>>>>> 1d7ed70bff8e3af5829783bd506632c8669d20a9
 						</table>
 
 
