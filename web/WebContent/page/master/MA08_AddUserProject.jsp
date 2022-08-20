@@ -85,9 +85,7 @@ html, body {
 			    }
 			   })
 		}
-
 		function submitFormRemove(ids) {
-
 			 
 			  Swal.fire({
 				     title: 'Are you sure?',
@@ -99,12 +97,10 @@ html, body {
 				     confirmButtonText: 'Yes'
 				   }).then((result) => {
 				    if(result.isConfirmed){
-
 				    	document.loginForm.mode.value = 'deleteUserProject';
 						document.loginForm.ids.value = ids;
 						document.loginForm.submit();
 								
-
 				    }
 				       
 				     })
@@ -112,7 +108,6 @@ html, body {
 					
 				
 		}
-
 		$(document).ready(
 				function() {
 					
@@ -145,7 +140,6 @@ html, body {
 		function submitFormSave() {
 			$("#eduForm").submit();
 		}
-
 		
 	</script>
 	<link rel="stylesheet"
@@ -172,7 +166,6 @@ html, body {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
-
 				<html:hidden property="ids" />
 
 				<div class="form-group">
@@ -202,9 +195,7 @@ html, body {
 									<th class="text-center">ลำดับ</th>
 									<th class="text-center">ชื่อผู้ใช้</th>
 									<th class="text-center">ชื่อจริง</th>
-
 									<th class="text-center">นามสกุล</th>
-
 
 									<th class="text-center"></th>
 
@@ -258,7 +249,6 @@ html, body {
 														value="${item.id_user.user_firstname}" disabled> <label>ชื่อจริง
 														: </label> <input type="text" class="form-control"
 														value="${item.id_user.user_lastname}" disabled>
-
 
 												</div>
 												<div class="modal-footer">

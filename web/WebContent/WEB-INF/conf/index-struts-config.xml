@@ -9,30 +9,24 @@
 			<form-property name="ids" type="java.lang.String" />
 			<form-property name="ide" type="java.lang.String" />
 			<form-property name="mode" type="java.lang.String" />
-
+			
 			<form-property name="un" type="java.lang.String" />
 			<form-property name="pw" type="java.lang.String" />
-
+			
 			<form-property name="resultList" type="java.util.List" />
-
+			
 			<form-property name="projectList" type="java.util.List" />
-
-			<form-property name="id_project"
-				type="java.lang.Integer" />
-			<form-property name="request_title"
-				type="java.lang.String" />
-			<form-property name="request_file"
-				type="java.lang.String" />
-			<form-property name="request_remark"
-				type="java.lang.String" />
-
-
-
-			<form-property name="edit_title"
-				type="java.lang.String" />
+			
+			<form-property name="id_project" type="java.lang.Integer" />
+			<form-property name="request_title" type="java.lang.String" />
+			<form-property name="request_file" type="java.lang.String" />
+			<form-property name="request_remark" type="java.lang.String" />
+			
+			
+			
+			<form-property name="edit_title" type="java.lang.String" />
 			<form-property name="edit_file" type="java.lang.String" />
-			<form-property name="edit_remark"
-				type="java.lang.String" />
+			<form-property name="edit_remark" type="java.lang.String" />
 
 		</form-bean>
 	</form-beans>
@@ -44,19 +38,15 @@
 			<!-- Web Page -->
 			<forward name="Index" path="/page/index.jsp" />
 			<forward name="Request" path="/page/feature/request.jsp" />
-			<forward name="AddRequest"
-				path="/page/feature/addRequest.jsp" />
+			<forward name="AddRequest" path="/page/feature/addRequest.jsp" />
 			<forward name="UserDetail" path="/page/feature/user.jsp" />
-
-			<forward name="EditRequest"
-				path="/page/feature/editRequest.jsp" />
-
-
-
+			<forward name="EditRequest" path="/page/feature/editRequest.jsp" />
+			
+			
 			<forward name="json_tag" path="/page/json_tag.jsp" />
 			<forward name="redirect" path="/page/redirect.jsp" />
 
-
+			
 		</action>
 	</action-mappings>
 </struts-config>

@@ -102,7 +102,7 @@ script
 					data-mdb-toggle="dropdown" aria-expanded="false"> <span
 						class="">${SSUser.username}</span> <img
 						src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg"
-						class="rounded-circle" height="40" alt="" loading="lazy" />
+						class="rounded-circle" height="30" alt="" loading="lazy" />
 				</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<li><a class="dropdown-item"
@@ -116,12 +116,10 @@ script
 			</ul>
 			<!-- Left links -->
 		</div>
-
 		<!-- Collapsible wrapper -->
 	</div>
 	<!-- Container wrapper -->
 </nav>
-
 
 <!--header end-->
 

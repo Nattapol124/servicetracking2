@@ -15,7 +15,6 @@ public interface UserDao extends CoreDao<User, Serializable> {
 
 	public List findLogin(String username, String password) throws DataAccessException;
 	public List findUserList(String company) throws DataAccessException;
-
 	public List findAddUserList(String company,String id_company) throws DataAccessException;
 
 }

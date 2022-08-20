@@ -562,7 +562,7 @@ public class LoginAction extends CoreAction {
 			e.printStackTrace();
 		}
 
-		return mapping.findForward("MA05");
+		return mapping.findForward("MA08");
 	}
 
 	// แก้ไข สถานะ ของ request

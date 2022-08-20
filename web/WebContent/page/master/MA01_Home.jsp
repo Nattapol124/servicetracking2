@@ -275,7 +275,6 @@ div.c {
 				styleClass="form-horizontal form-validate">
 				<html:hidden property="mode" />
 				<html:hidden property="id" />
-<<<<<<< HEAD
 				<div class="form-group"></div>
 				<logic:present name="loginForm" property="resultList">
 					<logic:notEmpty name="loginForm" property="resultList">

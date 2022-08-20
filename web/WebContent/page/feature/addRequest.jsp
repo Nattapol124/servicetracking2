@@ -13,7 +13,7 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
 	;
-	
+
 .popup .content {
 	position: absolute;
 	top: 50%;
@@ -29,7 +29,6 @@
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	z-index: 1;
 	backdrop-filter: blur(5px);
-
 }
 
 .popup .close-btn {
@@ -162,15 +161,13 @@ html, body {
 	top: 20%;
 	border-radius: 15px;
 }
-
-
 </style>
 <style type="text/css">
 </style>
 
 <body>
 	<script type="text/javascript">
-// 	function add() {
+	function add() {
 // 		Swal.fire({
 // 			  title: 'Are you sure?',
 // 			  text: "You want to add!",
@@ -206,52 +203,57 @@ html, body {
 		<!-- Navbar -->
 		<%@ include file="/page/inc_header.jsp"%>
 
-		
+
 		<div class="inthebox">
 
 			<html:form action="/index" styleId="eduForm">
-			<html:hidden property="mode"/>
-	<div class="topbar">
+				<html:hidden property="mode" />
+				<div class="topbar">
 
-	
-		<section id="main-content">
-		<section class="wrapper">
-         <div>
-         	<h2>รายงานปัญหา</h2>
-         	<label>ชื่อโครงการ</label>
-         	<html:select property="id_project" styleClass="form-control">
+
+					<section id="main-content">
+						<section class="wrapper">
+							<div>
+								<h2>รายงานปัญหา</h2>
+								<label>ชื่อโครงการ</label>
+								<html:select property="id_project" styleClass="form-control">
          		<<html:option value="">Select your project</html:option>
 
-				<html:optionsCollection property="projectList" value="id" label="project_name" />
-			</html:select> 
-         </div>
-         
-         <div>
-         	<label>หัวข้อปัญหา</label>
-         	<html:text property="request_title" onkeypress="submitEnter();" styleClass="form-control" styleId="title" placeHolder="หัวข้อปัญหา" maxlength="10%" />
-         </div>
-         
-        <div>
-        <label>Select a file to upload: </label>
-         <input property="request_file" type = "file" accept=".pdf, .png, .jpg, .jpeg"/>
-        </div>
-        
-        <div>
-        <label>ปัญหาที่เกิด</label>
-         <html:text property="request_remark" onkeypress="submitEnter();" styleClass="form-control" styleId="remark" placeHolder="ปัญหาที่เกิด" />
-        </div>
-         
-         <button class="btn-blue btn-sm" onClick="add()">add</button>
-        
-         
-         
-		</section>
-		</section>
-</div>
- </html>
-</html:form>   
+									<html:optionsCollection property="projectList" value="id"
+										label="project_name" />
+								</html:select>
+							</div>
+
+							<div>
+								<label>หัวข้อปัญหา</label>
+								<html:text property="request_title" onkeypress="submitEnter();"
+									styleClass="form-control" styleId="title"
+									placeHolder="หัวข้อปัญหา" maxlength="10%" />
+							</div>
+
+							<div>
+								<label>Select a file to upload: </label> <input
+									property="request_file" type="file"
+									accept=".pdf, .png, .jpg, .jpeg" />
+							</div>
+
+							<div>
+								<label>ปัญหาที่เกิด</label>
+								<html:text property="request_remark" onkeypress="submitEnter();"
+									styleClass="form-control" styleId="remark"
+									placeHolder="ปัญหาที่เกิด" />
+							</div>
+
+							<button class="btn-blue btn-sm" onClick="add()">add</button>
+
+
+
+						</section>
+					</section>
+				</div>
+				</html>
+			</html:form>
 		</div>
-	
 </body>
 
 

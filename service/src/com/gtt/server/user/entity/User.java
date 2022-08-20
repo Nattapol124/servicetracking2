@@ -1,4 +1,5 @@
 package com.gtt.server.user.entity;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
 import com.core.entity.CoreEntity;
 
 @Entity
 @Table(name = "user")
 public class User extends CoreEntity {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@Column(name = "id_user")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,16 +31,13 @@ public class User extends CoreEntity {
 	@JoinColumn(name = "id_user_position")
 	private UserPosition id_user_position;
 	@ManyToOne
-	@JoinColumn(name = "id_customer")
-	private Company id_customer;
-	@ManyToOne
 	@JoinColumn(name = "id_company")
 	private Company id_company;
 	@Column(name = "username")
 	private String username;
 	@Column(name = "password")
 	private String password;
-	
+
 	@Column(name = "user_nickname")
 	private String nickname;
 	@Column(name = "user_firstname")
@@ -47,24 +46,28 @@ public class User extends CoreEntity {
 	private String user_lastname;
 	@Column(name = "user_phone")
 	private String user_phone;
-	@Column (name = "user_email")
+	@Column(name = "user_email")
 	private String user_email;
-	
+	@ManyToOne
+	@JoinColumn(name = "id_customer")
+	private Company id_customer;
+
 	@Transient
 	private String fullName;
-	
+
 	@Transient
 	public String getFullName() {
-		return user_firstname+" "+user_lastname;
+		return user_firstname + " " + user_lastname;
 	}
 
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
 	public User() {
-		
+
 	}
-	
+
 	public User(int id) {
 		this.id = id;
 	}
@@ -173,12 +176,4 @@ public class User extends CoreEntity {
 		this.id_customer = id_customer;
 	}
 
-	
-
-	
-	
-	
-	
-	
-	
 }

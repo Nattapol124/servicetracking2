@@ -30,7 +30,6 @@ implements ProjectService{
 	}
 	@Override
 	public List getProjectById(String userId) throws DataAccessException {
-		// TODO Auto-generated method stub
 		return projectDao.getProjectById(userId);
 	}
 	@Override

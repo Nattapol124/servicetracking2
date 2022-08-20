@@ -13,7 +13,7 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap')
 	;
-	
+
 .popup .content {
 	position: absolute;
 	top: 50%;
@@ -29,7 +29,6 @@
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 	z-index: 1;
 	backdrop-filter: blur(5px);
-
 }
 
 .popup .close-btn {
@@ -162,8 +161,6 @@ html, body {
 	top: 20%;
 	border-radius: 15px;
 }
-
-
 </style>
 <style type="text/css">
 </style>
@@ -194,43 +191,46 @@ html, body {
 		<!-- Navbar -->
 		<%@ include file="/page/inc_header.jsp"%>
 
-		
+
 		<div class="inthebox">
 
-		<html:form action="/index" styleId="eduForm">
-			<html:hidden property="mode"/>
-	    	<html:hidden property="id"/>
-	    	<html:hidden property="ids"/>
-			<div class="topbar">
+			<html:form action="/index" styleId="eduForm">
+				<html:hidden property="mode" />
+				<html:hidden property="id" />
+				<html:hidden property="ids" />
+				<div class="topbar">
 
-	
-			<section id="main-content">
-			<section class="wrapper">
-         		<div>
-         			<h2>แก้ไขรายงานปัญหา</h2>
-									<label>หัวข้อ : </label> 
-									<html:text property="edit_title" styleId="edit_title" styleClass="form-control"></html:text>
-								
-									<label>โครงการ : </label>
-									<html:select property="id_project" styleClass="form-control">
-										<html:optionsCollection property="projectList" value="id" label="project_name" /> 
-									</html:select>
 
-									<label>รายละเอียด : </label>
-									<html:text property="edit_remark" styleId="edit_remark" styleClass="form-control"></html:text>
-									
-									<label>ไฟล์ : </label>
-									<html:file property="edit_file" styleId="edit_file" styleClass="form-control"></html:file>
-									
-									<button class="btn btn-primary" onClick="edit()">Save</button>
-								</div>
-			</section>
-			</section>
-			</div>
- 			</html>
-		</html:form>   
+					<section id="main-content">
+						<section class="wrapper">
+							<div>
+								<h2>แก้ไขรายงานปัญหา</h2>
+								<label>หัวข้อ : </label>
+								<html:text property="edit_title" styleId="edit_title"
+									styleClass="form-control"></html:text>
+
+								<label>โครงการ : </label>
+								<html:select property="id_project" styleClass="form-control">
+									<html:optionsCollection property="projectList" value="id"
+										label="project_name" />
+								</html:select>
+
+								<label>รายละเอียด : </label>
+								<html:text property="edit_remark" styleId="edit_remark"
+									styleClass="form-control"></html:text>
+
+								<label>ไฟล์ : </label>
+								<html:file property="edit_file" styleId="edit_file"
+									styleClass="form-control"></html:file>
+
+								<button class="btn btn-primary" onClick="edit()">Save</button>
+							</div>
+						</section>
+					</section>
+				</div>
+				</html>
+			</html:form>
 		</div>
-	
 </body>
 
 
