@@ -62,7 +62,7 @@ public class RequestDaoImpl extends CoreDaoImpl<Request, Serializable> implement
 		String sql = "select distinct request.id_request, user.id_user, user.user_nickname, request.id_user_process"
 				+ ", requeststatus.id_request_status, requeststatus.status_name, requesttype.id_request_type"
 				+ ", requesttype.type_name, project.id_project, project.project_name, request.request_title"
-				+ ", request.request_remark, request.request_date, request.req0uest_dateStart, request.request_dateEnd , request.request_file from request "
+				+ ", request.request_remark, request.request_date, request.request_dateStart, request.request_dateEnd , request.request_file from request "
 				+ "inner join user on request.id_user = user.id_user "
 				+ "inner join requeststatus on request.id_request_status = requeststatus.id_request_status "
 				+ "inner join requesttype on request.id_request_type = requesttype.id_request_type "

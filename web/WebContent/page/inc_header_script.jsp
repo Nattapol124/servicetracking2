@@ -8,7 +8,7 @@
 <meta name="author" content="">
 <meta name="keyword" content="">
 
-<title>รายงานปัญหา</title>
+<title>ระบบรายงานปัญหา</title>
 <!-- Font Awesome -->
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -23,8 +23,11 @@
 	rel="stylesheet" />
 <!-- MDB -->
 <script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js">
+	
+</script>
 <!-- Bootstrap CSS -->
+
 <!-- CSS only -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -373,12 +376,12 @@
 	}
 </script>
 <style type="text/css">
-.popup-dialog .modal-dialog {
-	width: 700px;
-}
+	.popup-dialog .modal-dialog {
+		width: 700px;
+	}
 
-.popuplg-dialog .modal-dialog {
-	width: 1000px;
-}
+	.popuplg-dialog .modal-dialog {
+		width: 1000px;
+	}
 </style>
 </head>

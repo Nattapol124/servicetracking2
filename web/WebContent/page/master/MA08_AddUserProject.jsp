@@ -10,53 +10,205 @@
 <%@ include file="/page/inc_header_script.jsp"%>
 
 <style type="text/css">
-p {
-	color: #f5f5f9;
-	padding: 20px;
-}
+	html, body {
+		height: 100%;
+		width: 100%;
+	}
+	.input-field .validate {
+		padding: 20px;
+		font-size: 16px;
+		border-radius: 10px;
+		border: none;
+		margin-bottom: 15px;
+		color: black;
+		background: #f5f5f9;
+		outline: none;
+	}	
+	.backplane {
+		/* Rectangle 4283 */
+		position: absolute;
+		width: 80%;
+		height: 100%;
+		left: 0px;
+		top: 0px;
+		background: linear-gradient(136.16deg, #042153 5.45%, #1DA1B0 60.18%);
+	}
 
-html, body {
-	height: 100%;
-	width: 100%;
-}
+	.topbar {
+		/* Rectangle 4284 */
+		position: absolute;
+		width: 85%;
+		height: 100%;
+ 		left: 15%; 
+		background: #E5E7E9 ;
+	}
 
-.backplane {
-	/* Rectangle 4283 */
-	position: absolute;
-	width: 80%;
-	height: 100%;
-	left: 0px;
-	top: 0px;
-	background: linear-gradient(136.16deg, #042153 5.45%, #1DA1B0 60.18%);
-}
+	.inthebox {
+		/* 	margin-left: 10%; */
+		/* 	margin-right: 10%; */
+		margin-top: 1%;
+		margin-left: 1%;
+		margin-right: 1%;
+		
+		
+/* 		background: #e8ffff; */
+		top: 20%;
+		border-radius: 15px;
+	}
 
-.topbar {
-	/* Rectangle 4284 */
-	position: absolute;
-	width: 85%;
-	height: 100%;
-	left: 15%;
-	background: #f5f5f9;
-}
-
-.att:hover {
-	background-color: #f5f5f9;
-}
-
-.inthebox {
-	margin-left: 10%;
-	margin-right: 10%;
-	width: 80%;
-	background: #e8ffff;
-	top: 20%;
-	border-radius: 15px;
-}
 </style>
-<style type="text/css">
-</style>
+
 
 <body>
-	<script type="text/javascript">
+	<%@ include file="/page/inc_menu.jsp"%>
+	<div class="topbar">
+		<%@ include file="/page/inc_header.jsp"%>
+		
+		<div class="container">
+		
+			<div class="inthebox" id="top-content">
+			
+				<div class="row">
+					<div class="container">
+						<div class="col-lg-12 bg-white">
+							<nav aria-label="breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item ">หน้าหลัก</li>
+									<li class="breadcrumb-item ">โครงการ</li>
+									<li class="breadcrumb-item active">ผู้ร่วมโครงการ</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+				
+			</div>	
+		</div>
+		
+	</div>
+
+<!-- 	<div class="topbar"> -->
+<!-- 		<!-- Navbar --> -->
+<%-- 		<%@ include file="/page/inc_header.jsp"%> --%>
+
+<!-- 		<!-- Navbar --> -->
+
+<!-- 		<div class="inthebox"> -->
+
+<%-- 			<html:form action="/login" styleId="eduForm" --%>
+<%-- 				styleClass="form-horizontal form-validate"> --%>
+<%-- 				<html:hidden property="mode" /> --%>
+<%-- 				<html:hidden property="id" /> --%>
+<%-- 				<html:hidden property="ids" /> --%>
+
+<!-- 				<div class="form-group"> -->
+<%-- 					<html:select property="userAddToProjectSelect" --%>
+<%-- 						styleClass="form-control"> --%>
+<!-- 						<option value="" disabled selected>เลือกผู้ใช้</option> -->
+<%-- 						<html:optionsCollection property="userAddToProjectList" value="id" --%>
+<%-- 							label="fullName" /> --%>
+<%-- 					</html:select> --%>
+<!-- 					<button type="button" class="btn btn-primary" -->
+<!-- 						onclick="submitFormSave();">บันทึก</button> -->
+
+
+<!-- 				</div> -->
+
+
+
+<%-- 				<logic:present name="loginForm" property="resultUserProjectList"> --%>
+<%-- 					<logic:notEmpty name="loginForm" property="resultUserProjectList"> --%>
+<!-- 						<table id="dtBasicExample" class="table" cellspacing="0" -->
+<!-- 							width="100%"> -->
+
+
+
+<!-- 							<thead> -->
+<!-- 								<tr> -->
+<!-- 									<th class="text-center">ลำดับ</th> -->
+<!-- 									<th class="text-center">ชื่อผู้ใช้</th> -->
+<!-- 									<th class="text-center">ชื่อจริง</th> -->
+<!-- 									<th class="text-center">นามสกุล</th> -->
+
+<!-- 									<th class="text-center"></th> -->
+
+<!-- 								</tr> -->
+<!-- 							</thead> -->
+<!-- 							<tbody> -->
+<%-- 								<logic:iterate id="item" name="loginForm" --%>
+<%-- 									property="resultUserProjectList" indexId="index"> --%>
+<!-- 									<tr class="att"> -->
+
+<!-- 										<td align="center" class="fw-normal mb-1 " -->
+<!-- 											data-bs-toggle="modal" -->
+<%-- 											data-bs-target="#exampleModal${item.id}"><%=index + 1%></td> --%>
+<!-- 										<td align="center" class="fw-normal mb-1 " -->
+<!-- 											data-bs-toggle="modal" -->
+<%-- 											data-bs-target="#exampleModal${item.id}">${item.id_user.username}</td> --%>
+<!-- 										<td align="center" class="fw-normal mb-1 " -->
+<!-- 											data-bs-toggle="modal" -->
+<%-- 											data-bs-target="#exampleModal${item.id}">${item.id_user.user_firstname}</td> --%>
+<!-- 										<td align="center" class="fw-normal mb-1 " -->
+<!-- 											data-bs-toggle="modal" -->
+<%-- 											data-bs-target="#exampleModal${item.id}">${item.id_user.user_lastname}</td> --%>
+
+<!-- 										</div> -->
+
+<!-- 										<td align="center"> -->
+
+<!-- 											<button type="button" -->
+<%-- 												onclick="submitFormRemove('${item.id}');" --%>
+<!-- 												class="btn btn-danger btn-xs"> -->
+<!-- 												<i class="fa fa-trash-o">ลบบัญชี</i> -->
+<!-- 											</button> -->
+<!-- 										</td> -->
+
+
+
+
+<!-- 									</tr> -->
+
+<%-- 									<div class="modal fade" id="exampleModal${item.id}" --%>
+<!-- 										tabindex="-1" role="dialog" -->
+<!-- 										aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!-- 										<div class="modal-dialog" role="document"> -->
+<!-- 											<div class="modal-content"> -->
+<!-- 												<div class="modal-header"> -->
+<!-- 													<h5 class="modal-title" id="exampleModalLabel">ข้อมูลบัญชีผู้ใช้</h5> -->
+<!-- 												</div> -->
+<!-- 												<div class="modal-body"> -->
+<!-- 													<label>ชื่อผู้ใช้ : </label> <input type="text" -->
+<!-- 														class="form-control" -->
+<%-- 														value="${item.id_user.user_firstname}" disabled> <label>ชื่อจริง --%>
+<!-- 														: </label> <input type="text" class="form-control" -->
+<%-- 														value="${item.id_user.user_lastname}" disabled> --%>
+
+<!-- 												</div> -->
+<!-- 												<div class="modal-footer"> -->
+<!-- 													<button type="button" class="btn btn-primary" -->
+<!-- 														data-bs-dismiss="modal">ออก</button> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+
+<%-- 								</logic:iterate> --%>
+
+
+
+<!-- 							</tbody> -->
+<!-- 						</table> -->
+<%-- 					</logic:notEmpty> --%>
+<%-- 				</logic:present> --%>
+<%-- 			</html:form> --%>
+<!-- 		</div> -->
+		
+		
+		
+		
+		
+		
+<script type="text/javascript">
 		$(document).ready(function () {
 			  $('#dtBasicExample').DataTable();
 			  $('.dataTables_length').addClass('bs-select');
@@ -141,7 +293,9 @@ html, body {
 			$("#eduForm").submit();
 		}
 		
-	</script>
+	</script>		
+
+
 	<link rel="stylesheet"
 		href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 	<link rel="stylesheet"
@@ -151,124 +305,7 @@ html, body {
 	<!-- Plugin file -->
 	<link rel="stylesheet" href="./css/addons/datatables.min.css">
 	<link rel="stylesheet" href="css/style.css">
-
-	<%@ include file="/page/inc_menu.jsp"%>
-
-	<div class="topbar">
-		<!-- Navbar -->
-		<%@ include file="/page/inc_header.jsp"%>
-
-		<!-- Navbar -->
-
-		<div class="inthebox">
-
-			<html:form action="/login" styleId="eduForm"
-				styleClass="form-horizontal form-validate">
-				<html:hidden property="mode" />
-				<html:hidden property="id" />
-				<html:hidden property="ids" />
-
-				<div class="form-group">
-					<html:select property="userAddToProjectSelect"
-						styleClass="form-control">
-						<option value="" disabled selected>เลือกผู้ใช้</option>
-						<html:optionsCollection property="userAddToProjectList" value="id"
-							label="fullName" />
-					</html:select>
-					<button type="button" class="btn btn-primary"
-						onclick="submitFormSave();">บันทึก</button>
-
-
-				</div>
-
-
-
-				<logic:present name="loginForm" property="resultUserProjectList">
-					<logic:notEmpty name="loginForm" property="resultUserProjectList">
-						<table id="dtBasicExample" class="table" cellspacing="0"
-							width="100%">
-
-
-
-							<thead>
-								<tr>
-									<th class="text-center">ลำดับ</th>
-									<th class="text-center">ชื่อผู้ใช้</th>
-									<th class="text-center">ชื่อจริง</th>
-									<th class="text-center">นามสกุล</th>
-
-									<th class="text-center"></th>
-
-								</tr>
-							</thead>
-							<tbody>
-								<logic:iterate id="item" name="loginForm"
-									property="resultUserProjectList" indexId="index">
-									<tr class="att">
-
-										<td align="center" class="fw-normal mb-1 "
-											data-bs-toggle="modal"
-											data-bs-target="#exampleModal${item.id}"><%=index + 1%></td>
-										<td align="center" class="fw-normal mb-1 "
-											data-bs-toggle="modal"
-											data-bs-target="#exampleModal${item.id}">${item.id_user.username}</td>
-										<td align="center" class="fw-normal mb-1 "
-											data-bs-toggle="modal"
-											data-bs-target="#exampleModal${item.id}">${item.id_user.user_firstname}</td>
-										<td align="center" class="fw-normal mb-1 "
-											data-bs-toggle="modal"
-											data-bs-target="#exampleModal${item.id}">${item.id_user.user_lastname}</td>
-
-										</div>
-
-										<td align="center">
-
-											<button type="button"
-												onclick="submitFormRemove('${item.id}');"
-												class="btn btn-danger btn-xs">
-												<i class="fa fa-trash-o">ลบบัญชี</i>
-											</button>
-										</td>
-
-
-
-
-									</tr>
-
-									<div class="modal fade" id="exampleModal${item.id}"
-										tabindex="-1" role="dialog"
-										aria-labelledby="exampleModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLabel">ข้อมูลบัญชีผู้ใช้</h5>
-												</div>
-												<div class="modal-body">
-													<label>ชื่อผู้ใช้ : </label> <input type="text"
-														class="form-control"
-														value="${item.id_user.user_firstname}" disabled> <label>ชื่อจริง
-														: </label> <input type="text" class="form-control"
-														value="${item.id_user.user_lastname}" disabled>
-
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-primary"
-														data-bs-dismiss="modal">ออก</button>
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</logic:iterate>
-
-
-
-							</tbody>
-						</table>
-					</logic:notEmpty>
-				</logic:present>
-			</html:form>
-		</div>
+	
 </body>
 
 <script>
@@ -276,6 +313,7 @@ html, body {
         window.history.replaceState( null, null, window.location.href );
     }
 </script>
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>

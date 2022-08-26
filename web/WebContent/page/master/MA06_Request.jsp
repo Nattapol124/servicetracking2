@@ -253,7 +253,9 @@ div.c {
 		   	 	document.forms[0].submit();
 			}
 		});
+		
 	});
+	
 		function submitFormInit(mode) {
 			document.loginForm.mode.value = mode;
 			document.loginForm.submit();
@@ -297,17 +299,61 @@ div.c {
 
 		}
 		
+		function validate() {
+// 		    if (document.getElementById('inlineCheckbox1').checked) {
+// 		        alert("Is checked1");
+// 		    }
+		    
+// 		    if(document.getElementById('inlineCheckbox2').checked){
+// 		    	alert("Is checked2");
+// 		    }
+		    
+// 		    if(document.getElementById('inlineCheckbox3').checked){
+// 		    	alert("Is checked3");
+// 		    }
+
+			
+		    
+		}
+		
+		
+		
 	</script>
 
 	<%@ include file="/page/inc_menu.jsp"%>
 
 	<div class="topbar">
-		<!-- Navbar -->
 		<%@ include file="/page/inc_header.jsp"%>
 
 		<!-- Navbar -->
 
 		<div class="inthebox">
+			<div id="fromCheckbox">
+				<div class="form-check-inline">
+  					<input type="checkbox" id="inlineCheckbox1" value="option1" name="inlineCheckbox1" onclick="validate()" checked>
+  					<label for="inlineCheckbox1">รอรับเรื่อง</label>
+				</div>
+				<div class="form-check-inline">
+  					<input type="checkbox" id="inlineCheckbox2" value="option2" name="inlineCheckbox2" onclick="validate()">
+  					<label for="inlineCheckbox2">รับเรื่องแล้ว</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input  type="checkbox" id="inlineCheckbox3" value="option3" name="inlineCheckbox3" onclick="validate()">
+  					<label  for="inlineCheckbox3">กำลังดำเนินการ</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input type="checkbox" id="inlineCheckbox4" value="option4">
+  					<label for="inlineCheckbox4">ดำเนินการเสร็จสิ้น</label>
+				</div>
+				<div class="form-check form-check-inline">
+  					<input type="checkbox" id="inlineCheckbox5" value="option5">
+  					<label for="inlineCheckbox5">ไม่สามารถดำเนินการได้</label>
+				</div>
+<!-- 				<button type="button" class="">ค้นหา</button> -->
+				
+			
+			</div>
+			
 
 			<html:form action="/login" styleId="eduForm"
 				styleClass="form-horizontal form-validate">
@@ -367,7 +413,7 @@ div.c {
 											<button type="button" data-bs-toggle="modal"
 												data-bs-target="#exampleModal${item.id}"
 												class="btn btn-primary btn-xs">
-												<i class="fa fa-edit"></i>
+												<i class="fa fa-edit"> แก้ไขสถานะ</i>
 											</button>
 											<button type="button"
 												onclick="submitFormRemove('${item.id}');"

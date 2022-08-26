@@ -244,7 +244,7 @@ html, body {
 
             <button type="button" onclick="submitFormEdit('${item.id}','showUserProject')"
              class="btn btn-primary btn-xs">
-             <i class="fa fa-plus">เพิ่มผู้เชี่ยวชาญ</i>
+             <i class="fa fa-plus">ผู้ร่วมโครงการ</i>
             </button>
 
            </td>

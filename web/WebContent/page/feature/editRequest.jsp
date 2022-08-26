@@ -166,25 +166,6 @@ html, body {
 </style>
 
 <body>
-	<script type="text/javascript">
-	
-	
-	function submitEnter() {
-		if (checkKeyEnter() == true) submitFormLogin();
-	}
-	
-	function checkKeyEnter(){
-		   if(event.keyCode==13) return true;
-	}
-	
-	
-	function edit(ids){
-		document.forms[0].mode.value = 'editRequest';
-   	 	document.forms[0].submit();
-	}
-		
-	</script>
-
 	<%@ include file="/page/inc_menu.jsp"%>
 
 	<div class="topbar">
@@ -203,34 +184,46 @@ html, body {
 
 					<section id="main-content">
 						<section class="wrapper">
-							<div>
-								<h2>แก้ไขรายงานปัญหา</h2>
-								<label>หัวข้อ : </label>
-								<html:text property="edit_title" styleId="edit_title"
-									styleClass="form-control"></html:text>
+							<div class="row">
+								<div class="col">
+									<h2>แก้ไขรายงานปัญหา</h2>
+									<label>หัวข้อ : </label>
+									<html:text property="edit_title" styleId="edit_title"
+										styleClass="form-control"></html:text>
 
-								<label>โครงการ : </label>
-								<html:select property="id_project" styleClass="form-control">
-									<html:optionsCollection property="projectList" value="id"
-										label="project_name" />
-								</html:select>
+									<label>โครงการ : </label>
+									<html:select property="id_project" styleClass="form-control">
+										<html:optionsCollection property="projectList" value="id"
+											label="project_name" />
+									</html:select>
 
-								<label>รายละเอียด : </label>
-								<html:text property="edit_remark" styleId="edit_remark"
-									styleClass="form-control"></html:text>
+									<label>รายละเอียด : </label>
+									<html:text property="edit_remark" styleId="edit_remark"
+										styleClass="form-control"></html:text>
 
-								<label>ไฟล์ : </label>
-								<html:file property="edit_file" styleId="edit_file"
-									styleClass="form-control"></html:file>
-
-								<button class="btn btn-primary" onClick="edit()">Save</button>
-							</div>
+									<label>ไฟล์ : </label>
+									<html:file property="edit_file" styleId="edit_file"
+										styleClass="form-control"></html:file>
+									</div>
+									
+									<div class="col">
+										<label>รูปภาพ </label>
+										<img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png" class="rounded mx-auto d-block" alt="">
+										<div>
+											<label class="form-label" for="image_uploads">เลือกรูปภาพ</label>
+											<input class="form-control" type="file" id="image_uploads" accept=".jpg, .jpeg, .png">
+										</div>
+										
+									</div>
+								</div>
+								<div class="d-grid gap-2 col-5 mx-auto"><button class="btn btn-primary" onClick="edit()">Save</button></div>
 						</section>
 					</section>
 				</div>
 				</html>
 			</html:form>
 		</div>
+	</div>	
 </body>
 
 

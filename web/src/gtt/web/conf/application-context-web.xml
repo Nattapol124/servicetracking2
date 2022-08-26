@@ -37,9 +37,6 @@
 	</bean>
 	
 	
-	
-	
-	
 	   	
     <bean name="/index" class="gtt.web.action.IndexAction">
 		<property name="userService">
@@ -53,8 +50,6 @@
 		</property>
 
 	</bean>
-	
-
 	
 
 </beans>

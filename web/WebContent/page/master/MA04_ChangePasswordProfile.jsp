@@ -137,10 +137,8 @@ html, body {
 							});
 				});
 
-		function submitFormSave() {
-			
-			$("#eduForm").submit();
-			
+		function submitFormSave() {	
+			$("#eduForm").submit();		
 		}
 
 		

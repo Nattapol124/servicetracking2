@@ -10,23 +10,17 @@
 
 			<form-property name="username" type="java.lang.String" />
 			<form-property name="password" type="java.lang.String" />
-			<form-property name="passwordConfirm"
-				type="java.lang.String" />
-			<form-property name="user_email"
-				type="java.lang.String" />
+			<form-property name="passwordConfirm" type="java.lang.String" />
+			<form-property name="user_email" type="java.lang.String" />
 			<form-property name="remember" type="java.lang.String" />
 			<form-property name="userType" type="java.lang.String" />
 			<form-property name="prefixId" type="java.lang.String" />
-			<form-property name="organizationId"
-				type="java.lang.String" />
-			<form-property name="user_firstName"
-				type="java.lang.String" />
-			<form-property name="user_lastName"
-				type="java.lang.String" />
+			<form-property name="organizationId" type="java.lang.String" />
+			<form-property name="user_firstName" type="java.lang.String" />
+			<form-property name="user_lastName" type="java.lang.String" />
 			<form-property name="gender" type="java.lang.String" />
 			<form-property name="personId" type="java.lang.String" />
-			<form-property name="user_phone"
-				type="java.lang.String" />
+			<form-property name="user_phone" type="java.lang.String" />
 			<form-property name="position" type="java.lang.String" />
 			<form-property name="un" type="java.lang.String" />
 			<form-property name="pw" type="java.lang.String" />
@@ -36,133 +30,77 @@
 			<form-property name="phone" type="java.lang.String" />
 			<form-property name="company" type="java.lang.String" />
 			<form-property name="repass" type="java.lang.String" />
-			<form-property name="confirmPass"
-				type="java.lang.String" />
+			<form-property name="confirmPass" type="java.lang.String" />
 			<form-property name="newuser" type="java.lang.String" />
-			<form-property name="newpassword"
-				type="java.lang.String" />
-			<form-property name="newcon" type="java.lang.String" />
-			<form-property name="newfirstname"
-				type="java.lang.String" />
-			<form-property name="newlastname"
-				type="java.lang.String" />
-			<form-property name="newnickname"
-				type="java.lang.String" />
+			<form-property name="newPassword" type="java.lang.String" />
+			<form-property name="newConfirmPassword" type="java.lang.String" />
+			<form-property name="newfirstname" type="java.lang.String" />
+			<form-property name="newlastname" type="java.lang.String" />
+			<form-property name="newnickname" type="java.lang.String" />
 			<form-property name="newemail" type="java.lang.String" />
-			<form-property name="id_user_type"
-				type="java.lang.String" />
-			<form-property name="id_user_prefix"
-				type="java.lang.String" />
-			<form-property name="id_user_position"
-				type="java.lang.String" />
-			<form-property name="id_user_company"
-				type="java.lang.String" />
-			<form-property name="user_nickname"
-				type="java.lang.String" />
-			<form-property name="id_customer"
-				type="java.lang.String" />
+			<form-property name="id_user_type" type="java.lang.String" />
+			<form-property name="id_user_prefix" type="java.lang.String" />
+			<form-property name="id_user_position" type="java.lang.String" />
+			<form-property name="id_user_company" type="java.lang.String" />
+			<form-property name="user_nickname" type="java.lang.String" />
+			<form-property name="id_customer" type="java.lang.String" />
 			<form-property name="create_by" type="java.lang.String" />
-			<form-property name="create_date"
-				type="java.lang.String" />
+			<form-property name="create_date" type="java.lang.String" />
 			<form-property name="update_by" type="java.lang.String" />
-			<form-property name="update_date"
-				type="java.lang.String" />
+			<form-property name="update_date" type="java.lang.String" />
 			<form-property name="newphone" type="java.lang.String" />
-			<form-property name="projectindi"
-				type="java.lang.String" />
+			<form-property name="projectindi" type="java.lang.String" />
 			<form-property name="nickname" type="java.lang.String" />
-			<form-property name="newproject"
-				type="java.lang.String" />
-			<form-property name="newcustomer"
-				type="java.lang.String" />
-			<form-property name="NewResetPassword"
-				type="java.lang.String" />
-			<form-property name="id_request_status"
-				type="java.lang.String" />
-			<form-property name="id_request"
-				type="java.lang.String" />
+			<form-property name="newproject" type="java.lang.String" />
+			<form-property name="newcustomer" type="java.lang.String" />
+			<form-property name="NewResetPassword" type="java.lang.String" />
+			<form-property name="id_request_status" type="java.lang.String" />
+			<form-property name="id_request" type="java.lang.String" />
 
 			<form-property name="ids" type="java.lang.String" />
 
+			<form-property name="projectName" type="java.lang.String" />
+			<form-property name="requestTitle" type="java.lang.String" />
+			<form-property name="requestRemark" type="java.lang.String" />
+			<form-property name="statusName" type="java.lang.String" />
 
-			<form-property name="projectName"
-				type="java.lang.String" />
-			<form-property name="requestTitle"
-				type="java.lang.String" />
-			<form-property name="requestRemark"
-				type="java.lang.String" />
-			<form-property name="statusName"
-				type="java.lang.String" />
-
-
-
-			<form-property name="newcompanyname"
-				type="java.lang.String" />
-			<form-property name="newcompanyaddress"
-				type="java.lang.String" />
-			<form-property name="newcompanyphone"
-				type="java.lang.String" />
-			<form-property name="newcompanyfax"
-				type="java.lang.String" />
-			<form-property name="newcompanyemail"
-				type="java.lang.String" />
-
-
-
+			<form-property name="newcompanyname" type="java.lang.String" />
+			<form-property name="newcompanyaddress" type="java.lang.String" />
+			<form-property name="newcompanyphone" type="java.lang.String" />
+			<form-property name="newcompanyfax" type="java.lang.String" />
+			<form-property name="newcompanyemail" type="java.lang.String" />
 
 			<form-property name="projectList" type="java.util.List" />
-			<form-property name="projectAddList"
-				type="java.util.List" />
+			<form-property name="projectAddList" type="java.util.List" />
 			<form-property name="id_user" type="java.util.List" />
 
-			<form-property name="id_customerSelected"
-				type="java.lang.String" />
+			<form-property name="id_customerSelected" type="java.lang.String" />
 
-			<form-property name="userAddToProjectSelect"
-				type="java.lang.String" />
+			<form-property name="userAddToProjectSelect" type="java.lang.String" />
 
+			<form-property name="id_project" type="java.lang.String" />
+			<form-property name="request_title" type="java.lang.String" />
+			<form-property name="request_file" type="java.lang.String" />
+			<form-property name="request_remark" type="java.lang.String" />
 
-			<form-property name="id_project"
-				type="java.lang.String" />
-			<form-property name="request_title"
-				type="java.lang.String" />
-			<form-property name="request_file"
-				type="java.lang.String" />
-			<form-property name="request_remark"
-				type="java.lang.String" />
+			<form-property name="userAddToProjectList" type="java.util.ArrayList" />
 
+			<form-property name="customerAddList" type="java.util.ArrayList" />
+			<form-property name="resultUserProjectList" type="java.util.ArrayList" />
+			<form-property name="resultProjectList" type="java.util.ArrayList" />
+			<form-property name="resultRequestList" type="java.util.ArrayList" />
 
-			<form-property name="userAddToProjectList"
-				type="java.util.ArrayList" />
+			<form-property name="comboIndicator" type="java.util.ArrayList" />
 
+			<form-property name="comboRequestStatus" type="java.util.List" />
 
-			<form-property name="customerAddList"
-				type="java.util.ArrayList" />
-			<form-property name="resultUserProjectList"
-				type="java.util.ArrayList" />
-			<form-property name="resultProjectList"
-				type="java.util.ArrayList" />
-			<form-property name="resultRequestList"
-				type="java.util.ArrayList" />
+			<form-property name="uploadFile" type="org.apache.struts.upload.FormFile" />
 
-			<form-property name="comboIndicator"
-				type="java.util.ArrayList" />
-
-			<form-property name="comboRequestStatus"
-				type="java.util.List" />
-
-
-
-			<form-property name="uploadFile"
-				type="org.apache.struts.upload.FormFile" />
-
-			<form-property name="user_username"
-				type="com.gtt.server.user.entity.User" />
+			<form-property name="user_username" type="com.gtt.server.user.entity.User" />
 			<form-property name="resultList" type="java.util.List" />
 
 			<form-property name="comboPrefix" type="java.util.List" />
-			<form-property name="comboOrganization"
-				type="java.util.List" />
+			<form-property name="comboOrganization" type="java.util.List" />
 		</form-bean>
 	</form-beans>
 	<action-mappings>
@@ -175,17 +113,12 @@
 			<forward name="MA01" path="/page/master/MA01_Home.jsp" />
 			<forward name="MA02" path="/page/master/MA02_Register.jsp" />
 			<forward name="MA03" path="/page/master/MA03_Profile.jsp" />
-			<forward name="MA04"
-				path="/page/master/MA04_ChangePassword.jsp" />
+			<forward name="MA04" path="/page/master/MA04_ChangePasswordProfile.jsp" />
 			<forward name="MA05" path="/page/master/MA05_Project.jsp" />
 			<forward name="MA06" path="/page/master/MA06_Request.jsp" />
-			<forward name="MA07" path="/page/master/MA07_NewPassword.jsp" />
-			<forward name="MA08"
-				path="/page/master/MA08_AddUserProject.jsp" />
-
+			<forward name="MA07" path="/page/master/MA07_ChangePasswordUser.jsp" />
+			<forward name="MA08" path="/page/master/MA08_AddUserProject.jsp" />
 			<forward name="MA09" path="/page/master/MA09_Company.jsp" />
-
-
 
 
 			<forward name="json_tag" path="/page/json_tag.jsp" />

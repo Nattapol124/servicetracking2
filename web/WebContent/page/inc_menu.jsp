@@ -11,8 +11,7 @@ html, body {
 	width: 100%;
 }
 
-n	
-	.backplane {
+n.backplane {
 	/* Rectangle 4283 */
 	position: absolute;
 	width: 80%;
